@@ -1,14 +1,14 @@
 <div class="progress quesions-progress">
   <div class="progress-bar" style="width: {{progress}}%;"></div>
 </div>
-<div id="container" class="practice-container">
+<div id="container" class="practice-container col-lg-8 col-lg-offset-2">
   <div ng-hide="question || showSummary || error" class="loading-indicator">
   </div>
   <div ng-show="error" ng-bind="error" class="alert alert-danger">
   </div>
   <div ng-show="question != undefined && !showSummary" class="practice">
     <div class="question">
-      <img src="{{question.text|imgSrc}}"/><br>
+      <img src="{{question.text|imgSrc}}" ng-if="question.text|imgSrc"/>
       <span ng-bind="question.text|stripImg"></span>
       <span class="label label-default" ng-show="question|isFindOnMapType">
         <i class="flag-{{question.asked_code}}"></i> {{question.place}}
@@ -28,7 +28,7 @@
           ng-click="checkAnswer(place)"
           ng-class="{'btn-success': place.correct, 'btn-danger': place.selected && !place.correct }"
           ng-disabled="place.disabled">
-            <img src="{{place.name|imgSrc}}"/>
+            <img src="{{place.name|imgSrc}}" ng-if="place.name|imgSrc"//>
             <span ng-bind="place.name|stripImg"></span>
         </button>
       </span>

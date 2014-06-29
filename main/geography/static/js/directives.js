@@ -36,7 +36,7 @@
           content : '<div class="skill-tooltip">' +
                   getOptionElem(0) +
                   getOptionElem(1) +
-                  getOptionElem(2) +
+                  (options.length > 2 ? getOptionElem(2) : '') +
                  ($scope.question.probability ?
                     ' Odhad znalosti ' + 
                     '<span class="badge badge-default">' +
