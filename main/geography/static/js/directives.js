@@ -27,26 +27,33 @@
 
         elem.addClass('label');
         elem.addClass('label-default');
-        elem.popover({
-          trigger : 'focus',
-          html : true,
-          placement: 'auto',
-          title : '<img src="' + (imgSrc($scope.question.text)||'') + '"/>' +
-                   stripImg($scope.question.text),
-          content : '<div class="skill-tooltip">' +
-                  getOptionElem(0) +
-                  getOptionElem(1) +
-                  (options.length > 2 ? getOptionElem(2) : '') +
-                 ($scope.question.probability ?
-                    ' Odhad znalosti ' + 
-                    '<span class="badge badge-default">' +
-                      '<i class="color-indicator" style="background-color :' +
-                      colorScale($scope.question.probability).hex() + '"></i>' +
-                      10 * $scope.question.probability + ' / 10 ' +
-                    '</span>' :
-                    ''
-                  ) +
-               '</div>'
+        var popoverInited;
+        elem.hover(function(){
+          if (popoverInited){
+            return;
+          }
+          popoverInited = true;
+          elem.popover({
+            trigger : 'focus',
+            html : true,
+            placement: 'auto',
+            title : '<img src="' + (imgSrc($scope.question.text)||'') + '"/>' +
+                     stripImg($scope.question.text),
+            content : '<div class="skill-tooltip">' +
+                    getOptionElem(0) +
+                    getOptionElem(1) +
+                    (options.length > 2 ? getOptionElem(2) : '') +
+                   ($scope.question.probability ?
+                      ' Odhad znalosti ' + 
+                      '<span class="badge badge-default">' +
+                        '<i class="color-indicator" style="background-color :' +
+                        colorScale($scope.question.probability).hex() + '"></i>' +
+                        10 * $scope.question.probability + ' / 10 ' +
+                      '</span>' :
+                      ''
+                    ) +
+                 '</div>'
+          });
         });
       }
     };
