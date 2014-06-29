@@ -13,10 +13,12 @@
                  (imgOptions ? ' inline-block' : '');
         }
         function getOptionElem (index){
-          return '<div class="alert ' + getOptionClasses(index) + '">' +
-                     stripImg(options[index]) +
-                    '<img src="' + (imgSrc(options[index])||'') + '"/>' +
-                  '</div>';
+          return options[index] ?
+            '<div class="alert ' + getOptionClasses(index) + '">' +
+               stripImg(options[index]) +
+              '<img src="' + (imgSrc(options[index])||'') + '"/>' +
+            '</div>':
+            '';
         }
         var stripImg = $filter("stripImg");
         var imgSrc = $filter("imgSrc");
@@ -42,9 +44,9 @@
             content : '<div class="skill-tooltip">' +
                     getOptionElem(0) +
                     getOptionElem(1) +
-                    (options.length > 2 ? getOptionElem(2) : '') +
+                    getOptionElem(2) +
                    ($scope.question.probability ?
-                      ' Odhad znalosti ' + 
+                      ' Odhad znalosti ' +
                       '<span class="badge badge-default">' +
                         '<i class="color-indicator" style="background-color :' +
                         colorScale($scope.question.probability).hex() + '"></i>' +
