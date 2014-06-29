@@ -1,4 +1,3 @@
-<blind-map code="{{part}}" show-tooltips="true" map="map" ></blind-map>
 <div id="container">
   <div ng-hide="placesTypes || error" class="loading-indicator">
   </div>
@@ -22,7 +21,7 @@
       <div class="clearfix"></div>
     </div>
     <div ng-hide="typeCat.hidden">
-      <li class="col-sm-{{filteredTypes.length|colNum}}" 
+      <li 
           ng-repeat="type in filteredTypes"
           ng-class="{'collapsed': type.hidden}">
         <div data-toggle="collapse" 
@@ -44,15 +43,14 @@
                practiced:(type.places|filter:{practiced:true}).length,
                learned:(type.places|filter:{learned:true}).length
              } }}"></div>
-        <div class="view-places collapse in" id="collapse-{{type.slug}}">
+        <div class="view-places collapse in question-buttons" id="collapse-{{type.slug}}">
           <div ng-hide="(type.places|filter:{displayed:true}).length" class="alert alert-info">
             Zde zatím nebylo nic procvičováno.
           </div>
-          <span ng-repeat="place in type.places|filter:{displayed:true}"
-                ng-click="placeClick(place)"
-                style="border-bottom: 5px solid {{place.probability|probColor}};"
+          <button ng-repeat="question in type.places|filter:{displayed:true}"
+                style="background-color: {{question.probability|probColor}};"
                 place-label>
-          </span>
+          </button>
           <div class="clearfix"></div>
         </div>
       </li>

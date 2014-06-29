@@ -36,7 +36,7 @@ def home(request):
                   if "/lib/" not in key and "/js/" not in key and "/sass/" not in key
                   )
     c = {
-        'title': title + 'Slepé Mapy - inteligentní aplikace na procvičování zeměpisu',
+        'title': title + 'Autoskola Efektivně - testy z autoškoly na míru',
         'isProduction': settings.ON_PRODUCTION,
         'css_files': StaticFiles.add_hash(CSS_FILES),
         'js_files': StaticFiles.add_hash(JS_FILES),

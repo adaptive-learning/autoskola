@@ -136,13 +136,13 @@ class Place(models.Model):
     )
     PLACE_TYPE_PLURALS = (
         (UNKNOWN, u'Neznámé'),
-        (STATE, u'Státy'),
-        (CITY, u'Města'),
-        (WORLD, u'Svět'),
-        (CONTINENT, u'Kontinenty'),
-        (RIVER, u'Řeky'),
-        (LAKE, u'Jezera'),
-        (REGION_CZ, u'Kraje'),
+        (STATE, u'Pravidla provozu na pozemních komunikacích'),
+        (CITY, u'Dopravní značky'),
+        (WORLD, u'Zásady bezpečné jízdy'),
+        (CONTINENT, u'Dopravní situace'),
+        (RIVER, u'Předpisy o podmínkách provozu vozidel'),
+        (LAKE, u'Přepisy související s provozem'),
+        (REGION_CZ, u'Zdravotnická příprava'),
         (BUNDESLAND, u'Spolkové Země'),
         (PROVINCE, u'Provincie'),
         (REGION_IT, u'Oblasti'),
@@ -164,24 +164,50 @@ class Place(models.Model):
             REGION_IT,
             AUTONOMOUS_COMUNITY,
             BUNDESLAND,
-        ],
-        'water': [
             RIVER,
             LAKE,
-        ],
-        'surface': [
+            WORLD,
+            CONTINENT,
             MOUNTAINS,
             ISLAND,
         ],
+        'water': [
+        ],
+        'surface': [
+        ],
     }
-    code = models.SlugField(
-        max_length=100,
+
+    code = models.IntegerField(
         db_index=True,
         unique=True)
+    text = models.TextField()
+    option_a = models.TextField()
+    option_b = models.TextField()
+    option_c = models.TextField(null=True, default=None)
+    correct = models.SmallIntegerField()
     name = models.CharField(max_length=100)
     type = models.IntegerField(choices=PLACE_TYPES, default=UNKNOWN)
 
     objects = PlaceManager()
+
+    @property
+    def options(self):
+        ret = [self.wrap_option(0), self.wrap_option(1)]
+        if self.option_c is not None:
+            ret.append(self.wrap_option(2))
+        return ret
+
+    def wrap_option(self, index):
+        opts = [
+            self.option_a,
+            self.option_b,
+            self.option_c,
+        ]
+        return {
+            "name": opts[index],
+            "isCorrect": index == self.correct,
+            "index": index,
+        }
 
     def __unicode__(self):
         return u'{0} ({1})'.format(self.name, self.code)

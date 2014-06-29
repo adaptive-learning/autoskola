@@ -45,13 +45,8 @@
         $scope.error = "V aplikaci bohužel nastala chyba.";
       });
 
-    $scope.placeClick = function(place) {
-      $scope.map.highlightState(place.code);
-    };
-    
     $scope.updateMap = function(type) {
       type.hidden = !type.hidden; 
-      $scope.map.updatePlaces($scope.placesTypes);
     };
     
     $scope.updateCat = function(category) {
@@ -74,7 +69,6 @@
           type.hidden = category.hidden;
         });
       });
-      $scope.map.updatePlaces($scope.placesTypes);
       $scope.name = mapTitle($scope.part, user);
     }
   }])
@@ -85,32 +79,27 @@
       question, user, events, colors, places, $, highlighted) {
     $scope.part = $routeParams.part;
     $scope.placeType = $routeParams.place_type;
-    
-    places.practicing($scope.part, $scope.placeType);
 
     $scope.highlight = function() {
       var active = $scope.question;
-      $scope.layer = $scope.map.getLayerContaining(active.asked_code);
-      $scope.map.highLightLayer($scope.layer);
-      $scope.map.placeToFront(active.asked_code);
       if ($filter('isPickNameOfType')($scope.question)) {
-        $scope.map.highlightState(active.asked_code, colors.NEUTRAL);
       }
       if ($filter('isFindOnMapType')($scope.question) && active.options) {
         var codes = active.options.map(function(option) {
           return option.code;
         });
         highlighted.setHighlighted(codes);
-        $scope.map.highlightStates(codes, colors.NEUTRAL);
       }
     };
 
     $scope.checkAnswer = function(selected) {
       var asked = $scope.question.asked_code;
       highlightAnswer(asked, selected);
-      $scope.question.answered_code = selected;
+      if (selected) {
+        $scope.question.answered = selected.index;
+      }
       $scope.progress = question.answer($scope.question);
-      if (asked == selected) {
+      if (selected &&  selected.isCorrect) {
         user.addPoint();
         $timeout(function() {
           $scope.next();
@@ -129,13 +118,7 @@
     };
 
     function highlightAnswer (asked, selected) {
-      if ($filter('isFindOnMapType')($scope.question)) {
-        $scope.map.highlightState(asked, colors.GOOD);
-      }
-      $scope.map.highlightState(selected, asked == selected ? colors.GOOD : colors.BAD);
-      if ($filter('isPickNameOfType')($scope.question)) {
-        highlightOptions(selected);
-      }
+      highlightOptions(selected);
     }
 
     function setupSummary() {
@@ -143,53 +126,29 @@
       // prevents additional points gain. issue #38
       $scope.summary = question.summary();
       $scope.showSummary = true;
-      $scope.map.clearHighlights();
-      $scope.map.hideLayers();
-      angular.forEach($scope.summary.questions, function(q) {
-        var correct = q.asked_code == q.answered_code;
-        $scope.map.showLayerContaining(q.asked_code);
-        $scope.map.highlightState(q.asked_code, correct ? colors.GOOD : colors.BAD, 1);
-      });
-      $("html, body").animate({ scrollTop: "0px" });
       events.emit('questionSetFinished', user.getUser().points);
     }
 
     function setQuestion(active) {
       $scope.question = active;
-      $scope.map.clearHighlights();
       $scope.highlight();
       $scope.canNext = false;
     }
 
     function highlightOptions(selected) {
       $scope.question.options.map(function(o) {
-        o.correct = o.code == $scope.question.asked_code;
-        o.selected = o.code == selected;
+        o.correct = o.isCorrect;
+        o.selected = o == selected;
         o.disabled = true;
         return o;
       });
     }
 
-    function isInActiveLayer(code) {
-      return $scope.layer == $scope.map.getLayerContaining(code);
-    }
-    
-    $scope.mapCallback = function() {
-      question.first($scope.part, $routeParams.place_type, function(q) {
-        setQuestion(q);
-      }).error(function(){
-        $scope.error = "V aplikaci bohužel nastala chyba.";
-      });
-      $scope.map.onClick(function(code) {
-        if ($filter('isFindOnMapType')($scope.question) && 
-            !$scope.canNext && 
-            $filter('isAllowedOption')($scope.question, code) &&
-            isInActiveLayer(code)) {
-          $scope.checkAnswer(code);
-          $scope.$apply();
-        }
-      });
-    };
+    question.first($scope.part, $routeParams.place_type, function(q) {
+      setQuestion(q);
+    }).error(function(){
+      $scope.error = "V aplikaci bohužel nastala chyba.";
+    });
   }])
 
   .controller('AppOverview', ['$scope', 'places', '$http', '$routeParams',

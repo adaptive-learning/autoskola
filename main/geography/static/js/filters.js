@@ -62,6 +62,21 @@
     };
   })
 
+  .filter('imgSrc', function() {
+    return function(text) {
+      var match = text && text.match(/\[img\](.*)\[\/img\]/);
+      var fileName = match && match[1];
+      return fileName ? '/static/img/questions/' + fileName : fileName;
+    };
+  })
+
+  .filter('stripImg', function() {
+    return function(text) {
+      return text && text.replace(/\[img\](.*)\[\/img\]/, "");
+    };
+  })
+
+
   .filter('isTypeCategory', function() {
     return function(types, category) {
       types = types && types.filter(function(t){

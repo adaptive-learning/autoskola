@@ -118,9 +118,10 @@ class DatabaseEnvironment(Environment):
                     ''', [place_id])
                 confusing_factor = dict([(p[0], p[1]) for p in cursor.fetchall()])
                 json_places = json.dumps(map(lambda i: confusing_factor.get(i, 0), place_ids))
-            place_answered_num = self.answers_num(place_id=place_id)
-            expire_hours = max(1, int(round(place_answered_num / 100.0)))
-            expire_seconds = 60 * 60 * expire_hours
+            # TODO find out what was this for
+            # place_answered_num = self.answers_num(place_id=place_id)
+            # expire_hours = max(1, int(round(place_answered_num / 100.0)))
+            expire_seconds = 60 * 60 * 1  # expire_hours
             cache.set(cache_key, json_places, expire_seconds)
             places_json = cache.get(cache_key)
         return json.loads(places_json)

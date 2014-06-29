@@ -26,7 +26,7 @@
       controller : 'AppView',
       templateUrl : 'static/tpl/view_tpl.html'
     }).when('/practice/', {
-      redirectTo : '/practice/world/'
+      redirectTo : '/practice/0/'
     }).when('/refreshpractice/:part/:place_type?', {
       redirectTo : '/practice/:part/:place_type'
     }).when('/practice/:part/:place_type?', {

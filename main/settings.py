@@ -3,9 +3,9 @@ import os
 
 ON_PRODUCTION = False
 ON_STAGING = False
-if 'GEOGRAPHY_ON_PRODUCTION' in os.environ:
+if 'DRIVING_SCHOOL_ON_PRODUCTION' in os.environ:
     ON_PRODUCTION = True
-elif 'GEOGRAPHY_ON_STAGING' in os.environ:
+elif 'DRIVING_SCHOOL_ON_STAGING' in os.environ:
     ON_STAGING = True
 
 PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -26,28 +26,28 @@ MANAGERS = ADMINS
 if ON_PRODUCTION or ON_STAGING:
     DATABASES = {
         'default': {
-            'ENGINE': os.environ['GEOGRAPHY_DATABASE_ENGINE'],
-            'NAME': os.environ['GEOGRAPHY_DATABASE_NAME'],
-            'USER': os.environ['GEOGRAPHY_DATABASE_USER'],
-            'PASSWORD': os.environ['GEOGRAPHY_DATABASE_PASSWORD'],
-            'HOST': os.environ['GEOGRAPHY_DATABASE_HOST'],
-            'PORT': os.environ['GEOGRAPHY_DATABASE_PORT']
+            'ENGINE': os.environ['DRIVING_SCHOOL_DATABASE_ENGINE'],
+            'NAME': os.environ['DRIVING_SCHOOL_DATABASE_NAME'],
+            'USER': os.environ['DRIVING_SCHOOL_DATABASE_USER'],
+            'PASSWORD': os.environ['DRIVING_SCHOOL_DATABASE_PASSWORD'],
+            'HOST': os.environ['DRIVING_SCHOOL_DATABASE_HOST'],
+            'PORT': os.environ['DRIVING_SCHOOL_DATABASE_PORT']
         }
     }
 else:
-    if 'GEOGRAPHY_DATABASE_USER' not in os.environ.keys():
+    if 'DRIVING_SCHOOL_DATABASE_USER' not in os.environ.keys():
         raise Exception(
             'The database connection is not set, you have to set\n'
-            '  "GEOGRAPHY_DATABASE_USER" and "GEOGRAPHY_DATABASE_PASSWORD" variables.'
+            '  "DRIVING_SCHOOL_DATABASE_USER" and "DRIVING_SCHOOL_DATABASE_PASSWORD" variables.'
         )
     DATABASES = {
         'default': {
-            'ENGINE': os.getenv('GEOGRAPHY_DATABASE_ENGINE', 'django.db.backends.mysql'),
-            'NAME': os.getenv('GEOGRAPHY_DATABASE_NAME', 'geography'),
-            'USER': os.environ['GEOGRAPHY_DATABASE_USER'],
-            'PASSWORD': os.environ['GEOGRAPHY_DATABASE_PASSWORD'],
-            'HOST': os.getenv('GEOGRAPHY_DATABASE_HOST', 'localhost'),
-            'PORT': os.getenv('GEOGRAPHY_DATABASE_PORT', None)
+            'ENGINE': os.getenv('DRIVING_SCHOOL_DATABASE_ENGINE', 'django.db.backends.mysql'),
+            'NAME': os.getenv('DRIVING_SCHOOL_DATABASE_NAME', 'drivingschool'),
+            'USER': os.environ['DRIVING_SCHOOL_DATABASE_USER'],
+            'PASSWORD': os.environ['DRIVING_SCHOOL_DATABASE_PASSWORD'],
+            'HOST': os.getenv('DRIVING_SCHOOL_DATABASE_HOST', 'localhost'),
+            'PORT': os.getenv('DRIVING_SCHOOL_DATABASE_PORT', None)
         }
     }
 
@@ -83,7 +83,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.environ.get('GEOGRAPHY_DATA_DIR', '')
+MEDIA_ROOT = os.environ.get('DRIVING_SCHOOL_DATA_DIR', '')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -122,7 +122,7 @@ default_keys = {
 # Replace default keys with dynamic values if we are on server
 use_keys = default_keys
 if ON_PRODUCTION or ON_STAGING:
-    default_keys['SECRET_KEY'] = os.environ['GEOGRAPHY_SECRET_KEY']
+    default_keys['SECRET_KEY'] = os.environ['DRIVING_SCHOOL_SECRET_KEY']
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = use_keys['SECRET_KEY']
@@ -157,7 +157,6 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
@@ -251,10 +250,10 @@ if DEBUG:
         if logger != 'django.db':
             LOGGING['loggers'][logger]['handlers'].append('console')
 
-FACEBOOK_APP_ID = os.getenv('GEOGRAPHY_FACEBOOK_APP_ID', '')
-FACEBOOK_API_SECRET = os.getenv('GEOGRAPHY_FACEBOOK_API_SECRET', '')
-GOOGLE_OAUTH2_CLIENT_KEY = os.getenv('GEOGRAPHY_GOOGLE_OAUTH2_CLIENT_KEY', '')
-GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('GEOGRAPHY_GOOGLE_OAUTH2_CLIENT_SECRET', '')
+FACEBOOK_APP_ID = os.getenv('DRIVING_SCHOOL_FACEBOOK_APP_ID', '')
+FACEBOOK_API_SECRET = os.getenv('DRIVING_SCHOOL_FACEBOOK_API_SECRET', '')
+GOOGLE_OAUTH2_CLIENT_KEY = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_KEY', '')
+GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_SECRET', '')
 SOCIAL_AUTH_CREATE_USERS = True
 SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
 SOCIAL_AUTH_DEFAULT_USERNAME = 'socialauth_user'

@@ -3,23 +3,49 @@
   /* Directives */
   angular.module('blindMaps.directives', [])
 
-  .directive('placeLabel', ['colorScale', function(colorScale) {
+  .directive('placeLabel', ['$filter', 'colorScale', function($filter, colorScale) {
     return {
       restrict : 'A',
-      template : '<i class="flag-{{place.code}}"></i> {{place.name}}',
+      template : ' ',
       link : function($scope, elem) {
+        function getOptionClasses (index){
+          return ($scope.question.correct === index ? 'alert-success' : 'alert-danger') +
+                 (imgOptions ? ' inline-block' : '');
+        }
+        function getOptionElem (index){
+          return '<div class="alert ' + getOptionClasses(index) + '">' +
+                     stripImg(options[index]) +
+                    '<img src="' + (imgSrc(options[index])||'') + '"/>' +
+                  '</div>';
+        }
+        var stripImg = $filter("stripImg");
+        var imgSrc = $filter("imgSrc");
+        var options = $scope.question.options.map(function(o){
+          return o && o.name || o;
+        });
+        var imgOptions = imgSrc(options[0]);
+
         elem.addClass('label');
         elem.addClass('label-default');
-        elem.tooltip({
+        elem.popover({
+          trigger : 'focus',
           html : true,
-          placement: 'bottom',
-          title : '<div class="skill-tooltip">' +
-                ' Odhad znalosti ' + 
-                '<span class="badge badge-default">' +
-                  '<i class="color-indicator" style="background-color :' +
-                  colorScale($scope.place.probability).hex() + '"></i>' +
-                  10 * $scope.place.probability + ' / 10 ' +
-                '</span>' +
+          placement: 'auto',
+          title : '<img src="' + (imgSrc($scope.question.text)||'') + '"/>' +
+                   stripImg($scope.question.text),
+          content : '<div class="skill-tooltip">' +
+                  getOptionElem(0) +
+                  getOptionElem(1) +
+                  getOptionElem(2) +
+                 ($scope.question.probability ?
+                    ' Odhad znalosti ' + 
+                    '<span class="badge badge-default">' +
+                      '<i class="color-indicator" style="background-color :' +
+                      colorScale($scope.question.probability).hex() + '"></i>' +
+                      10 * $scope.question.probability + ' / 10 ' +
+                    '</span>' :
+                    ''
+                  ) +
                '</div>'
         });
       }

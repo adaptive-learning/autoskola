@@ -10,6 +10,15 @@ describe('homepage', function() {
   });
 });
 
+describe('knowledge page', function() {
+  it('should work', function() {
+    browser.get('http://localhost:8000/#/view/world/');
+
+    var h3s = element.all(by.css('h3'));
+    expect(h3s.count()).not.toEqual(0);
+  });
+});
+
 describe('practice page', function() {
   it('should work', function() {
     browser.get('http://localhost:8000/#/practice/world/state');

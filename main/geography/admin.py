@@ -68,7 +68,7 @@ def pretty_date(time=False):
 
 
 class PlaceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'type')
+    list_display = ('code', 'text', 'option_a', 'option_b', 'option_c', 'correct')
     list_filter = ('type',)
 
 
@@ -80,7 +80,7 @@ class PlaceRelationAdmin(admin.ModelAdmin):
 class AnswerAdmin(admin.ModelAdmin):
 
     def is_correct(self, a):
-        return a.place_answered == a.place_asked
+        return a.answer == a.place_asked.correct
     is_correct.short_description = 'Correct'
     is_correct.boolean = True
 
@@ -90,10 +90,8 @@ class AnswerAdmin(admin.ModelAdmin):
 
     list_display = (
         'user',
-        'type',
-        'number_of_options',
         'place_asked',
-        'place_answered',
+        'answer',
         'is_correct',
         'asked_ago')
     search_fields = ('user__username', 'place_asked__code', 'place_asked__name',)

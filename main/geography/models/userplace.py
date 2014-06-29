@@ -17,7 +17,12 @@ class UserPlaceManager(models.Manager):
         geography_currentskill_prepared.value AS skill,
         geography_place.type AS type,
         geography_place.name AS name,
-        geography_place.code AS code
+        geography_place.code AS code,
+        geography_place.text AS text,
+        geography_place.correct AS correct,
+        geography_place.option_a AS option_a,
+        geography_place.option_b AS option_b,
+        geography_place.option_c AS option_c
     FROM
         geography_placerelation
         INNER JOIN geography_placerelation_related_places
@@ -67,9 +72,12 @@ class UserPlace(models.Model):
             'skill': self.skill,
             'practiced': self.currentskill is not None and not learned,
             'learned': learned,
-            'displayed': self.currentskill is not None or learned,
+            'displayed': True,
             'probability': ceil(10 * probability) / 10.0,
-            'certainty': 1
+            'certainty': 1,
+            'text': self.text,
+            'correct': self.correct,
+            'options': [self.option_a, self.option_b, self.option_c],
         }
         return ret
 

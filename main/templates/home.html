@@ -50,30 +50,11 @@
       <span class="icon-bar"></span>
     </button>
 
-      <a class="navbar-brand" href="#">Slepé Mapy</a>
+      <a class="navbar-brand" href="#">Autoškola efektivně</a>
       <div id="nav-main" class="collapse navbar-collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav  pull-left">
-                <li ng-class="'/view/world/'|isActive">
-                  <a href="#/view/world/">Svět</a>
-                </li>
-                <li class="dropdown">
-                  <a id="drop-continents" href=""  class="dropdown-toggle" data-toggle="dropdown">Kontinenty <b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop-continents">
-                    {% for continent in continents %}
-                    <li><a href="#/view/{{ continent.code }}/">{{ continent.name }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a id="drop-states" href=""  class="dropdown-toggle" data-toggle="dropdown">Státy <b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop-states">
-                    {% for state in states %}
-                    <li><a href="#/view/{{ state.code }}/">{{ state.name }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </li>
-                <li ng-class="'/overview/'|isActive">
-                  <a href="#/overview/">Přehled map</a> 
+                <li ng-class="'/view/0/'|isActive">
+                  <a href="#/view/0/">Prohlížení otázkek</a>
                 </li>
         </ul>
           ...
@@ -127,8 +108,6 @@
       <span class="email contact">slepemapy{zavinac}googlegroups.com</span>
       <a class="contact" href="https://plus.google.com/+SlepemapyCz/">Google+</a>
       <a class="contact" href="https://www.facebook.com/slepemapy">Facebook</a>
-      &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-      Vyzkoušejte také <a href="http://slepaanatomie.cz" target="_blank">Slepou Anatomii</a>
     </div>
     <!-- Le javascript
     ================================================== -->

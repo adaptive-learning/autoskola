@@ -24,16 +24,13 @@ class Question():
 
     def to_serializable(self):
         ret = self.qtype.to_serializable()
+        ret['type'] = '2' + str(len(self.place.options))
+        ret['text'] = self.place.text
         ret['asked_code'] = self.place.code
         ret['map_code'] = self.map_place.place.code
         ret['place'] = self.place.name
         ret['ab_values'] = [v.value for v in self.ab_values]
-        if len(self.options) > 0:
-            ret["options"] = sorted(
-                map(
-                    lambda o: dict([('code', o.code), ('name', o.name)]),
-                    [self.place] + self.options),
-                key=lambda x: x['name'])
+        ret["options"] = self.place.options
         return ret
 
 
@@ -65,33 +62,23 @@ class QuestionService:
     def answer(self, a, ip_address):
         place_asked = Place.objects.get(code=a["asked_code"])
         place_map = Place.objects.get(code=a["map_code"])
-        try:
-            if "answered_code" in a and a["answered_code"] != "":
-                place_answered = Place.objects.get(code=a["answered_code"])
-            else:
-                place_answered = None
-        except Place.DoesNotExist:
+        if "answered" in a:
+            place_answered = a["answered"]
+        else:
             place_answered = None
-            code = a["answer_code"] if "answer_code" in a else None
-            LOGGER.error("Place with code '{0}' does not exist.".format(code))
 
         answer_dict = {
             'user': self.user.id,
             'place_asked': place_asked.id,
-            'place_answered': place_answered.id if place_answered else None,
+            'place_answered': place_asked.id if place_asked.correct == a['answered'] else None,
+            'answer': place_answered,
             'place_map': place_map.id,
             'type': int(str(a["type"])[0]),
             'response_time': a["response_time"],
             'number_of_options': int(str(a["type"][1:])),
             'ip_address': ip_address if ip_address else None,
         }
-        if "options" in a:
-            options = Place.objects.filter(
-                code__in=[o["code"] for o in a["options"]],
-            )
-            answer_dict['options'] = [o.id for o in options]
-        else:
-            answer_dict['options'] = []
+        answer_dict['options'] = []
         if 'ab_values' in a:
             ab_values = Value.objects.filter(
                 value__in=[v for v in a['ab_values']])

@@ -17,7 +17,7 @@
     var categories = [
       {
         slug :'political',
-        name :'Politická mapa',
+        name :'Kategorie B',
         types : [
           'state',
           'city',
@@ -26,12 +26,15 @@
           'region_cz',
           'region_it',
           'autonomous_comunity',
-          'bundesland'
+          'world',
+          'continent',
+          'river', 
+          'lake'
         ]
       },{
         slug : 'water',
         name : 'Vodstvo',
-        types : ['river', 'lake'],
+        types : [],
         hidden:true
       },{
         slug : 'surface',
@@ -205,7 +208,7 @@
       },
       summary : function() {
         var correctlyAnswered = summary.filter(function(q) {
-            return q.asked_code == q.answered_code;
+            return q.options[q.answered].isCorrect;
           });
         return {
           correctlyAnsweredRatio : correctlyAnswered.length / summary.length,
@@ -259,21 +262,18 @@
     };
   })
 
-  .factory('pageTitle',['places', function(places) {
+  .factory('pageTitle',[function() {
     
     var titles = {
       'static/tpl/homepage.html' : '',
       '../templates/home/how_it_works.html' : 'Jak to funguje? - ',
       'static/tpl/about.html' : 'O prjektu - ',
-      'static/tpl/overview_tpl.html' : 'Přehled map - '
+      'static/tpl/overview_tpl.html' : 'Přehled map - ',
+      'static/tpl/view_tpl.html' : 'Prohlížení otázek - ',
+      'static/tpl/practice_tpl.html' : 'Procvičování otázek - '
     };
     return function (route) {
-      var title;
-      if (route.controller == "AppView" || route.controller == "AppPractice") {
-        title = places.getName(route.params.part) + ' - ';
-      } else {
-        title = titles[route.templateUrl];
-      }
+      var title = titles[route.templateUrl];
       return title;
     };
   }]);

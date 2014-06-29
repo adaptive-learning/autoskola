@@ -43,13 +43,7 @@ def _places(request, map_code):
 def places_overview(request):
     map_types = [{
         'name': 'Svět',
-        'maps': Place.objects.filter(code='world'),
-    }, {
-        'name': 'Kontinenty',
-        'maps': Place.objects.get_continents(),
-    }, {
-        'name': 'Státy',
-        'maps': Place.objects.get_states_with_map(),
+        'maps': Place.objects.filter(code=0),
     }]
     for map_type in map_types:
         map_type['maps'] = [_places(request, m.code) for m in map_type['maps']]

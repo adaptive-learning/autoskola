@@ -28,6 +28,7 @@ class AnswerManager(models.Manager):
             response_time=answer_dict['response_time'],
             number_of_options=answer_dict['number_of_options'],
             ip_address=answer_dict.get('ip_address', None),
+            answer=answer_dict.get('answer', None),
             inserted=answer_dict['inserted'])
         models.Model.save(answer)
         if len(answer_dict.get('options', [])) > 0:
@@ -66,6 +67,7 @@ class Answer(models.Model):
         null=True,
         blank=True,
         default=None)
+    answer = models.SmallIntegerField(null=True)
     type = models.IntegerField(choices=QUESTION_TYPES)
     inserted = models.DateTimeField(default=datetime.now)
     response_time = models.IntegerField(default=0)
