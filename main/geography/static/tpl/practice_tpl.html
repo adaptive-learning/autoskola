@@ -7,30 +7,31 @@
   <div ng-show="error" ng-bind="error" class="alert alert-danger">
   </div>
   <div ng-show="question != undefined && !showSummary" class="practice">
+    <div class="well" ng-if="question.text|imgSrc">
+      <img src="{{question.text|imgSrc}}"/>
+    </div>
     <div class="question">
-      <img src="{{question.text|imgSrc}}" ng-if="question.text|imgSrc"/>
       <div ng-bind="question.text|stripImg"></div>
     </div>
     <div>
       <button ng-repeat="place in question.options"
         class="btn btn-lg btn-default option"
         ng-click="checkAnswer(place)"
-        ng-class="{'btn-success': place.correct, 'btn-danger': place.selected && !place.correct }"
+        ng-class="{
+          'btn-success': place.correct,
+          'btn-danger': place.selected && !place.correct,
+          'block': !(place.name|imgSrc)
+        }"
         ng-disabled="place.disabled">
           <img src="{{place.name|imgSrc}}" ng-if="place.name|imgSrc"//>
           <span ng-bind="place.name|stripImg"></span>
       </button>
     </div>
-    <div class="col-sm-5 col-sm-offset-7" >
-      <button class="btn btn-lg btn-default dont-know" 
-              ng-click="checkAnswer()" 
-              ng-disabled="canNext" >
-          <i class="glyphicon glyphicon-question-sign"></i> Nevím
-      </button>
+    <div class="pull-right" >
       <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
               ng-click="next()" 
               ng-disabled="!canNext" >
-          <i class="glyphicon glyphicon-arrow-right"></i> Pokračovat
+          <i class="glyphicon glyphicon-arrow-right"></i> Další
       </button>
     </div>
   </div>
