@@ -77,6 +77,7 @@ def users_places(request, map_code, user=None):
         ps = []
     ps = list(ps)
     response = {
+        'expectedPoints': expectedPoints(user, map),
         'name': map.place.name,
         'placesTypes': [
             {
@@ -94,3 +95,25 @@ def users_places(request, map_code, user=None):
         u"users_places: previewed map '{0}' of user '{1}' with '{2}' places".
         format(map.place.name, user, len(list(ps))))
     return JsonResponse(response)
+
+
+from geography.models.averageknowledge import AverageKnowledge
+from math import exp
+
+
+def expectedPoints(user, map):
+    points_table = [
+        0,
+        10 * 2,
+        3 * 1,
+        4 * 2,
+        3 * 4,
+        2 * 1,
+        2 * 3,
+        1 * 1,
+    ]
+    aks = AverageKnowledge.objects.for_user_and_map_prepared(user, map)
+    points = 0
+    for ak in aks:
+        points += points_table[ak.type] * 1.0 / (1 + exp(-ak.skill))
+    return round(points)

@@ -64,7 +64,7 @@
         var promise = $http.get(url, {cache: user == 'average'}).success(function(data) {
           var placesTypes = data.placesTypes;
           cache[url] = placesTypes;
-          fn(placesTypes);
+          fn(data);
         });
         return promise;
       },

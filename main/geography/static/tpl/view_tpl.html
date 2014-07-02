@@ -6,11 +6,11 @@
   <ul ng-show="placesTypes.length && (filteredTypes = (placesTypes|isTypeCategory:typeCat)).length" 
       class="thumbnails fade-show-hide"
       ng-repeat="typeCat in typeCategories">
-    <div ng-click="updateCat(typeCat)"
+
+    <div 
         class="collapse-control"
         ng-show="filteredTypes.length > 0 && placesTypes.length > 1">
       <h2>
-        <i class="glyphicon {{typeCat.hidden && 'glyphicon-plus-sign' || 'glyphicon-minus-sign'}}"></i>
         {{typeCat.name}}
       </h2>
       <a href="#/practice/{{part}}/{{typeCat.slug}}" 
@@ -19,6 +19,24 @@
         <i class="glyphicon glyphicon-check"></i> Procvičovat
       </a>
       <div class="clearfix"></div>
+
+  <div class="prediction" ng-show="placesTypes.length">
+    <div class="progress atooltip" title="">
+      <div class="progress-bar atooltip"
+        ng-class="{
+          'progress-bar-danger': expectedPoints < 43,
+          'progress-bar-success': expectedPoints >= 43
+        }"
+        title="Předpověď počtu bodů v testu"
+        style="width: {{expectedPoints/50 * 100}}%">
+        {{expectedPoints}}
+      </div>
+      <div class="goal atooltip"
+        title="43 bodů - minimum pro složení testu"
+        style="margin-left: {{(43-expectedPoints) * 2}}%">
+      </div>
+    </div>
+  </div>
     </div>
     <div ng-hide="typeCat.hidden">
       <li 

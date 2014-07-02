@@ -62,7 +62,8 @@
     };
 
     function updatePlaces(data) {
-      $scope.placesTypes = data;
+      $scope.placesTypes = data.placesTypes;
+      $scope.expectedPoints = data.expectedPoints;
       angular.forEach($scope.typeCategories, function(category) {
         var filteredTypes = $filter('isTypeCategory')($scope.placesTypes, category);
         angular.forEach(filteredTypes, function(type) {
