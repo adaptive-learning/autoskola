@@ -90,12 +90,12 @@ class PlaceManager(models.Manager):
 
     def get_states_with_map(self):
         return [pr.place for pr in PlaceRelation.objects.filter(
-            place__type=Place.STATE,
+            place__type=Place.TRAFIC_RULES,
             type=PlaceRelation.IS_ON_MAP,
         ).select_related('place').order_by("place__name")]
 
     def get_continents(self):
-        return self.filter(type=Place.CONTINENT)
+        return self.filter(type=Place.TRAFIC_SITUATIONS)
 
 
 class Place(models.Model):
@@ -103,77 +103,45 @@ class Place(models.Model):
     AB_REASON_RECOMMENDATION = 'reason_recommendation'
 
     UNKNOWN = 0
-    STATE = 1
-    CITY = 2
-    WORLD = 3
-    CONTINENT = 4
-    RIVER = 5
-    LAKE = 6
-    REGION_CZ = 7
-    BUNDESLAND = 8
-    PROVINCE = 9
-    REGION_IT = 10
-    REGION = 11
-    AUTONOMOUS_COMUNITY = 12
-    MOUNTAINS = 13
-    ISLAND = 14
+    TRAFIC_RULES = 1
+    TRAFIC_SIGNS = 2
+    SAFETY_PRINCIPLES = 3
+    TRAFIC_SITUATIONS = 4
+    VEHICLES_REGULATIONS = 5
+    TRAFIC_REGULATIONS = 6
+    FIRST_AID = 7
     PLACE_TYPES = (
         (UNKNOWN, 'Unknown'),
-        (STATE, 'State'),
-        (CITY, 'City'),
-        (WORLD, 'World'),
-        (CONTINENT, 'Continent'),
-        (RIVER, 'River'),
-        (LAKE, 'Lake'),
-        (REGION_CZ, 'Region_cz'),
-        (BUNDESLAND, 'Bundesland'),
-        (PROVINCE, 'Province'),
-        (REGION_IT, 'Region_it'),
-        (REGION, 'Region'),
-        (AUTONOMOUS_COMUNITY, 'Autonomous_Comunity'),
-        (MOUNTAINS, 'Mountains'),
-        (ISLAND, 'Island'),
+        (TRAFIC_RULES, 'Trafic_Rules'),
+        (TRAFIC_SIGNS, 'Trafic_Signs'),
+        (SAFETY_PRINCIPLES, 'Safety_Principles'),
+        (TRAFIC_SITUATIONS, 'Trafic_Situations'),
+        (VEHICLES_REGULATIONS, 'Vehicles_Regulations'),
+        (TRAFIC_REGULATIONS, 'Trafic_Regulations'),
+        (FIRST_AID, 'First_Aid'),
     )
     PLACE_TYPE_PLURALS = (
         (UNKNOWN, u'Neznámé'),
-        (STATE, u'Pravidla provozu na pozemních komunikacích'),
-        (CITY, u'Dopravní značky'),
-        (WORLD, u'Zásady bezpečné jízdy'),
-        (CONTINENT, u'Dopravní situace'),
-        (RIVER, u'Předpisy o podmínkách provozu vozidel'),
-        (LAKE, u'Přepisy související s provozem'),
-        (REGION_CZ, u'Zdravotnická příprava'),
-        (BUNDESLAND, u'Spolkové Země'),
-        (PROVINCE, u'Provincie'),
-        (REGION_IT, u'Oblasti'),
-        (REGION, u'Regiony'),
-        (AUTONOMOUS_COMUNITY, u'Autonomní společenství'),
-        (MOUNTAINS, u'Pohoří'),
-        (ISLAND, u'Ostrovy'),
+        (TRAFIC_RULES, u'Pravidla provozu na pozemních komunikacích'),
+        (TRAFIC_SIGNS, u'Dopravní značky'),
+        (SAFETY_PRINCIPLES, u'Zásady bezpečné jízdy'),
+        (TRAFIC_SITUATIONS, u'Dopravní situace'),
+        (VEHICLES_REGULATIONS, u'Předpisy o podmínkách provozu vozidel'),
+        (TRAFIC_REGULATIONS, u'Přepisy související s provozem'),
+        (FIRST_AID, u'Zdravotnická příprava'),
     )
     PLACE_TYPE_SLUGS = dict((t[1].upper(), t[0]) for t in PLACE_TYPES)
     PLACE_TYPE_SLUGS_LOWER = dict((t[0], slugify(t[1].lower())) for t in PLACE_TYPES)
     PLACE_TYPE_SLUGS_LOWER_REVERSE = dict((slugify(t[1].lower()), t[0]) for t in PLACE_TYPES)
     CATEGORIES = {
-        'political': [
-            STATE,
-            CITY,
-            REGION,
-            PROVINCE,
-            REGION_CZ,
-            REGION_IT,
-            AUTONOMOUS_COMUNITY,
-            BUNDESLAND,
-            RIVER,
-            LAKE,
-            WORLD,
-            CONTINENT,
-            MOUNTAINS,
-            ISLAND,
-        ],
-        'water': [
-        ],
-        'surface': [
+        'category_b': [
+            TRAFIC_RULES,
+            TRAFIC_SIGNS,
+            VEHICLES_REGULATIONS,
+            SAFETY_PRINCIPLES,
+            TRAFIC_SITUATIONS,
+            TRAFIC_REGULATIONS,
+            FIRST_AID,
         ],
     }
 

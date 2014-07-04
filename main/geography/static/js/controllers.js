@@ -75,27 +75,14 @@
   }])
 
   .controller('AppPractice', ['$scope', '$routeParams', '$timeout', '$filter',
-      'question', 'user', 'events', 'colors', 'places', '$', 'highlighted',
+      'question', 'user', 'events',
       function($scope, $routeParams, $timeout, $filter,
-      question, user, events, colors, places, $, highlighted) {
+      question, user, events) {
     $scope.part = $routeParams.part;
     $scope.placeType = $routeParams.place_type;
 
-    $scope.highlight = function() {
-      var active = $scope.question;
-      if ($filter('isPickNameOfType')($scope.question)) {
-      }
-      if ($filter('isFindOnMapType')($scope.question) && active.options) {
-        var codes = active.options.map(function(option) {
-          return option.code;
-        });
-        highlighted.setHighlighted(codes);
-      }
-    };
-
     $scope.checkAnswer = function(selected) {
-      var asked = $scope.question.asked_code;
-      highlightAnswer(asked, selected);
+      highlightOptions(selected);
       if (selected) {
         $scope.question.answered = selected.index;
       }
@@ -118,10 +105,6 @@
       }
     };
 
-    function highlightAnswer (asked, selected) {
-      highlightOptions(selected);
-    }
-
     function setupSummary() {
       $scope.layer = undefined;
       // prevents additional points gain. issue #38
@@ -132,7 +115,6 @@
 
     function setQuestion(active) {
       $scope.question = active;
-      $scope.highlight();
       $scope.canNext = false;
     }
 

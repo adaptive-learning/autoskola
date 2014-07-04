@@ -1,36 +1,26 @@
 # -*- coding: utf-8 -*-
 from geography.models import Answer, Place, Value, DatabaseEnvironment
-from random import choice
 import logging
 
 LOGGER = logging.getLogger(__name__)
 
 
 class Question():
-    options = []
-
     def __init__(self, place, options, map_place, ab_values):
         self.place = place
         self.map_place = map_place
         self.ab_values = ab_values
-        self.options = options
-        if len(options) > 0:
-            self.qtype = QuestionType(
-                choice([Answer.FIND_ON_MAP, Answer.PICK_NAME]),
-                self.place.type,
-                len(options) + 1)
-        else:
-            self.qtype = QuestionType(Answer.FIND_ON_MAP, self.place.type, 0)
 
     def to_serializable(self):
-        ret = self.qtype.to_serializable()
-        ret['type'] = '2' + str(len(self.place.options))
-        ret['text'] = self.place.text
-        ret['asked_code'] = self.place.code
-        ret['map_code'] = self.map_place.place.code
-        ret['place'] = self.place.name
-        ret['ab_values'] = [v.value for v in self.ab_values]
-        ret["options"] = self.place.options
+        ret = {
+            'type': '2' + str(len(self.place.options)),
+            'text': self.place.text,
+            'asked_code': self.place.code,
+            'map_code': self.map_place.place.code,
+            'place': self.place.name,
+            'ab_values': [v.value for v in self.ab_values],
+            "options": self.place.options,
+        }
         return ret
 
 
@@ -86,107 +76,3 @@ class QuestionService:
         else:
             answer_dict['ab_values'] = []
         Answer.objects.save_with_listeners(answer_dict)
-
-
-class QuestionType(object):
-
-    GENUS_MASCULINE = 0
-    GENUS_FEMININE = 1
-    GENUS_NEUTER = 2
-
-    PLACE_TYPE_GENUS = {
-        Place.UNKNOWN: None,
-        Place.STATE: GENUS_MASCULINE,
-        Place.CITY: GENUS_NEUTER,
-        Place.WORLD: GENUS_MASCULINE,
-        Place.CONTINENT: GENUS_MASCULINE,
-        Place.RIVER: GENUS_FEMININE,
-        Place.LAKE: GENUS_NEUTER,
-        Place.REGION_CZ: GENUS_MASCULINE,
-        Place.BUNDESLAND: GENUS_FEMININE,
-        Place.PROVINCE: GENUS_FEMININE,
-        Place.REGION_IT: GENUS_FEMININE,
-        Place.REGION: GENUS_MASCULINE,
-        Place.AUTONOMOUS_COMUNITY: GENUS_NEUTER,
-        Place.MOUNTAINS: GENUS_NEUTER,
-        Place.ISLAND: GENUS_MASCULINE,
-    }
-
-    PLACE_TYPE_SINGULAR = {
-        Place.UNKNOWN: 'unknown',
-        Place.STATE: u'stát',
-        Place.CITY: u'město',
-        Place.WORLD: u'svět',
-        Place.CONTINENT: u'kontinent',
-        Place.RIVER: u'řeka',
-        Place.LAKE: u'jezero',
-        Place.REGION_CZ: u'kraj',
-        Place.BUNDESLAND: u'spolková země',
-        Place.PROVINCE: u'provincie',
-        Place.REGION_IT: u'oblast',
-        Place.REGION: u'region',
-        Place.AUTONOMOUS_COMUNITY: u'autonomní společenství',
-        Place.MOUNTAINS: u'pohoří',
-        Place.ISLAND: u'ostrov',
-    }
-    PLACE_TYPE_SINGULAR_CHOICE = {
-        Place.BUNDESLAND: u'spolkovou zemi',
-        Place.PROVINCE: u'provincii',
-        Place.RIVER: u'řeku',
-    }
-    PLACE_TYPE_PLURAL_CHOICE = {
-        Place.UNKNOWN: 'unknown',
-        Place.STATE: u'států',
-        Place.CITY: u'měst',
-        Place.WORLD: u'světů',
-        Place.CONTINENT: u'kontinentů',
-        Place.RIVER: u'řek',
-        Place.LAKE: u'jezer',
-        Place.REGION_CZ: u'regionů',
-        Place.BUNDESLAND: u'spolkových zemí',
-        Place.PROVINCE: u'provincií',
-        Place.REGION_IT: u'oblastí',
-        Place.REGION: u'regionů',
-        Place.AUTONOMOUS_COMUNITY: u'autonomních společenství',
-        Place.MOUNTAINS: u'pohoří',
-        Place.ISLAND: u'ostrovů',
-    }
-
-    def __init__(self, type, place_type, number_of_options):
-        self.type = type
-        self.place_type = place_type
-        self.number_of_options = number_of_options
-
-    @property
-    def text(self):
-        place_singular = QuestionType.PLACE_TYPE_SINGULAR[self.place_type]
-        place_plural_choice = QuestionType.PLACE_TYPE_PLURAL_CHOICE[self.place_type]
-        place_singular_choice = QuestionType.PLACE_TYPE_SINGULAR_CHOICE.get(
-            self.place_type, place_singular)
-
-        if self.type == Answer.FIND_ON_MAP:
-            if self.number_of_options > 0:
-                return u"Ze zvýrazněných " + place_plural_choice + u" na mapě vyber"
-            else:
-                return u"Vyber na mapě " + place_singular_choice
-        else:
-            return u"Jak se jmenuje " + place_singular + u" " + self.highlighted + u" na mapě?"
-
-    @property
-    def highlighted(self):
-        genus = QuestionType.PLACE_TYPE_GENUS[self.place_type]
-        if genus == QuestionType.GENUS_MASCULINE:
-            return u"zvýrazněný"
-        elif genus == QuestionType.GENUS_FEMININE:
-            return u"zvýrazněná"
-        else:
-            return u"zvýrazněné"
-
-    def to_serializable(self):
-        return {
-            'type': str(self.type) + str(int(self.number_of_options)),
-            'text': self.text,
-        }
-
-    def __str__(self):
-        return "question-type [" + str(self.type) + "], number of options [" + str(self.number_of_options) + "]"

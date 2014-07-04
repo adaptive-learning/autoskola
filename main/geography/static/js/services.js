@@ -1,46 +1,52 @@
 (function() {
   'use strict';
+  /* global chroma  */
 
   /* Services */
   angular.module('blindMaps.services', [
     'ngCookies'
   ])
 
+  .value('chroma', chroma)
+
+  .value('colors', {
+    'GOOD': '#0d0',
+    'BAD': '#ff0000',
+    'NEUTRAL': '#bbb',
+    'BRIGHT_GRAY' : '#ddd',
+    'WATER_COLOR' : '#73c5ef'
+  })
+
+  .factory('colorScale', ['colors', 'chroma', function(colors, chroma) {
+    var scale = chroma.scale([
+        colors.BAD,
+        '#ff4500',
+        '#ffa500',
+        '#ffff00',
+        colors.GOOD
+      ]);
+    return scale;
+  }])
+
+
   .factory('places', ['$http', function($http) {
     var cache = {};
     var mapCache = {};
     var categoriesCache = {};
-    var names = {
-        'us' : 'USA',
-        'world' : 'Svět'
-      };
+    var names = {};
     var categories = [
       {
-        slug :'political',
+        slug :'category_b',
         name :'Kategorie B',
         types : [
-          'state',
-          'city',
-          'region',
-          'province',
-          'region_cz',
-          'region_it',
-          'autonomous_comunity',
-          'world',
-          'continent',
-          'river', 
-          'lake'
+          'trafic_rules',
+          'trafic_signs',
+          'safety_principles',
+          'trafic_situations',
+          'vehicles_regulations',
+          'trafic_regulations',
+          'first_aid',
         ]
-      },{
-        slug : 'water',
-        name : 'Vodstvo',
-        types : [],
-        hidden:true
-      },{
-        slug : 'surface',
-        name : 'Povrch',
-        types : ['mountains', 'island'],
-        hidden:true
       }
     ];
 

@@ -25,13 +25,10 @@ module.exports = function(grunt) {
       },
       app: {
         src: [
-          'geography/static/dist/js/hash.js',
-          'geography/static/dist/js/bbox.js',
           'geography/static/js/app.js',
           'geography/static/js/controllers.js',
           'geography/static/js/services.js',
           'geography/static/js/filters.js',
-          'geography/static/js/map.js',
           'geography/static/js/directives.js',
           'geography/static/dist/js/templates.js',
         ],
@@ -39,38 +36,9 @@ module.exports = function(grunt) {
       },
     },
     shell: { 
-        hashes: {
-            command: './manage.py static_hashes "(css|svg)" > geography/static/dist/hashes.json'
-        },
         runserver: {
             command: './manage.py runserver'
         }
-    },
-    'string-replace': {
-      hashes: {
-        options: {
-          replacements: [
-            {
-                pattern: '{{hashes}}',
-                replacement: "<%= grunt.file.read('geography/static/dist/hashes.json') %>"
-            }
-          ]
-        },
-        src: ['geography/static/jstpl/hash.js'],
-        dest: 'geography/static/dist/js/hash.js',
-      },
-      bboxcache: {
-        options: {
-          replacements: [
-            {
-                pattern: '{{bboxes}}',
-                replacement: "<%= grunt.file.read('geography/static/hack/bboxcache.json') %>"
-            }
-          ]
-        },
-        src: ['geography/static/jstpl/bbox.js'],
-        dest: 'geography/static/dist/js/bbox.js',
-      }
     },
     ngtemplates:    {
       blindMaps:          {
@@ -91,13 +59,10 @@ module.exports = function(grunt) {
       },
       app: {
         src: [
-          'geography/static/dist/js/hash.js',
-          'geography/static/dist/js/bbox.js',
           'geography/static/js/app.js',
           'geography/static/js/controllers.js',
           'geography/static/js/services.js',
           'geography/static/js/filters.js',
-          'geography/static/js/map.js',
           'geography/static/js/directives.js',
           'geography/static/dist/js/templates.js',
         ],
@@ -158,10 +123,6 @@ module.exports = function(grunt) {
         files: ['geography/static/sass/*.sass'],
         tasks: ['styles'],
       },
-      hashes: {
-        files: ['geography/static/map/*.svg', 'geography/static/sass/*.sass'],
-        tasks: ['hashes'],
-      },
       jstpl: {
         files: ['geography/static//jstpl/*.js'],
         tasks: ['string-replace'],
@@ -184,13 +145,6 @@ module.exports = function(grunt) {
             src: 'geography/static/css/above-fold.css',
             dest: 'templates/generated/above-fold.css'
         },
-    },
-    bboxcache: {
-      default: {
-        files: {
-          'geography/static/hack/bboxcache.json': ['geography/static/map/*.svg'],
-        },
-      },
     },
     protractor: {
       options: {
@@ -226,87 +180,8 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('styles', ['sass','rename']);
   grunt.registerTask('runserver', ['shell:runserver','watch']);
-  grunt.registerTask('hashes', ['shell:hashes', 'string-replace:hashes']);
-  grunt.registerTask('bboxcacheall', ['bboxcache', 'string-replace:bboxcache']);
   grunt.registerTask('templates', ['newer:concat', 'ngtemplates']);
-  grunt.registerTask('minifyjs', ['hashes', 'templates', 'uglify']);
-  grunt.registerTask('default', ['styles', 'jshint', 'bboxcache', 'minifyjs']);
-  grunt.registerTask('deploy', ['styles', 'string-replace:bboxcache', 'minifyjs']);
-
-  grunt.registerMultiTask('bboxcache', 'Precompute bbox of svg paths.', function() {
-
-    var raphael = require('node-raphael');
-    var DomJS = require("dom-js").DomJS;
-    var RANDOM_CONST = 42;
-
-    function mapNameFromFilepath (filepath) {
-        var splittedPath = filepath.split('/');
-        var filename = splittedPath[splittedPath.length -1];
-        return filename.split('.')[0];
-    }
-
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      
-      var cache = {
-          bboxes : {},
-          maps : {},
-      };
-
-      f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-
-        var domjs = new DomJS();
-
-        domjs.parse(grunt.file.read(filepath), function(err, dom) {
-            var mapName = mapNameFromFilepath(filepath);
-            var map = {
-                width :  parseInt(dom.attributes.width),
-                height :  parseInt(dom.attributes.height),
-            };
-            cache.maps[mapName] = map;
-
-            raphael.generate(RANDOM_CONST, RANDOM_CONST, function draw(paper) { 
-                dom.children.filter(function(e){
-                    return e.name == 'g';
-                }).map(function (e) {
-                    return e.children.filter(function(ch){
-                        return ch.name == 'path' && ch.attributes['data-code'];
-                    }).map(function(ch){
-                    var d = ch.attributes.d;
-                    var code = ch.attributes['data-code'];
-                    if (code) {
-                        var path = paper.path(d);
-                        var bbox =  path.getBBox();
-                        var keys = ['x', 'y', 'cx', 'cy', 'x2', 'y2', 'width', 'height'];
-                        for (var j = 0; j < keys.length; j++) {
-                            bbox[keys[j]] = Math.round(bbox[keys[j]]);
-                        }
-                        bbox.map = mapName;
-                        if (!cache.bboxes[code]) {
-                            cache.bboxes[code] = bbox;
-                        }
-                    }
-                    });
-                });
-            });
-
-        });
-        return; 
-      });
-
-      // Write the destination file.
-      grunt.file.write(f.dest, JSON.stringify(cache));
-
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
-    });
-  });
+  grunt.registerTask('minifyjs', ['templates', 'uglify']);
+  grunt.registerTask('default', ['styles', 'jshint', 'minifyjs']);
+  grunt.registerTask('deploy', ['styles', 'minifyjs']);
 };

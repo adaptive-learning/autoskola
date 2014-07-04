@@ -1,17 +1,19 @@
 (function() {
   'use strict';
+  /* global jQuery  */
   // Declare app level module which depends on filters, and services
   angular.module('blindMaps', [
     'blindMaps.filters',
     'blindMaps.services',
     'blindMaps.directives',
     'blindMaps.controllers',
-    'blindMaps.map',
     'ngRoute',
     'ngAnimate',
     'angulartics',
     'angulartics.google.analytics'
   ])
+
+  .value('$', jQuery)
 
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
