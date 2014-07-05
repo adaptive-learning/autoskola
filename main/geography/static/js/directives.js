@@ -9,7 +9,11 @@
       template : ' ',
       link : function($scope, elem) {
         function getOptionClasses (index){
-          return ($scope.question.correct === index ? 'alert-success' : 'alert-danger') +
+          var option = $scope.question.options[index];
+          var isCorrect = $scope.question.correct == index || option.correct;
+          var isWrong = option.selected && !option.correct;
+          return (isCorrect ?  'alert-success' :
+                   (isWrong ?  'alert-danger' : 'alert-default')) +
                  (imgOptions ? ' inline-block' : '');
         }
         function getOptionElem (index){
