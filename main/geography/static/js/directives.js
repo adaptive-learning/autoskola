@@ -10,8 +10,8 @@
       link : function($scope, elem) {
         function getOptionClasses (index){
           var option = $scope.question.options[index];
-          var isCorrect = $scope.question.correct == index || option.correct;
-          var isWrong = option.selected && !option.correct;
+          var isCorrect = $scope.question.correct == index || option.isCorrect;
+          var isWrong = option.selected && !option.isCorrect;
           return (isCorrect ?  'alert-success' :
                    (isWrong ?  'alert-danger' : 'alert-default')) +
                  (imgOptions ? ' inline-block' : '');

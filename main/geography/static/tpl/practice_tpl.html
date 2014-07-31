@@ -14,17 +14,17 @@
       <div ng-bind="question.text|stripImg"></div>
     </div>
     <div>
-      <button ng-repeat="place in question.options"
+      <button ng-repeat="option in question.options"
         class="btn btn-lg btn-default option"
-        ng-click="checkAnswer(place)"
+        ng-click="checkAnswer(option)"
         ng-class="{
-          'btn-success': place.correct,
-          'btn-danger': place.selected && !place.correct,
-          'block': !(place.name|imgSrc)
+          'btn-success': option.correct,
+          'btn-danger': option.selected && !question.isTest && !option.correct,
+          'block': !(option.name|imgSrc)
         }"
-        ng-disabled="place.disabled">
-          <img src="{{place.name|imgSrc}}" ng-if="place.name|imgSrc"//>
-          <span ng-bind="place.name|stripImg"></span>
+        ng-disabled="option.disabled">
+          <img src="{{option.name|imgSrc}}" ng-if="option.name|imgSrc"//>
+          <span ng-bind="option.name|stripImg"></span>
       </button>
     </div>
     <div class="pull-right" >

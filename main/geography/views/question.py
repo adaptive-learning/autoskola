@@ -7,6 +7,9 @@ from geography.utils import JsonResponse, QuestionService
 from lazysignup.decorators import allow_lazy_user
 from logging import getLogger
 from ipware.ip import get_ip
+from geography.models.averageknowledge import AverageKnowledge
+from math import exp
+
 
 LOGGER = getLogger(__name__)
 
@@ -32,7 +35,13 @@ def question(request, map_code, place_type_slug):
                    else Place.CATEGORIES[place_type_slug]
                    if place_type_slug in Place.CATEGORIES
                    else [t[0] for t in Place.PLACE_TYPES])
-    response = qs.get_questions(10 - question_index, place_types)
+    if place_type_slug == 'test':
+        if question_index == 0:
+            response = qs.get_test()
+        else:
+            response = []
+    else:
+        response = qs.get_questions(10 - question_index, place_types)
     return JsonResponse(response)
 
 
@@ -83,6 +92,8 @@ def users_places(request, map_code, user=None):
             {
                 'name': place_type[1],
                 'slug': Place.PLACE_TYPE_SLUGS_LOWER[place_type[0]],
+                'countInTest': Place.TEST_COMPOSITION[place_type[0]][1],
+                'pointsInTest': Place.TEST_COMPOSITION[place_type[0]][2],
                 'places': [p.to_serializable() for p in ps
                            if hasattr(p, 'type') and p.type == place_type[0] or
                            not hasattr(p, 'type') and p.place.type == place_type[0]]
@@ -97,23 +108,10 @@ def users_places(request, map_code, user=None):
     return JsonResponse(response)
 
 
-from geography.models.averageknowledge import AverageKnowledge
-from math import exp
-
-
 def expectedPoints(user, map):
-    points_table = [
-        0,
-        10 * 2,
-        3 * 1,
-        4 * 2,
-        3 * 4,
-        2 * 1,
-        2 * 3,
-        1 * 1,
-    ]
     aks = AverageKnowledge.objects.for_user_and_map_prepared(user, map)
     points = 0
     for ak in aks:
-        points += points_table[ak.type] * 1.0 / (1 + exp(-ak.skill))
+        tc = Place.TEST_COMPOSITION[ak.type]
+        points += tc[1] * tc[2] * 1.0 / (1 + exp(-ak.skill))
     return round(points)

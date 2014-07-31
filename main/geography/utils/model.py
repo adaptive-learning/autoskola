@@ -20,6 +20,7 @@ class Question():
             'place': self.place.name,
             'ab_values': [v.value for v in self.ab_values],
             "options": self.place.options,
+            'points_count': Place.TEST_COMPOSITION[self.place.type][2],
         }
         return ret
 
@@ -33,14 +34,15 @@ class QuestionService:
         self.history_length = history_length
         self.ab_env = ab_env
 
-    def get_questions(self, n, place_types):
+    def get_questions(self, n, place_types, strategy_name=None):
         candidates = Place.objects.get_places_to_ask(
             self.user,
             self.map_place,
             n,
             place_types,
             DatabaseEnvironment(),
-            self.ab_env)
+            self.ab_env,
+            strategy_name)
         return [
             Question(
                 place,
@@ -48,6 +50,14 @@ class QuestionService:
                 self.map_place,
                 self.ab_env.get_affecting_values(Place.AB_REASON_RECOMMENDATION)).to_serializable()
             for (place, options) in candidates]
+
+    def get_test(self):
+        questions = []
+        for tc in Place.TEST_COMPOSITION:
+            questions += self.get_questions(tc[1], [tc[0]], 'recommendation_by_random')
+        for q in questions:
+            q['isTest'] = True
+        return questions
 
     def answer(self, a, ip_address):
         place_asked = Place.objects.get(code=a["asked_code"])

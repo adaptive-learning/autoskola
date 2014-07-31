@@ -26,17 +26,19 @@ class PlaceManager(models.Manager):
         'recommendation_by_random': recommendation.by_random
     }
 
-    DEFAULT_OPTIONS_STRATEGY = 'recommendation_options_naive'
+    DEFAULT_OPTIONS_STRATEGY = 'recommendation_options_random'
 
     OPTIONS_STRATEGIES = {
-        DEFAULT_OPTIONS_STRATEGY: recommendation.OPTIONS_NAIVE,
-        'recommendation_options_random': recommendation.OPTIONS_RANDOM
+        DEFAULT_OPTIONS_STRATEGY: recommendation.OPTIONS_RANDOM,
+        'recommendation_options_naive': recommendation.OPTIONS_NAIVE
     }
 
-    def get_places_to_ask(self, user, map_place, n, place_types, knowledge_env, ab_env):
+    def get_places_to_ask(
+            self, user, map_place, n, place_types, knowledge_env, ab_env,
+            strategy_name=None):
         if n <= 0:
             return []
-        strategy_name = ab_env.get_membership(
+        strategy_name = strategy_name or ab_env.get_membership(
             PlaceManager.RECOMMENDATION_STRATEGIES.keys(),
             PlaceManager.DEFAULT_RECOMMENDATION_STRATEGY,
             Place.AB_REASON_RECOMMENDATION)
@@ -127,8 +129,18 @@ class Place(models.Model):
         (SAFETY_PRINCIPLES, u'Zásady bezpečné jízdy'),
         (TRAFIC_SITUATIONS, u'Dopravní situace'),
         (VEHICLES_REGULATIONS, u'Předpisy o podmínkách provozu vozidel'),
-        (TRAFIC_REGULATIONS, u'Přepisy související s provozem'),
+        (TRAFIC_REGULATIONS, u'Předpisy související s provozem'),
         (FIRST_AID, u'Zdravotnická příprava'),
+    )
+    TEST_COMPOSITION = (
+        (UNKNOWN, 0, 0),
+        (TRAFIC_RULES, 10, 2),
+        (TRAFIC_SIGNS, 3, 1),
+        (SAFETY_PRINCIPLES, 4, 2),
+        (TRAFIC_SITUATIONS, 3, 4),
+        (VEHICLES_REGULATIONS, 2, 1),
+        (TRAFIC_REGULATIONS, 2, 3),
+        (FIRST_AID, 1, 1),
     )
     PLACE_TYPE_SLUGS = dict((t[1].upper(), t[0]) for t in PLACE_TYPES)
     PLACE_TYPE_SLUGS_LOWER = dict((t[0], slugify(t[1].lower())) for t in PLACE_TYPES)

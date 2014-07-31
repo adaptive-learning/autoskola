@@ -120,9 +120,11 @@
 
     function highlightOptions(selected) {
       $scope.question.options.map(function(o) {
-        o.correct = o.isCorrect;
+        if (!$scope.question.isTest) {
+          o.correct = o.isCorrect;
+          o.disabled = true;
+        }
         o.selected = o == selected;
-        o.disabled = true;
         return o;
       });
     }
