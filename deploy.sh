@@ -1,11 +1,6 @@
 #!/bin/bash
 SELF=$0
-SELF_DIR=`dirname $SELF`
-if [ $GEOGRAPHY_WORKSPACE_DIR ]; then
-	WORKSPACE_DIR=$GEOGRAPHY_WORKSPACE_DIR;
-else
-	WORKSPACE_DIR=$SELF_DIR/..
-fi
+WORKSPACE_DIR=`dirname $SELF`
 WORK_TREE=$WORKSPACE_DIR
 APP_DIR="$WORKSPACE_DIR/main"
 if [ "$GEOGRAPHY_DATA_DIR" ]; then
@@ -26,12 +21,11 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 	echo " * grunt deploy"
 	grunt deploy
 
+	cd ..
+
 	echo " * collect static"
 	$APP_DIR/manage.py collectstatic --noinput
 	echo "HASHES = $( python $APP_DIR/manage.py static_hashes )" > $APP_DIR/hashes.py
-
-	echo " * update maps"
-	$APP_DIR/manage.py update_maps
 
 	echo " * migrate"
 	$APP_DIR/manage.py migrate geography --delete-ghost-migrations --traceback

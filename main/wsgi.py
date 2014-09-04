@@ -16,6 +16,3 @@ class WSGIEnvironment(WSGIHandler):
 
 
 application = WSGIEnvironment()
-
-
-
