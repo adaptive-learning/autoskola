@@ -1,8 +1,25 @@
+#!/bin/bash
+SELF=$0
+SELF_DIR=`dirname $SELF`
+if [ $GEOGRAPHY_WORKSPACE_DIR ]; then
+	WORKSPACE_DIR=$GEOGRAPHY_WORKSPACE_DIR;
+else
+	WORKSPACE_DIR=$SELF_DIR/..
+fi
+WORK_TREE=$WORKSPACE_DIR
+APP_DIR="$WORKSPACE_DIR/main"
+if [ "$GEOGRAPHY_DATA_DIR" ]; then
+	DATA_DIR="$GEOGRAPHY_DATA_DIR"
+else
+	DATA_DIR="$APP_DIR"
+fi
+GIT_DIR=$WORK_TREE/.git
+GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
+
 ###############################################################################
 # reset the application
 ###############################################################################
 
-if [[ `$GIT_COMMAND diff --name-only $LAST_HEAD $DEPLOY_VERSION` ]]; then
 	cd $APP_DIR
 	echo " * npm install"
     npm install
@@ -20,13 +37,10 @@ if [[ `$GIT_COMMAND diff --name-only $LAST_HEAD $DEPLOY_VERSION` ]]; then
 	$APP_DIR/manage.py migrate geography --delete-ghost-migrations --traceback
 	echo " * load custom SQLs"
 	$APP_DIR/manage.py sqlcustom geography | $APP_DIR/manage.py dbshell
-	if [[ `$GIT_COMMAND diff --name-only $LAST_HEAD $DEPLOY_VERSION | egrep 'main\/geography\/models\/(knowledge\.py|prior.py|current.py)'` ]]; then
 	echo " * derive knowledge data"
 	$APP_DIR/manage.py derived_knowledge_data
-	fi
 	echo " * remove django cache"
 	rm -rf $DATA_DIR/.django_cache
-fi
 
 
 ###############################################################################
@@ -37,15 +51,4 @@ if [[ `$git_command diff --name-only $last_head $deploy_version` ]]; then
 	pip install --upgrade -r $app_dir/requirements.txt
 fi
 
-
-###############################################################################
-# ownership and permissions
-###############################################################################
-
-chgrp www-data -r $workspace_dir
-chgrp www-data -r $workspace_dir/.git
-chown www-data -r $workspace_dir
-chown www-data -r $workspace_dir/.git
-chmod g=rwx -r $workspace_dir
-chmod g=rwx -r $workspace_dir/.git
 
