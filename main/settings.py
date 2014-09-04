@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import dj_database_url
 
 ON_PRODUCTION = False
 ON_STAGING = False
@@ -25,14 +26,7 @@ MANAGERS = ADMINS
 
 if ON_PRODUCTION or ON_STAGING:
     DATABASES = {
-        'default': {
-            'ENGINE': os.environ['DRIVING_SCHOOL_DATABASE_ENGINE'],
-            'NAME': os.environ['DRIVING_SCHOOL_DATABASE_NAME'],
-            'USER': os.environ['DRIVING_SCHOOL_DATABASE_USER'],
-            'PASSWORD': os.environ['DRIVING_SCHOOL_DATABASE_PASSWORD'],
-            'HOST': os.environ['DRIVING_SCHOOL_DATABASE_HOST'],
-            'PORT': os.environ['DRIVING_SCHOOL_DATABASE_PORT']
-        }
+        'default': dj_database_url.config(default=''),
     }
 else:
     if 'DRIVING_SCHOOL_DATABASE_USER' not in os.environ.keys():
@@ -94,7 +88,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
+STATIC_ROOT = os.path.join(PROJECT_DIR, '../../static/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -269,7 +263,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ALLOWED_HOSTS = [
-    '.slepemapy.cz',
+    '.autoskolachytre.cz',
+    'altest.thran.cz',
 ]
 
 CACHES = {

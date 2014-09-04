@@ -12,3 +12,4 @@ prettytable==0.7.2
 proso-geography-model==1.0.0
 python-openid==2.2.5
 wsgiref==0.1.2
+dj-database-url==0.2.2
