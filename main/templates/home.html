@@ -15,6 +15,7 @@
         {% include "generated/above-fold.css" %}
     </style>
 
+    <base href="/">
   </head>
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -78,7 +79,12 @@
     <!-- Main content
     ================================================== -->
     <div data-ng-view id="ng-view" ng-class="vip() && 'vip'">
+     {% if isHomepage %}
         {% include "generated/homepage.html" %}
+     {% else %}
+        <div class="loading-indicator"></div>
+     {% endif %}
+
     </div>
   </div>
 
@@ -91,6 +97,11 @@
       <a class="contact" href="https://www.facebook.com/slepemapy">Facebook</a>
     </div>
     -->
+
+    <script type="text/ng-template" id="loading.html">
+      <div class="loading-indicator"></div>
+    </script>
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

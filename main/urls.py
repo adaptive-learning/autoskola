@@ -11,6 +11,9 @@ from sitemap import sitemaps
 urlpatterns = patterns(
     '',
     url(r'^$', 'geography.views.home', name='home'),
+    url(r'^(about|view/\w+|u/\w+|practice/\w+)',
+        'geography.views.home', name='home'),
+
 
     url(r'', include('social_auth.urls')),
     url(r'^admin/', include(admin.site.urls)),

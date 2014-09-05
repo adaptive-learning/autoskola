@@ -179,5 +179,9 @@
       };
       return avg;
     }
+  }])
+
+  .controller('ReloadController', ['$window', function($window){
+    $window.location.reload();
   }]);
 }());

@@ -15,9 +15,13 @@
 
   .value('$', jQuery)
 
-  .config(['$routeProvider', function($routeProvider) {
+  .config(['$routeProvider', '$locationProvider',
+      function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
       templateUrl : 'static/tpl/homepage.html'
+    }).when('/login/:somepath/', {
+      controller : 'ReloadController',
+      templateUrl : 'loading.html'
     }).when('/how-it-works', {
       templateUrl : '../templates/home/how_it_works.html'
     }).when('/about', {
@@ -40,6 +44,8 @@
     }).otherwise({
       //redirectTo : '/'
     });
+
+    $locationProvider.html5Mode(true);
   }])
 
   .run(['$rootScope', '$', '$analytics', 'places',

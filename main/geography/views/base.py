@@ -10,7 +10,7 @@ import os
 from django.core.servers.basehttp import FileWrapper
 
 
-def home(request):
+def home(request, hack=None):
     JS_FILES = (
         "static/dist/js/fallbacks.min.js",
         "static/dist/js/libs.min.js",
@@ -40,6 +40,8 @@ def home(request):
         'js_files': StaticFiles.add_hash(JS_FILES),
         'hashes': json.dumps(hashes),
         'user': get_user(request),
+        'isHomepage': hack is None,
+
     }
     c.update(csrf(request))
     return render_to_response('home.html', c)
