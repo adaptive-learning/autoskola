@@ -5,7 +5,6 @@ from django.shortcuts import render_to_response
 from geography.utils import JsonResponse, StaticFiles
 from geography.views import get_user
 from django.http import HttpResponse
-from geography.models import Place
 import json
 import os
 from django.core.servers.basehttp import FileWrapper
@@ -21,7 +20,6 @@ def home(request):
     CSS_FILES = (
         "static/lib/css/bootstrap.min.css",
         "static/css/app.css",
-        "static/css/map.css"
     )
     request.META["CSRF_COOKIE_USED"] = True
     if settings.ON_PRODUCTION:
@@ -36,12 +34,10 @@ def home(request):
                   if "/lib/" not in key and "/js/" not in key and "/sass/" not in key
                   )
     c = {
-        'title': title + 'Autoskola Efektivně - testy z autoškoly na míru',
+        'title': title + 'Autoskola Chytře - testy z autoškoly na míru',
         'isProduction': settings.ON_PRODUCTION,
         'css_files': StaticFiles.add_hash(CSS_FILES),
         'js_files': StaticFiles.add_hash(JS_FILES),
-        'continents': Place.objects.get_continents(),
-        'states': Place.objects.get_states_with_map(),
         'hashes': json.dumps(hashes),
         'user': get_user(request),
     }
