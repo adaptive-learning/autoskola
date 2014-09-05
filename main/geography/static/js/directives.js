@@ -6,7 +6,6 @@
   .directive('placeLabel', ['$filter', 'colorScale', function($filter, colorScale) {
     return {
       restrict : 'A',
-      template : ' ',
       link : function($scope, elem) {
         function getOptionClasses (index){
           var option = $scope.question.options[index];

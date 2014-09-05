@@ -108,6 +108,7 @@
           <button ng-repeat="question in type.places|filter:{displayed:true}"
                 style="background-color: {{question.probability|probColor}};"
                 place-label>
+             {{question.text | stripImg}}
           </button>
           <div class="clearfix"></div>
         </div>
