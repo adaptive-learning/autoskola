@@ -99,8 +99,14 @@
       </material-toolbar>
         {%verbatim%}
       <ul class="main-nav">
-        <li ng-repeat="cat in placesTypes">
+        <li>
           <a class="menu-item"
+            href="#/view/">
+            Otázky kategorie B
+          </a> 
+        </li>
+        <li ng-repeat="cat in placesTypes">
+          <a class="menu-item submenu-item"
             ng-class="cat.slug|isActive"
             href="#/view/{{cat.slug}}"
             ng-bind="cat.name">

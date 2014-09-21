@@ -26,9 +26,7 @@
       templateUrl : '../templates/home/how_it_works.html'
     }).when('/about', {
       templateUrl : 'static/tpl/about.html'
-    }).when('/view/', {
-      redirectTo : '/view/0/'
-    }).when('/view/:part/:user?', {
+    }).when('/view/:part?/:user?', {
       controller : 'AppView',
       templateUrl : 'static/tpl/view_tpl.html'
     }).when('/practice/', {

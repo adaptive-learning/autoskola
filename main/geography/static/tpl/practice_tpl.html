@@ -1,5 +1,5 @@
 <div class="progress quesions-progress">
-  <div class="progress-bar" style="width: {{progress}}%;"></div>
+  <div class="progress-bar progress-bar-practice" style="width: {{progress}}%;"></div>
 </div>
 <div id="container" class="practice-container col-lg-8 col-lg-offset-2">
   <div ng-hide="question || showSummary || error" class="loading-indicator">
@@ -19,7 +19,7 @@
         ng-click="checkAnswer(option)"
         ng-class="{
           'btn-success': option.correct,
-          'btn-danger': option.selected && !question.isTest && !option.correct,
+          'btn-danger': option.selected && !option.correct,
           'block': !(option.name|imgSrc)
         }"
         ng-disabled="option.disabled">

@@ -37,7 +37,7 @@
         ng-click="checkAnswer(option)"
         ng-class="{
           'selected' : option.index == question.answered,
-          'correct': (console.log(option.index == question.answered) && question.isCorrect),
+          'correct': (option.index == question.answered && question.isCorrect),
           'wrong': (option.index == question.answered && question.isWrong),
           'block': !(option.name|imgSrc)
         }"
@@ -66,6 +66,7 @@
   </div>
   <div ng-show="showSummary" class="summary">
     <div>
+     <!--
       <div class="progress" ng-show="summary != undefined">
         <div class="progress-bar progress-bar-success" 
              style="width: {{summary.correctlyAnsweredRatio | percent }};">
@@ -75,6 +76,7 @@
              style="width: {{(1 - summary.correctlyAnsweredRatio) | percent }};">
         </div>
       </div>
+      -->
       <h2>TODO</h2>
       <h2 ng-show="errorMessage != undefined" ng-bind="errorMessage"></h2>
       <div class="question-buttons">
