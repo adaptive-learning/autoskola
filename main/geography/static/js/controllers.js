@@ -147,8 +147,8 @@
     });
   }])
 
-  .controller('AppTest', ['$scope', '$timeout', 'question',
-      function($scope, $timeout, question) {
+  .controller('AppTest', ['$scope', '$timeout', 'question', '$',
+      function($scope, $timeout, question, $) {
 
     $scope.checkAnswer = function(selected) {
       highlightOptions(selected);
@@ -175,7 +175,7 @@
       setQuestion();
     };
 
-    $scope.evaluate = function() {
+    $scope.evaluate = function(timeRunOut) {
       $scope.activeQuestionIndex = undefined;
       $scope.showSummary = true;
       $scope.questions.map(function(q) {
@@ -186,6 +186,11 @@
         questions : $scope.questions,
         correctlyAnsweredRatio : 0.5,
       };
+      if (timeRunOut) {
+        $scope.$apply();
+      } else {
+        $('timer')[0].stop();
+      }
     };
 
     function setQuestion() {

@@ -1,4 +1,12 @@
 <div id="container" class="practice-container col-lg-8 col-lg-offset-2">
+  <timer countdown="30 * 60" 
+    max-time-unit="'minute'" 
+    interval="1000" 
+    finish-callback="evaluate(true);"
+    title="Zývá do konce"
+    class="pull-right">
+     {{minutes}}:{{sseconds}}
+  </timer>
   <ul class="progress-indicator">
     <li ng-repeat="question in questions"
     ng-class="{ 

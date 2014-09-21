@@ -11,6 +11,7 @@
     'ngAnimate',
     'angulartics',
     'angulartics.google.analytics',
+    'timer',
   ])
 
   .value('$', jQuery)
