@@ -1,4 +1,5 @@
-<div id="container">
+<div id="container" infinite-scroll="onBottomReached()" threshold="100"
+  can-load="true">
   <div ng-hide="placesTypes || error" class="loading-indicator">
   </div>
   <div ng-show="error" ng-bind="error" class="alert alert-danger">
@@ -8,24 +9,6 @@
       ng-repeat="typeCat in typeCategories">
     <div class="collapse-control"
         ng-show="filteredTypes.length > 0 && placesTypes.length > 1">
-      <h2>
-        {{typeCat.name}}
-      </h2>
-      <a href="#/practice/{{part}}/{{typeCat.slug}}" 
-         class="btn btn-primary pull-right" 
-         ng-hide="typeCat.hidden || filteredTypes.length == 1" >
-        <i class="glyphicon glyphicon-check"></i> Procvičovat
-      </a>
-      <span class="btn-group pull-right">
-        <a href="#/practice/{{part}}/test" 
-           class="btn btn-primary" 
-           ng-hide="typeCat.hidden || filteredTypes.length == 1" >
-          <i class="glyphicon glyphicon-pencil"></i> Test
-        </a>
-        <a class="btn btn-primary" ng-click="showInfo = !showInfo">
-          <i class="glyphicon glyphicon-info-sign" ></i>
-        </a>
-      </span>
       <div class="clearfix"></div>
       <div class="test-composition well" ng-show="showInfo">
         <button type="button" class="close" ng-click="showInfo=false;"><span
@@ -60,7 +43,7 @@
         <div class="clearfix"></div>
       </div>
 
-      <div class="prediction" ng-show="placesTypes.length">
+      <div class="prediction" ng-show="false && placesTypes.length">
         <div class="progress atooltip" title="">
           <div class="progress-bar atooltip"
             ng-class="{
@@ -82,14 +65,9 @@
       <li class="type-cat-li"
           ng-repeat="type in filteredTypes"
           ng-class="{'collapsed': type.hidden}">
-        <div data-toggle="collapse" 
-            class="collapse-control collapse-control-inner"
-            data-target="#collapse-{{type.slug}}"
-            ng-click="updateMap(type)">
-          <h3>
-            <i class="glyphicon {{type.hidden && 'glyphicon-plus-sign' || 'glyphicon-minus-sign'}}"></i>
-            {{type.name}}
-          </h3>
+        <div class="collapse-control collapse-control-inner"
+            data-target="#collapse-{{type.slug}}">
+          <h3> {{type.name}} </h3>
           <a href="#/practice/{{part}}/{{type.slug}}" 
              class="btn btn-primary pull-right"  >
             <i class="glyphicon glyphicon-check"></i> Procvičovat
@@ -105,11 +83,37 @@
           <div ng-hide="(type.places|filter:{displayed:true}).length" class="alert alert-info">
             Zde zatím nebylo nic procvičováno.
           </div>
-          <button ng-repeat="question in type.places|filter:{displayed:true}"
-                style="background-color: {{question.probability|probColor}};"
-                place-label>
-             {{question.text | stripImg}}
-          </button>
+          <div ng-repeat="question in type.places |
+            filter:{displayed:true} | 
+            limitTo : limit"
+                >
+              <div class="questions-item" ng-click="selectQuestion(question)">
+                <span class="badge badge-default" title="Odhad znalosti">
+                  <i class="color-indicator" 
+                  style="background-color: {{question.probability|probColor}};" ></i>
+                  {{10 * question.probability }} / 10
+                </span>
+               {{question.text | stripImg}}
+             </div>
+             <div class="question-details" ng-if="question == selected"
+                 ng-class="{'ng-leave' : question != selected}">
+                <img ng-src="{{question.text | imgSrc}}"/>
+                <div ng-repeat="option in question.options"
+                    ng-show="option"
+                    class="alert {{$index == question.correct &&
+                    'alert-success' || 'alert-danger'}}">
+                   {{option | stripImg}}
+                  <img ng-src="{{option.text | imgSrc}}"/>
+                </div>
+             </div>
+             <material-divider></material-divider>
+          </div>
+          <br>
+          <div ng-click="onBottomReached()"
+            ng-show="limit < (type.places | filter:{displayed:true}).length"
+            class="btn btn-default btn-block">
+            Další otázky
+          </div>
           <div class="clearfix"></div>
         </div>
       </li>

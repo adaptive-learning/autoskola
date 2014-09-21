@@ -1,10 +1,10 @@
 (function() {
   'use strict';
   /* Controllers */
-  angular.module('blindMaps.controllers', [])
+  angular.module('addaptivePractice.controllers', [])
 
-  .controller('AppCtrl', ['$scope', '$rootScope', 'user', 'pageTitle',
-      function($scope, $rootScope, user, pageTitle) {
+  .controller('AppCtrl', ['$scope', '$rootScope', 'user', 'pageTitle', '$filter', 'places',
+      function($scope, $rootScope, user, pageTitle, $filter, places) {
     $rootScope.topScope = $rootScope;
     
     $rootScope.initTitle = function (title) {
@@ -14,6 +14,7 @@
     
     $rootScope.$on("$routeChangeStart", function(event, next) {
       $rootScope.title = pageTitle(next) + $rootScope.initialTitle;
+      $rootScope.isHomepage = !next.templateUrl;
     });
     
     var updateUser = function(data) {
@@ -28,38 +29,11 @@
       $rootScope.user = user.logout(updateUser);
     };
 
-    $scope.vip = function() {
-      return $scope.user && $scope.user.username == 'Verunka';
-    };
-  }])
-
-  .controller('AppView', ['$scope', '$routeParams', '$filter', 'places', 'mapTitle',
-      function($scope, $routeParams, $filter, places, mapTitle) {
-    $scope.part = $routeParams.part;
-    var user = $routeParams.user || '';
-    $scope.typeCategories = places.getCategories($scope.part);
-    
-
-    places.get($scope.part, user, updatePlaces).
+    $scope.part = '0';
+    places.get($scope.part, '', updatePlaces).
       error(function(){
         $scope.error = "V aplikaci bohužel nastala chyba.";
       });
-
-    $scope.updateMap = function(type) {
-      type.hidden = !type.hidden; 
-    };
-    
-    $scope.updateCat = function(category) {
-      var newHidden = !category.hidden;
-      angular.forEach($scope.typeCategories, function(type) {
-        type.hidden = true;
-      });
-      angular.forEach($scope.placesTypes, function(type) {
-        type.hidden = true;
-      });
-      category.hidden = newHidden;
-      updatePlaces($scope.placesTypes);
-    };
 
     function updatePlaces(data) {
       $scope.placesTypes = data.placesTypes;
@@ -70,7 +44,44 @@
           type.hidden = category.hidden;
         });
       });
-      $scope.name = mapTitle($scope.part, user);
+    }
+  }])
+
+  .controller('AppView', ['$scope', '$routeParams', '$filter', 'places',
+      function($scope, $routeParams, $filter, places) {
+    $scope.part = '0';
+    $scope.limit = 20;
+    $scope.category = $routeParams.part;
+    var user = $routeParams.user || '';
+    $scope.typeCategories = places.getCategories($scope.part);
+    
+    $scope.onBottomReached = function() {
+      $scope.limit += 20;
+    };
+
+    places.get($scope.part, user, updatePlaces).
+      error(function(){
+        $scope.error = "V aplikaci bohužel nastala chyba.";
+      });
+
+    $scope.selectQuestion = function(q) {
+      $scope.selected = q != $scope.selected ? q : undefined;
+    };
+    
+    function updatePlaces(data) {
+      $scope.placesTypes = [];
+      for (var i = 0; i < data.placesTypes.length; i++) {
+        if ( data.placesTypes[i].slug == $scope.category) {
+          $scope.placesTypes.push(data.placesTypes[i]);
+        }
+      }
+      $scope.expectedPoints = data.expectedPoints;
+      angular.forEach($scope.typeCategories, function(category) {
+        var filteredTypes = $filter('isTypeCategory')($scope.placesTypes, category);
+        angular.forEach(filteredTypes, function(type) {
+          type.hidden = category.hidden;
+        });
+      });
     }
   }])
 
@@ -136,49 +147,68 @@
     });
   }])
 
-  .controller('AppOverview', ['$scope', 'places', '$http', '$routeParams',
-      function($scope, places, $http, $routeParams) {
+  .controller('AppTest', ['$scope', '$timeout', 'question',
+      function($scope, $timeout, question) {
 
-    var mapSkills = {};
-    $scope.user = $routeParams.user || '';
-    $http.get('/mapskill/' + $scope.user).success(function(data){
-      angular.forEach(data, function(p){
-        mapSkills[p.code] = mapSkills[p.code] || {};
-        mapSkills[p.code][p.type] = p;
-      });
-      $scope.mapSkillsLoaded = true;
-    });
-    places.getOverview().success(function(data){
-      $scope.mapCategories = data;
-    });
-
-    $scope.mapSkills = function(code, type) {
-      if (!$scope.mapSkillsLoaded) {
-        return;
+    $scope.checkAnswer = function(selected) {
+      highlightOptions(selected);
+      if (selected) {
+        $scope.question.answered = selected.index;
       }
-      var defalut = {
-        count : 0
-      };
-      if (!type) {
-        return avgSkills(mapSkills[code]);
-      }
-      return (mapSkills[code] && mapSkills[code][type]) || defalut;
+      $timeout(function() {
+        $scope.next();
+      }, 700);
     };
-    
-    function avgSkills(skills) {
-      var learned = 0;
-      var practiced = 0;
-      for (var i in skills){
-        var p = skills[i];
-        learned += p.learned;
-        practiced += p.practiced;
-      }
-      var avg = {
-        learned : learned,
-        practiced : practiced,
+
+    $scope.prev = function() {
+      $scope.activeQuestionIndex--;
+      setQuestion();
+    };
+
+    $scope.next = function() {
+      $scope.activeQuestionIndex++;
+      setQuestion();
+    };
+
+    $scope.activateQuestion = function(index) {
+      $scope.activeQuestionIndex = index;
+      setQuestion();
+    };
+
+    $scope.evaluate = function() {
+      $scope.activeQuestionIndex = undefined;
+      $scope.showSummary = true;
+      $scope.questions.map(function(q) {
+        q.isCorrect = q.options[q.answered] && q.options[q.answered].isCorrect;
+        q.isWrong = !q.isCorrect;
+      });
+      $scope.summary = {
+        questions : $scope.questions,
+        correctlyAnsweredRatio : 0.5,
       };
-      return avg;
+    };
+
+    function setQuestion() {
+      $scope.question = $scope.questions[$scope.activeQuestionIndex];
+      $scope.questions.map(function(q) {
+        q.slideOut = false;
+      });
+      $scope.question.slideOut = true;
     }
+
+    function highlightOptions(selected) {
+      $scope.question.options.map(function(o) {
+        o.selected = o == selected;
+        return o;
+      });
+    }
+
+    question.test(function(data) {
+      $scope.questions = data;
+      $scope.activateQuestion(0);
+    }).error(function(){
+      $scope.error = "V aplikaci bohužel nastala chyba.";
+    });
   }])
 
   .controller('ReloadController', ['$window', function($window){

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="blindMaps" data-ng-controller="AppCtrl" lang="cs">
+<html data-ng-app="addaptivePractice" data-ng-controller="AppCtrl" lang="cs">
   <head>
     <meta charset="utf-8">
     <title ng-bind="title" ng-init="initTitle('{{ title }}')">{{ title }}</title>
@@ -19,12 +19,13 @@
   </head>
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
-  <div id="wrap">
+  <div class="row">
+  <div id="wrap" class="material-whiteframe-z5">
     <!-- Navbar
     ================================================== -->
 
 
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse" style="display:none">
         <div class="container">
 
     <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
@@ -36,11 +37,6 @@
 
       <a class="navbar-brand" href="#">Autoškola chytře</a>
       <div id="nav-main" class="collapse navbar-collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav  pull-left">
-                <li ng-class="'/view/0/'|isActive">
-                  <a href="#/view/0/">Prohlížení otázek</a>
-                </li>
-        </ul>
           ...
             <ul class="nav ng-cloak navbar-nav pull-right"
                 ng-init="initUser('{{user.username}}',{{user.points}})">
@@ -76,17 +72,43 @@
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </div>
-    <!-- Main content
-    ================================================== -->
-    <div data-ng-view id="ng-view" ng-class="vip() && 'vip'">
-     {% if isHomepage %}
-        {% include "generated/homepage.html" %}
-     {% else %}
-        <div class="loading-indicator"></div>
-     {% endif %}
-
+    <div class="left-bar">
+      <material-toolbar class="material-theme-dark material-medium-tall material-whiteframe-z1">
+        <h1 class="material-toolbar-tools">
+          <span ng-show="isHomepage" class="dropdown">
+          <i class="glyphicon glyphicon-th-list dropdown-toggle" 
+            id="dropdownMenu1" data-toggle="dropdown">
+            </i>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li class="forgot-pwd" ng-if="user.usename !== ''"><a href="#/" ng-click="logout()">Odhlásit se</a></li>
+            </ul>
+          </span>
+          <i onclick="history.back()" ng-hide="isHomepage"
+            class="glyphicon glyphicon-chevron-left"></i>
+          <a class="navbar-brand" href="#">Autoškola chytře</a>
+        </h1>
+        <div>
+          <a href="#/practice/0" class="btn btn-default btn-menu" >
+            <i class="glyphicon glyphicon-check"></i> Procvičovat
+          </a>
+          <a href="#/test/" 
+             class="btn btn-default btn-menu">
+            <i class="glyphicon glyphicon-pencil"></i> Test
+          </a>
+        </div>
+      </material-toolbar>
+        {%verbatim%}
+      <ul class="main-nav">
+        <li ng-repeat="cat in placesTypes">
+          <a class="menu-item"
+            ng-class="cat.slug|isActive"
+            href="#/view/{{cat.slug}}"
+            ng-bind="cat.name">
+          </a> 
+        </li>
+      </ul>
+        {%endverbatim%}
     </div>
-  </div>
 
     <div id="footer">
       <a href="https://vpsfree.cz/" title="vpsFree hostuje tento web">
@@ -99,6 +121,15 @@
       <a class="contact" href="https://plus.google.com/+SlepemapyCz/">Google+</a>
       <a class="contact" href="https://www.facebook.com/slepemapy">Facebook</a>
     -->
+    </div>
+  </div>
+    
+    <div class="homepage hidden-xs">
+        {% include "generated/homepage.html" %}
+    </div>
+  </div>
+
+    <div data-ng-view id="ng-view" class="card ng-cloak {{pageClass}}">
     </div>
 
     <script type="text/ng-template" id="loading.html">

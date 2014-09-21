@@ -18,6 +18,7 @@ def home(request, hack=None):
         "static/lib/angular-1.2.9/i18n/angular-locale_cs.js",
     )
     CSS_FILES = (
+        "static/lib/angular-material/angular-material.min.css",
         "static/lib/css/bootstrap.min.css",
         "static/css/app.css",
     )

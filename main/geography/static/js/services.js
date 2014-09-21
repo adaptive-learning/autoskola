@@ -3,7 +3,7 @@
   /* global chroma  */
 
   /* Services */
-  angular.module('blindMaps.services', [
+  angular.module('addaptivePractice.services', [
     'ngCookies'
   ])
 
@@ -81,6 +81,7 @@
         return names[code];
       },
       getCategories : function(part) {
+        part = part || '0';
         if (!categoriesCache[part]) {
           categoriesCache[part] = angular.copy(categories);
         }
@@ -143,19 +144,6 @@
     return that;
   }])
 
-  .factory('mapTitle', ['places', function(places) {
-    return function(part, user) {
-      var name = places.getName(part);
-      if (!name) {
-        return;
-      } else if (user === '' || user == 'average') {
-        return name;
-      } else {
-        return name + ' - ' + user;
-      }
-    };
-  }])
-
   .service('question', ['$http', '$log', '$cookies', 
       function($http, $log, $cookies) {
     var qIndex = 0;
@@ -179,6 +167,13 @@
     var questions = [];
     var summary = [];
     return {
+      test : function(fn) {
+        url = 'question/0/test';
+        var promise = $http.get(url).success(function(data) {
+          fn(data);
+        });
+        return promise;
+      },
       first : function(part, placeType, fn) {
         url = 'question/' + part + '/' + (placeType ? placeType : '');
         summary = [];
@@ -271,15 +266,16 @@
   .factory('pageTitle',[function() {
     
     var titles = {
-      'static/tpl/homepage.html' : '',
+      '' : '',
       '../templates/home/how_it_works.html' : 'Jak to funguje? - ',
       'static/tpl/about.html' : 'O prjektu - ',
       'static/tpl/overview_tpl.html' : 'Přehled map - ',
       'static/tpl/view_tpl.html' : 'Prohlížení otázek - ',
-      'static/tpl/practice_tpl.html' : 'Procvičování otázek - '
+      'static/tpl/practice_tpl.html' : 'Procvičování otázek - ',
+      'static/tpl/test_tpl.html' : 'Test - ',
     };
     return function (route) {
-      var title = titles[route.templateUrl];
+      var title = route.templateUrl ? titles[route.templateUrl] : '';
       return title;
     };
   }]);

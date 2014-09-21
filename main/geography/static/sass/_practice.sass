@@ -12,11 +12,13 @@
   .btn.option.block
     width: 100%
     margin-left: 0
-  .next
-    margin: -12px -18px -12px 15px
+  .btn.option.selected
+    background-color: #ddd
   .well
     background-color: white
     margin-bottom: 10px
+  .prev
+    margin-left: 0px
   img
     max-width: 100%
     max-height: 50%
@@ -42,21 +44,28 @@
   height: 10px
   margin-bottom: 15px
 
-.horizontal
-  .map-container
-    width: 70%
-    float: left
-  #container
-    width: 30%
-    float: right
-    .col-sm-7, .col-sm-5
-      width: 100%
-      padding: 0
-      margin-top: 30px
-    .label
-      white-space: normal
-    .btn
-      display: block
-  .practice
-    h2
-      padding-left: 10px
+.progress-indicator
+  margin: 5px
+  text-align: center
+  li
+    display: inline-block
+    width: 10px
+    height: 10px
+    text-indent: -9999px
+    cursor: pointer
+    border: 1px solid #aaa
+    border-radius: 50%
+    margin: 5px
+    -webkit-transition: all linear $anim-time
+    -moz-transition: all linear $anim-time
+    -o-transition: all linear $anim-time
+    transition: all linear $anim-time
+    &.answered
+      background-color: #ccc
+    &.active
+      background-color: $main-color
+    &.wrong
+      background-color: #d9534f
+    &.correct
+      background-color: #12c700
+

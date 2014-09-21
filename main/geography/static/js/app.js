@@ -2,15 +2,15 @@
   'use strict';
   /* global jQuery  */
   // Declare app level module which depends on filters, and services
-  angular.module('blindMaps', [
-    'blindMaps.filters',
-    'blindMaps.services',
-    'blindMaps.directives',
-    'blindMaps.controllers',
+  angular.module('addaptivePractice', [
+    'addaptivePractice.filters',
+    'addaptivePractice.services',
+    'addaptivePractice.directives',
+    'addaptivePractice.controllers',
     'ngRoute',
     'ngAnimate',
     'angulartics',
-    'angulartics.google.analytics'
+    'angulartics.google.analytics',
   ])
 
   .value('$', jQuery)
@@ -18,7 +18,6 @@
   .config(['$routeProvider', '$locationProvider',
       function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
-      templateUrl : 'static/tpl/homepage.html'
     }).when('/login/:somepath/', {
       controller : 'ReloadController',
       templateUrl : 'loading.html'
@@ -27,7 +26,7 @@
     }).when('/about', {
       templateUrl : 'static/tpl/about.html'
     }).when('/view/', {
-      redirectTo : '/view/world/'
+      redirectTo : '/view/0/'
     }).when('/view/:part/:user?', {
       controller : 'AppView',
       templateUrl : 'static/tpl/view_tpl.html'
@@ -38,6 +37,9 @@
     }).when('/practice/:part/:place_type?', {
       controller : 'AppPractice',
       templateUrl : 'static/tpl/practice_tpl.html'
+    }).when('/test/', {
+      controller : 'AppTest',
+      templateUrl : 'static/tpl/test_tpl.html'
     }).when('/overview/:user?', {
       controller : 'AppOverview',
       templateUrl : 'static/tpl/overview_tpl.html'
@@ -48,21 +50,7 @@
     $locationProvider.html5Mode(true);
   }])
 
-  .run(['$rootScope', '$', '$analytics', 'places',
-      function($rootScope, $, $analytics, places) {
+  .run(['$analytics', function($analytics) {
     $analytics.settings.pageTracking.autoTrackFirstPage = false;
-    
-    $rootScope.$on("$routeChangeStart", function(event, next, current) {
-      if (current && current.originalPath !== "" && $(window).width() < 770) {
-        $("#nav-main").collapse();
-        $("#nav-main").collapse('hide');
-      }
-    });
-
-    $('.dropdown-menu a[href^="#/view/"]').each( function(i, link){
-      var code = $(link).attr('href').replace('#/view/', '').replace('/', '');
-      var name = $(link).text();
-      places.setName(code, name);
-    });
   }]);
 }());

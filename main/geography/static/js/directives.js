@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   /* Directives */
-  angular.module('blindMaps.directives', [])
+  angular.module('addaptivePractice.directives', [])
 
   .directive('placeLabel', ['$filter', 'colorScale', function($filter, colorScale) {
     return {
@@ -274,6 +274,23 @@
             title : $scope.level.points + ' z ' + $scope.level.range + ' bodů',
           });
         },100);
+      }
+    };
+  }])
+
+  .directive('infiniteScroll', ["$window", "$document", "$", 
+      function ($window, $document, $) {
+    return {
+      link:function (scope, element, attrs) {
+        var offset = parseInt(attrs.threshold) || 0;
+
+        $document.bind('scroll', function () {
+          if (scope.$eval(attrs.canLoad) && 
+              $($window).scrollTop() + $($window).height() >= 
+              $($document).height() - offset) {
+            scope.$apply(attrs.infiniteScroll);
+          }
+        });
       }
     };
   }]);

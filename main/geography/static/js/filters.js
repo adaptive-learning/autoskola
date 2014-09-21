@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   /* Filters */
-  angular.module('blindMaps.filters', [])
+  angular.module('addaptivePractice.filters', [])
 
   .filter('percent', function() {
     return function(n) {
@@ -34,7 +34,7 @@
 
   .filter('isActive',['$location', function($location) {
     return function(path) {
-      if ($location.path() == path) {
+      if ($location.path().indexOf(path) != -1) {
         return 'active';
       } else {
         return '';

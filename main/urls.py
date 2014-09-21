@@ -11,7 +11,7 @@ from sitemap import sitemaps
 urlpatterns = patterns(
     '',
     url(r'^$', 'geography.views.home', name='home'),
-    url(r'^(about|view/\w+|u/\w+|practice/\w+)',
+    url(r'^(about|view/\w+|u/\w+|practice/\w+|test/)',
         'geography.views.home', name='home'),
 
 
