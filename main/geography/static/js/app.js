@@ -12,6 +12,7 @@
     'angulartics',
     'angulartics.google.analytics',
     'timer',
+    'ng-polymer-elements',
   ])
 
   .value('$', jQuery)

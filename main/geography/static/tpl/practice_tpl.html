@@ -1,7 +1,7 @@
 <div class="progress quesions-progress">
   <div class="progress-bar progress-bar-practice" style="width: {{progress}}%;"></div>
 </div>
-<div id="container" class="practice-container col-lg-8 col-lg-offset-2">
+<div id="container" class="practice-container col-lg-12">
   <div ng-hide="question || showSummary || error" class="loading-indicator">
   </div>
   <div ng-show="error" ng-bind="error" class="alert alert-danger">
@@ -13,20 +13,20 @@
     <div class="question">
       <div ng-bind="question.text|stripImg"></div>
     </div>
-    <div>
-      <button ng-repeat="option in question.options"
-        class="btn btn-lg btn-default option"
+    <paper-radio-group ng-model="question.correct" style="display:block">
+      <paper-radio-button name="{{$index}}" 
+        label="{{option.name | stripImg}}"
         ng-click="checkAnswer(option)"
+        ng-repeat="option in question.options"
         ng-class="{
-          'btn-success': option.correct,
-          'btn-danger': option.selected && !option.correct,
+          'correct': option.correct,
+          'wrong': option.selected && !option.correct,
           'block': !(option.name|imgSrc)
         }"
         ng-disabled="option.disabled">
-          <img ng-src="{{option.name|imgSrc}}" ng-if="option.name|imgSrc"//>
-          <span ng-bind="option.name|stripImg"></span>
-      </button>
-    </div>
+          <img ng-src="{{option.name|imgSrc}}" ng-if="option.name|imgSrc"/>
+      </paper-radio-button>
+    </paper-radio-group>
     <div class="pull-right" >
       <button class="btn btn-lg btn-default next {{!canNext || 'btn-primary'}}" 
               ng-click="next()" 

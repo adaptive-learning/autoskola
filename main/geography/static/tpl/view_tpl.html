@@ -98,13 +98,16 @@
              <div class="question-details" ng-if="question == selected"
                  ng-class="{'ng-leave' : question != selected}">
                 <img ng-src="{{question.text | imgSrc}}"/>
-                <div ng-repeat="option in question.options"
-                    ng-show="option"
-                    class="alert {{$index == question.correct &&
-                    'alert-success' || 'alert-danger'}}">
-                   {{option | stripImg}}
-                  <img ng-src="{{option.text | imgSrc}}"/>
-                </div>
+                <paper-radio-group ng-model="question.correct">
+                  <paper-radio-button name="{{$index}}" 
+                    label="{{(option | stripImg) || '\''}}"
+                    disabled
+                    ng-class="{'img-option': !(option | stripImg)}"
+                    ng-repeat="option in question.options"
+                    ng-show="option">
+                      <img ng-src="{{option | imgSrc}}"/>
+                  </paper-radio-button>
+                </paper-radio-group>
              </div>
              <material-divider></material-divider>
           </div>

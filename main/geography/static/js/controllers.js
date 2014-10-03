@@ -162,11 +162,17 @@
 
     $scope.prev = function() {
       $scope.activeQuestionIndex--;
+      if ($scope.activeQuestionIndex < 0) {
+        $scope.activeQuestionIndex = $scope.questions.length - 1;
+      }
       setQuestion();
     };
 
     $scope.next = function() {
       $scope.activeQuestionIndex++;
+      if ($scope.activeQuestionIndex > $scope.questions.length - 1) {
+        $scope.activeQuestionIndex = 0;
+      }
       setQuestion();
     };
 
@@ -195,10 +201,6 @@
 
     function setQuestion() {
       $scope.question = $scope.questions[$scope.activeQuestionIndex];
-      $scope.questions.map(function(q) {
-        q.slideOut = false;
-      });
-      $scope.question.slideOut = true;
     }
 
     function highlightOptions(selected) {

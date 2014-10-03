@@ -89,6 +89,7 @@ module.exports = function(grunt) {
           'geography/static/lib/js/angulartics.min.js',
           'geography/static/lib/js/angulartics-ga.min.js',
           'geography/static/lib/js/angular-timer.js',
+          'geography/static/lib/js/ng-polymer-elements.js',
           'geography/static/lib/angular-material/angular-material.js',
         ],
         dest: 'geography/static/dist/js/libs.min.js'
