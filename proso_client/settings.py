@@ -127,7 +127,7 @@ MIDDLEWARE_CLASSES = (
     'proso_client.middleware.AuthAlreadyAssociatedMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'proso_client.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
