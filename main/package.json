@@ -1,5 +1,5 @@
 {
-  "name": "blind-maps",
+  "name": "proso-apps-client",
   "version": "0.9.3",
   "devDependencies": {
     "grunt": "~0.4.4",

@@ -12,12 +12,12 @@ def home(request, hack=None):
     JS_FILES = (
         "static/dist/js/fallbacks.min.js",
         "static/dist/js/libs.min.js",
-        "static/dist/js/blind-maps.min.js",
+        "static/dist/js/proso-apps-client.min.js",
         "static/lib/angular-1.2.9/i18n/angular-locale_cs.js",
     )
     CSS_FILES = (
-        "static/lib/angular-material/angular-material.min.css",
-        "static/lib/css/bootstrap.min.css",
+        "static/bower_components/angular-material/angular-material.min.css",
+        "static/bower_components/bootstrap/dist/css/bootstrap.css",
         "static/css/app.css",
     )
     request.META["CSRF_COOKIE_USED"] = True

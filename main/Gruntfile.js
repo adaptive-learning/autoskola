@@ -78,7 +78,6 @@ module.exports = function(grunt) {
         src: [
         /*
           'proso_client/static/lib/angular-1.2.9/i18n/angular-locale_cs.js',
-          */
           'proso_client/static/lib/js/jquery-1.11.0.js',
           'proso_client/static/lib/angular-1.2.9/angular.js',
           'proso_client/static/lib/js/chroma.js',
@@ -91,6 +90,19 @@ module.exports = function(grunt) {
           'proso_client/static/lib/js/angular-timer.js',
           'proso_client/static/lib/js/ng-polymer-elements.js',
           'proso_client/static/lib/angular-material/angular-material.js',
+          */
+          'proso_client/static/bower_components/jquery/dist/jquery.js',
+          'proso_client/static/bower_components/angular/angular.js',
+          'proso_client/static/bower_components/chroma-js/chroma.js',
+          'proso_client/static/bower_components/bootstrap/dist/js/bootstrap.js',
+          'proso_client/static/bower_components/angular-route/angular-route.js',
+          'proso_client/static/bower_components/angular-cookies/angular-cookies.js',
+          'proso_client/static/bower_components/angular-animate/angular-animate.js',
+          'proso_client/static/bower_components/angulartics/dist/angulartics.min.js',
+          'proso_client/static/bower_components/angulartics/dist/angulartics-ga.min.js',
+          'proso_client/static/bower_components/angular-timer/dist/angular-timer.js',
+          'proso_client/static/bower_components/ng-polymer-elements/ng-polymer-elements.js',
+          'proso_client/static/bower_components/angular-material/angular-material.js',
         ],
         dest: 'proso_client/static/dist/js/libs.min.js'
       }

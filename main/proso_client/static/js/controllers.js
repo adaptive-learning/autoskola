@@ -3,8 +3,8 @@
   /* Controllers */
   angular.module('addaptivePractice.controllers', [])
 
-  .controller('AppCtrl', ['$scope', '$rootScope', 'user', 'pageTitle', '$filter', 'places',
-      function($scope, $rootScope, user, pageTitle, $filter, places) {
+  .controller('AppCtrl', ['$scope', '$rootScope', 'user', 'pageTitle',
+      function($scope, $rootScope, user, pageTitle) {
     $rootScope.topScope = $rootScope;
     
     $rootScope.initTitle = function (title) {
@@ -28,11 +28,6 @@
     $rootScope.logout = function() {
       $rootScope.user = user.logout(updateUser);
     };
-
-    places.getCategories().success(function(data) {
-      $rootScope.categories = data;
-    });
-
   }])
 
   .controller('AppView', ['$scope', '$routeParams', '$filter', 'places',
