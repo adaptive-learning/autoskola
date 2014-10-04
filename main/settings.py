@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import os
-import dj_database_url
 
 ON_PRODUCTION = False
 ON_STAGING = False
@@ -24,26 +23,16 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-if ON_PRODUCTION or ON_STAGING:
-    DATABASES = {
-        'default': dj_database_url.config(default=''),
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'proso_apps',
+        'USER': 'proso_apps',
+        'PASSWORD': 'proso_apps',
+        'HOST': 'localhost'
     }
-else:
-    if 'DRIVING_SCHOOL_DATABASE_USER' not in os.environ.keys():
-        raise Exception(
-            'The database connection is not set, you have to set\n'
-            '  "DRIVING_SCHOOL_DATABASE_USER" and "DRIVING_SCHOOL_DATABASE_PASSWORD" variables.'
-        )
-    DATABASES = {
-        'default': {
-            'ENGINE': os.getenv('DRIVING_SCHOOL_DATABASE_ENGINE', 'django.db.backends.mysql'),
-            'NAME': os.getenv('DRIVING_SCHOOL_DATABASE_NAME', 'drivingschool'),
-            'USER': os.environ['DRIVING_SCHOOL_DATABASE_USER'],
-            'PASSWORD': os.environ['DRIVING_SCHOOL_DATABASE_PASSWORD'],
-            'HOST': os.getenv('DRIVING_SCHOOL_DATABASE_HOST', 'localhost'),
-            'PORT': os.getenv('DRIVING_SCHOOL_DATABASE_PORT', None)
-        }
-    }
+}
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -134,8 +123,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'geography.middleware.SqldumpMiddleware',
-    'geography.middleware.AuthAlreadyAssociatedMiddleware',
+    'proso_client.middleware.SqldumpMiddleware',
+    'proso_client.middleware.AuthAlreadyAssociatedMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -161,7 +150,11 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'lazysignup',
-    'geography',
+    'proso_common',
+    'proso_models',
+    'proso_questions',
+    'proso_ab',
+    'proso_client',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -196,10 +189,10 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         },
-        'geography_file': {
+        'proso_client_file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(MEDIA_ROOT, 'geography.log'),
+            'filename': os.path.join(MEDIA_ROOT, 'proso_client.log'),
             'formatter': 'simple'
         },
         'proso_file': {
@@ -212,7 +205,7 @@ LOGGING = {
         'queries_file': {
             'level': ('DEBUG' if DEBUG else 'INFO'),
             'class': 'logging.FileHandler',
-            'filename': os.path.join(MEDIA_ROOT, 'geography_sql.log')
+            'filename': os.path.join(MEDIA_ROOT, 'proso_client_sql.log')
         }
     },
     'loggers': {
@@ -221,8 +214,8 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-        'geography': {
-            'handlers': ['geography_file'],
+        'proso_client': {
+            'handlers': ['proso_client_file'],
             'level': 'DEBUG',
             'propagate': True,
         },
@@ -295,3 +288,7 @@ except ImportError:
     HASHES = {}
 except SyntaxError:
     HASHES = {}
+
+PROSO_PREDICTIVE_MODEL = 'proso.models.prediction.PriorCurrentPredictiveModel'
+PROSO_ENVIRONMENT = 'proso_models.models.DatabaseEnvironment'
+PROSO_RECOMMENDATION = 'proso.models.recommendation.RandomRecommendation'

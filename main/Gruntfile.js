@@ -11,28 +11,28 @@ module.exports = function(grunt) {
       dist: {
           files: [{
             expand: true,
-            cwd: 'geography/static/sass',
+            cwd: 'proso_client/static/sass',
             src: ['*.sass'],
-            dest: 'geography/static/css',
+            dest: 'proso_client/static/css',
             ext: '.css'
           }]
       }
     },
     concat: {
       homepage: {
-        src: ['geography/static/tpl/homepage.html'],
+        src: ['proso_client/static/tpl/homepage.html'],
         dest: 'templates/generated/homepage.html',
       },
       app: {
         src: [
-          'geography/static/js/app.js',
-          'geography/static/js/controllers.js',
-          'geography/static/js/services.js',
-          'geography/static/js/filters.js',
-          'geography/static/js/directives.js',
-          'geography/static/dist/js/templates.js',
+          'proso_client/static/js/app.js',
+          'proso_client/static/js/controllers.js',
+          'proso_client/static/js/services.js',
+          'proso_client/static/js/filters.js',
+          'proso_client/static/js/directives.js',
+          'proso_client/static/dist/js/templates.js',
         ],
-        dest: 'geography/static/dist/js/<%= pkg.name %>.min.js'
+        dest: 'proso_client/static/dist/js/<%= pkg.name %>.min.js'
       },
     },
     shell: { 
@@ -42,11 +42,11 @@ module.exports = function(grunt) {
     },
     ngtemplates:    {
       addaptivePractice:          {
-        cwd: 'geography',
+        cwd: 'proso_client',
         src: [
           'static/tpl/*.html',
         ],
-        dest: 'geography/static/dist/js/templates.js',
+        dest: 'proso_client/static/dist/js/templates.js',
         options:    {
           htmlmin:  { collapseWhitespace: true, collapseBooleanAttributes: true }
         }
@@ -59,40 +59,40 @@ module.exports = function(grunt) {
       },
       app: {
         src: [
-          'geography/static/js/app.js',
-          'geography/static/js/controllers.js',
-          'geography/static/js/services.js',
-          'geography/static/js/filters.js',
-          'geography/static/js/directives.js',
-          'geography/static/dist/js/templates.js',
+          'proso_client/static/js/app.js',
+          'proso_client/static/js/controllers.js',
+          'proso_client/static/js/services.js',
+          'proso_client/static/js/filters.js',
+          'proso_client/static/js/directives.js',
+          'proso_client/static/dist/js/templates.js',
         ],
-        dest: 'geography/static/dist/js/<%= pkg.name %>.min.js'
+        dest: 'proso_client/static/dist/js/<%= pkg.name %>.min.js'
       },
       fallbacks: {
         src: [
-          'geography/static/lib/js/fallbacks.js',
+          'proso_client/static/lib/js/fallbacks.js',
         ],
-        dest: 'geography/static/dist/js/fallbacks.min.js'
+        dest: 'proso_client/static/dist/js/fallbacks.min.js'
       },
       libs: {
         src: [
         /*
-          'geography/static/lib/angular-1.2.9/i18n/angular-locale_cs.js',
+          'proso_client/static/lib/angular-1.2.9/i18n/angular-locale_cs.js',
           */
-          'geography/static/lib/js/jquery-1.11.0.js',
-          'geography/static/lib/angular-1.2.9/angular.js',
-          'geography/static/lib/js/chroma.js',
-          'geography/static/lib/js/bootstrap.js',
-          'geography/static/lib/angular-1.2.9/angular-route.js',
-          'geography/static/lib/angular-1.2.9/angular-cookies.js',
-          'geography/static/lib/angular-1.2.9/angular-animate.js',
-          'geography/static/lib/js/angulartics.min.js',
-          'geography/static/lib/js/angulartics-ga.min.js',
-          'geography/static/lib/js/angular-timer.js',
-          'geography/static/lib/js/ng-polymer-elements.js',
-          'geography/static/lib/angular-material/angular-material.js',
+          'proso_client/static/lib/js/jquery-1.11.0.js',
+          'proso_client/static/lib/angular-1.2.9/angular.js',
+          'proso_client/static/lib/js/chroma.js',
+          'proso_client/static/lib/js/bootstrap.js',
+          'proso_client/static/lib/angular-1.2.9/angular-route.js',
+          'proso_client/static/lib/angular-1.2.9/angular-cookies.js',
+          'proso_client/static/lib/angular-1.2.9/angular-animate.js',
+          'proso_client/static/lib/js/angulartics.min.js',
+          'proso_client/static/lib/js/angulartics-ga.min.js',
+          'proso_client/static/lib/js/angular-timer.js',
+          'proso_client/static/lib/js/ng-polymer-elements.js',
+          'proso_client/static/lib/angular-material/angular-material.js',
         ],
-        dest: 'geography/static/dist/js/libs.min.js'
+        dest: 'proso_client/static/dist/js/libs.min.js'
       }
     },
     jshint: {
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
           "maxlen": 110
       },
       build: {
-        src: 'geography/static/js/',
+        src: 'proso_client/static/js/',
       }
     },
     watch: {
@@ -119,35 +119,35 @@ module.exports = function(grunt) {
         interrupt: true,
       },
       styles: {
-        files: ['geography/static/sass/*.sass'],
+        files: ['proso_client/static/sass/*.sass'],
         tasks: ['styles'],
       },
       jstpl: {
-        files: ['geography/static//jstpl/*.js'],
+        files: ['proso_client/static//jstpl/*.js'],
         tasks: ['string-replace'],
       },
       templates: {
-        files: ['geography/static/tpl/*.html'],
+        files: ['proso_client/static/tpl/*.html'],
         tasks: ['templates', 'concat:app'],
       },
       jsapp: {
-        files: ['geography/static/js/*.js'],
+        files: ['proso_client/static/js/*.js'],
         tasks: ['concat:app'],
       },
       jslibs: {
-        files: ['geography/static/lib/js/*.js', 'geography/static/lib/angular-1.2.9/*.js'],
+        files: ['proso_client/static/lib/js/*.js', 'proso_client/static/lib/angular-1.2.9/*.js'],
         tasks: ['uglify:libs'],
       },
     },
     rename: {
         moveAboveFoldCss: {
-            src: 'geography/static/css/above-fold.css',
+            src: 'proso_client/static/css/above-fold.css',
             dest: 'templates/generated/above-fold.css'
         },
     },
     protractor: {
       options: {
-        configFile: "geography/static/test/spec.js", // Default config file
+        configFile: "proso_client/static/test/spec.js", // Default config file
         keepAlive: true, // If false, the grunt process stops when the test fails.
         noColor: false, // If true, protractor will not use colors in its output.
         args: {

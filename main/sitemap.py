@@ -1,25 +1,10 @@
 from django.contrib.sitemaps import Sitemap
-from geography.models import Place
 from django.core.urlresolvers import reverse
 
 
 class MapSitemap(Sitemap):
     def location(self, item):
         return '/#/view/' + item.code + '/'
-
-
-class ContinentsSitemap(MapSitemap):
-    priority = 0.5
-
-    def items(self):
-        return Place.objects.get_continents()
-
-
-class StatesSitemap(MapSitemap):
-    priority = 0.3
-
-    def items(self):
-        return Place.objects.get_states_with_map()
 
 
 class FlatPages(Sitemap):
@@ -41,6 +26,4 @@ class FlatPages(Sitemap):
 
 sitemaps = {
     'flatpages': FlatPages,
-    'continents': ContinentsSitemap,
-    'states': StatesSitemap,
 }
