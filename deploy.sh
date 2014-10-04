@@ -15,13 +15,11 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 # reset the application
 ###############################################################################
 
-	cd $APP_DIR
 	echo " * npm install"
     npm install
 	echo " * grunt deploy"
 	grunt deploy
 
-	cd ..
 
 	echo " * collect static"
 	$APP_DIR/manage.py collectstatic --noinput
