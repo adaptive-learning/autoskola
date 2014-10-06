@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     concat: {
       homepage: {
         src: ['proso_client/static/tpl/homepage.html'],
-        dest: 'templates/generated/homepage.html',
+        dest: 'proso_client/templates/generated/homepage.html',
       },
       app: {
         src: [
@@ -154,7 +154,7 @@ module.exports = function(grunt) {
     rename: {
         moveAboveFoldCss: {
             src: 'proso_client/static/css/above-fold.css',
-            dest: 'templates/generated/above-fold.css'
+            dest: 'proso_client/templates/generated/above-fold.css'
         },
     },
     protractor: {
