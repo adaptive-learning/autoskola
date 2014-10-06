@@ -27,14 +27,12 @@
       templateUrl : '../templates/home/how_it_works.html'
     }).when('/about', {
       templateUrl : 'static/tpl/about.html'
-    }).when('/view/:part?', {
+    }).when('/view/:category?', {
       controller : 'AppView',
       templateUrl : 'static/tpl/view_tpl.html'
-    }).when('/practice/', {
-      redirectTo : '/practice/0/'
-    }).when('/refreshpractice/:part/:place_type?', {
-      redirectTo : '/practice/:part/:place_type'
-    }).when('/practice/:part/:place_type?', {
+    }).when('/refreshpractice/:category?', {
+      redirectTo : '/practice/:category'
+    }).when('/practice/:category?', {
       controller : 'AppPractice',
       templateUrl : 'static/tpl/practice_tpl.html'
     }).when('/test/', {

@@ -33,7 +33,7 @@
   .controller('AppView', ['$scope', '$routeParams', '$filter', 'places',
       function($scope, $routeParams, $filter, places) {
     $scope.limit = 20;
-    $scope.category = $routeParams.part;
+    $scope.category = $routeParams.category;
     
     $scope.onBottomReached = function() {
       $scope.limit += 20;
@@ -65,7 +65,7 @@
       'question', 'user', 'events',
       function($scope, $routeParams, $timeout, $filter,
       question, user, events) {
-    $scope.part = $routeParams.part;
+    $scope.category = $routeParams.category;
     $scope.placeType = $routeParams.place_type;
 
     $scope.checkAnswer = function(selected) {
@@ -86,7 +86,7 @@
 
     $scope.next = function() {
       if ($scope.progress < 100) {
-        question.next($scope.part, $routeParams.place_type, setQuestion);
+        question.next($scope.category, $routeParams.place_type, setQuestion);
       } else {
         setupSummary();
       }
@@ -115,7 +115,7 @@
       });
     }
 
-    question.first($scope.part, $routeParams.place_type, function(q) {
+    question.first($scope.category, $routeParams.place_type, function(q) {
       setQuestion(q);
     }).error(function(){
       $scope.error = "V aplikaci bohužel nastala chyba.";

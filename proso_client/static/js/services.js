@@ -139,7 +139,7 @@
         return promise;
       },
       first : function(part, placeType, fn) {
-        url = 'questions/practice/' + part + '/' + (placeType ? placeType : '');
+        url = 'questions/practice/10' + (part ? '?category=' + part : '');
         summary = [];
         var promise = $http.get(url).success(function(data) {
           qIndex = 0;
@@ -185,7 +185,7 @@
       },
       summary : function() {
         var correctlyAnswered = summary.filter(function(q) {
-            return q.options[q.answered].isCorrect;
+            return q.options[q.answered].correct;
           });
         return {
           correctlyAnsweredRatio : correctlyAnswered.length / summary.length,
