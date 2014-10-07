@@ -14,5 +14,5 @@ Geography.egg-info
 .django_cache
 .ropeproject
 node_modules
-main/templates/generated
-main/geography/static/css
+templates/generated
+proso_client/static/css
