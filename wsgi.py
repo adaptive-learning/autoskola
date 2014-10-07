@@ -11,7 +11,7 @@ class WSGIEnvironment(WSGIHandler):
         for k, v in environ.iteritems():
             if isinstance(k, str) and k.startswith('GEOGRAPHY'):
                 os.environ[k] = v
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+        os.environ['DJANGO_SETTINGS_MODULE'] = 'proso_client.settings'
         return super(WSGIEnvironment, self).__call__(environ, start_response)
 
 
