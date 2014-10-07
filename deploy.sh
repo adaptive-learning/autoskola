@@ -25,12 +25,6 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 	$APP_DIR/manage.py collectstatic --noinput
 	echo "HASHES = $( python $APP_DIR/manage.py static_hashes )" > $APP_DIR/hashes.py
 
-	echo " * migrate"
-	$APP_DIR/manage.py migrate geography --delete-ghost-migrations --traceback
-	echo " * load custom SQLs"
-	$APP_DIR/manage.py sqlcustom geography | $APP_DIR/manage.py dbshell
-	echo " * derive knowledge data"
-	$APP_DIR/manage.py derived_knowledge_data
 	echo " * remove django cache"
 	rm -rf $DATA_DIR/.django_cache
 
