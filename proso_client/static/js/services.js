@@ -108,8 +108,8 @@
     return that;
   }])
 
-  .service('question', ['$http', '$log', '$cookies', '$',
-      function($http, $log, $cookies, $) {
+  .service('question', ['$http', '$log', '$cookies', '$', '$routeParams',
+      function($http, $log, $cookies, $, $routeParams) {
     var qIndex = 0;
     var url;
     $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -139,7 +139,8 @@
         return promise;
       },
       first : function(part, placeType, fn) {
-        url = 'questions/practice/10' + (part ? '?category=' + part : '');
+        var setLength = $routeParams.setLength || 10;
+        url = 'questions/practice/' + setLength + (part ? '?category=' + part : '');
         summary = [];
         var promise = $http.get(url).success(function(data) {
           qIndex = 0;
@@ -156,7 +157,7 @@
         question.index = qIndex - 1;
         var postParams = $.param({
           question : question.id,
-          answered : question.answered,
+          answered : question.answered.order,
           response_time : question.response_time,
         });
         summary.push(question);
@@ -185,7 +186,7 @@
       },
       summary : function() {
         var correctlyAnswered = summary.filter(function(q) {
-            return q.options[q.answered].correct;
+            return q.answered.correct;
           });
         return {
           correctlyAnsweredRatio : correctlyAnswered.length / summary.length,

@@ -71,7 +71,7 @@
     $scope.checkAnswer = function(selected) {
       highlightOptions(selected);
       if (selected) {
-        $scope.question.answered = selected.order;
+        $scope.question.answered = selected;
       }
       $scope.progress = question.answer($scope.question);
       if (selected &&  selected.correct) {
@@ -107,9 +107,7 @@
 
     function highlightOptions(selected) {
       $scope.question.options.map(function(o) {
-        if (!$scope.question.isTest) {
-          o.disabled = true;
-        }
+        o.disabled = true;
         o.selected = o == selected;
         return o;
       });
@@ -128,7 +126,7 @@
     $scope.checkAnswer = function(selected) {
       highlightOptions(selected);
       if (selected) {
-        $scope.question.answered = selected.order;
+        $scope.question.answered = selected;
       }
       $timeout(function() {
         $scope.next();
@@ -160,7 +158,7 @@
       $scope.activeQuestionIndex = undefined;
       $scope.showSummary = true;
       $scope.questions.map(function(q) {
-        q.isCorrect = q.options[q.answered] && q.options[q.answered].correct;
+        q.isCorrect = q.options[q.answered.order] && q.options[q.answered.order].correct;
         q.isWrong = !q.isCorrect;
       });
       $scope.summary = {
