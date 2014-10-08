@@ -9,7 +9,7 @@ sys.path.append(DIRNAME)
 class WSGIEnvironment(WSGIHandler):
     def __call__(self, environ, start_response):
         for k, v in environ.iteritems():
-            if isinstance(k, str) and k.startswith('GEOGRAPHY'):
+            if isinstance(k, str) and k.startswith('DRIVING_SCHOOL'):
                 os.environ[k] = v
         os.environ['DJANGO_SETTINGS_MODULE'] = 'proso_client.settings'
         return super(WSGIEnvironment, self).__call__(environ, start_response)
