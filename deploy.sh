@@ -21,8 +21,8 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 	grunt deploy
 
 
-	echo " * collect static"
-	$APP_DIR/manage.py collectstatic --noinput
+	echo " * collect static | tail"
+	$APP_DIR/manage.py collectstatic --noinput | tail
 	echo "HASHES = $( python $APP_DIR/manage.py static_hashes )" > $APP_DIR/hashes.py
 
 	echo " * remove django cache"
