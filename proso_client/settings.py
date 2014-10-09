@@ -237,6 +237,12 @@ if DEBUG:
         if logger != 'django.db':
             LOGGING['loggers'][logger]['handlers'].append('console')
 
+if DEBUG:
+    INSTALLED_APPS += ('debug_toolbar',)
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    if 'DRIVING_SCHOOL_ON_STAGING' in os.environ:
+        DEBUG_TOOLBAR_PATCH_SETTINGS = False
+
 FACEBOOK_APP_ID = os.getenv('DRIVING_SCHOOL_FACEBOOK_APP_ID', '')
 FACEBOOK_API_SECRET = os.getenv('DRIVING_SCHOOL_FACEBOOK_API_SECRET', '')
 GOOGLE_OAUTH2_CLIENT_KEY = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_KEY', '')
