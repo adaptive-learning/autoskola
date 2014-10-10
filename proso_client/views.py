@@ -33,7 +33,7 @@ def home(request, hack=None):
                   if "/lib/" not in key and "/js/" not in key and "/sass/" not in key
                   )
     c = {
-        'title': title + 'Autoskola Chytře - testy z autoškoly na míru',
+        'title': title + 'Autoškola Chytře - testy z autoškoly na míru',
         'isProduction': settings.ON_PRODUCTION,
         'css_files': StaticFiles.add_hash(CSS_FILES),
         'js_files': StaticFiles.add_hash(JS_FILES),
