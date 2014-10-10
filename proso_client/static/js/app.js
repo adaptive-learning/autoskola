@@ -9,6 +9,7 @@
     'addaptivePractice.controllers',
     'ngRoute',
     'ngAnimate',
+    'ngSanitize',
     'angulartics',
     'angulartics.google.analytics',
     'timer',

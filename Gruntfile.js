@@ -98,6 +98,7 @@ module.exports = function(grunt) {
           'proso_client/static/bower_components/angular-route/angular-route.js',
           'proso_client/static/bower_components/angular-cookies/angular-cookies.js',
           'proso_client/static/bower_components/angular-animate/angular-animate.js',
+          'proso_client/static/bower_components/angular-sanitize/angular-sanitize.js',
           'proso_client/static/bower_components/angulartics/dist/angulartics.min.js',
           'proso_client/static/bower_components/angulartics/dist/angulartics-ga.min.js',
           'proso_client/static/bower_components/angular-timer/dist/angular-timer.js',
