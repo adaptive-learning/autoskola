@@ -9,7 +9,7 @@ sqlite3.db
 .sass-cache
 .settings
 *.log
-dist
+proso_client/static/dist
 Geography.egg-info
 .django_cache
 .ropeproject
