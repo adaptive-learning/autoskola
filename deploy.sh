@@ -15,6 +15,8 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 # reset the application
 ###############################################################################
 
+  cd $WORKSPACE_DIR
+
 	echo " * npm install"
     npm install
 	echo " * grunt deploy"
