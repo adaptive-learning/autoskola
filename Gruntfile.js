@@ -102,6 +102,7 @@ module.exports = function(grunt) {
           'proso_client/static/bower_components/angulartics/dist/angulartics.min.js',
           'proso_client/static/bower_components/angulartics/dist/angulartics-ga.min.js',
           'proso_client/static/bower_components/angular-timer/dist/angular-timer.js',
+          'proso_client/static/bower_components/platform/platform.js',
           'proso_client/static/bower_components/ng-polymer-elements/ng-polymer-elements.js',
           'proso_client/static/bower_components/angular-material/angular-material.js',
         ],
