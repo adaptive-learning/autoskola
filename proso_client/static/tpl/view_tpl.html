@@ -90,7 +90,7 @@
                   style="background-color: {{question.prediction|probColor}};" ></i>
                   {{(10 * question.prediction) | number : 0 }} / 10
                 </span>
-                <span class="inline-question" ng-bind-html="question.html"></span>
+                <span class="inline-question" ng-bind="question.html|stripHtml"></span>
              </div>
              <div class="question-details" ng-if="question == selected"
                  ng-class="{'ng-leave' : question != selected}">

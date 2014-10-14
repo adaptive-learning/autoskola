@@ -40,7 +40,7 @@ def home(request, hack=None):
         'hashes': json.dumps(hashes),
         'user': get_user(request),
         'isHomepage': hack is None,
-        'categories': Category.objects.all(),
+        'categories': Category.objects.all().order_by('id'),
     }
     c.update(csrf(request))
     return render_to_response('home.html', c)

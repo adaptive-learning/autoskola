@@ -64,9 +64,8 @@
 
   .filter('imgSrc', function() {
     return function(option) {
-      var match = option && option.text && option.text.match(/\!\[Image\]\((.*)\)/);
-      var fileName = match && match[1];
-      return fileName ? '/media/image/' + fileName : fileName;
+      var src = option && option.images && option.images[0] && option.images[0].url;
+      return src;
     };
   })
 
@@ -76,6 +75,11 @@
     };
   })
 
+  .filter('stripHtml', function() {
+    return function(html) {
+      return html.replace(/(<([^>]+)>)/ig,"");
+    };
+  })
 
   .filter('isTypeCategory', function() {
     return function(types, category) {
