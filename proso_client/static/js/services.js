@@ -163,7 +163,7 @@
         question.index = qIndex - 1;
         var postParams = $.param({
           question : question.id,
-          answered : question.answered.order,
+          answered : question.answered.id,
           response_time : question.response_time,
         });
         summary.push(question);
