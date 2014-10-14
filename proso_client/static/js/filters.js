@@ -66,7 +66,7 @@
     return function(option) {
       var match = option && option.text && option.text.match(/\!\[Image\]\((.*)\)/);
       var fileName = match && match[1];
-      return fileName ? '/static/img/questions/' + fileName : fileName;
+      return fileName ? '/media/image/' + fileName : fileName;
     };
   })
 
