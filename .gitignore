@@ -1,5 +1,5 @@
 *.py[co]
-*.sw[po]
+*.sw[pon]
 *.bak
 *.orig
 *~
@@ -14,5 +14,6 @@ Geography.egg-info
 .django_cache
 .ropeproject
 node_modules
-templates/generated
+proso_client/templates/generated
 proso_client/static/css
+image/*
