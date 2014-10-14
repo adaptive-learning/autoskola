@@ -1,7 +1,5 @@
 <div id="container" infinite-scroll="onBottomReached()" threshold="100"
-  can-load="true">
-  <div ng-hide="questions || error" class="loading-indicator">
-  </div>
+  can-load="hasMoreQuestions">
   <div ng-show="error" ng-bind="error" class="alert alert-danger">
   </div>
   <ul ng-show="questions.length"
@@ -81,9 +79,7 @@
           <div ng-hide="questions.length" class="alert alert-info">
             Zde zatím nebylo nic procvičováno.
           </div>
-          <div ng-repeat="question in questions |
-            limitTo : limit"
-                >
+          <div ng-repeat="question in questions" >
               <div class="questions-item" ng-click="selectQuestion(question)">
                 <span class="badge badge-default" title="Odhad znalosti">
                   <i class="color-indicator" 
@@ -111,7 +107,7 @@
           </div>
           <br>
           <div ng-click="onBottomReached()"
-            ng-show="limit < (type.places | filter:{displayed:true}).length"
+            ng-show="hasMoreQuestions && !loading"
             class="btn btn-default btn-block">
             Další otázky
           </div>
@@ -120,5 +116,7 @@
       </li>
     </div>
   </ul>
+  <div ng-show="loading" class="loading-indicator">
+  </div>
   <div class="clearfix"></div>
 </div>

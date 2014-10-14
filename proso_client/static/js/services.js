@@ -29,7 +29,7 @@
   }])
 
 
-  .factory('places', ['$http', function($http) {
+  .factory('places', ['$http', '$routeParams', function($http, $routeParams) {
     var cache = {};
     var mapCache = {};
     var categoriesCache = {};
@@ -50,12 +50,20 @@
     }
     
     var that = {
-      get : function(category) {
-        var url = 'questions/questions/?stats=true';
+      get : function(category, page) {
+        var url = 'questions/questions/';
+        var options = {
+          params : {
+            stats : true,
+            page : page,
+            limit : $routeParams.limit || 20,
+          }
+        };
         if (category) {
-          url += '&filter_column=category_id&filter_value=' + category;
+          options.params.filter_column = 'category_id';
+          options.params.filter_value = category;
         }
-        var promise = $http.get(url);
+        var promise = $http.get(url, options);
         return promise;
       },
       setName : function(code, name) {

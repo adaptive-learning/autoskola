@@ -32,29 +32,41 @@
 
   .controller('AppView', ['$scope', '$routeParams', '$filter', 'places',
       function($scope, $routeParams, $filter, places) {
-    $scope.limit = 20;
     $scope.category = $routeParams.category;
+    $scope.page = 0;
+    $scope.questions = [];
     
     $scope.onBottomReached = function() {
-      $scope.limit += 20;
+      loadQuestions();
     };
 
-    places.get($scope.category).
-      error(function(){
-        $scope.error = "V aplikaci bohužel nastala chyba.";
-      }).
-      success(function(data) {
-        var questions = data.data;
-        questions = questions.map(function(question) {
-          for (var i = 0; i < question.options.length; i++) {
-            if (question.options[i].correct) {
-              question.correct = question.options[i].order;
+    function loadQuestions() {
+      if ($scope.loading) {
+        return;
+      }
+      $scope.loading = true;
+      places.get($scope.category, $scope.page).
+        error(function(){
+          $scope.error = "V aplikaci bohužel nastala chyba.";
+          $scope.loading = false;
+        }).
+        success(function(data) {
+          var questions = data.data;
+          questions = questions.map(function(question) {
+            for (var i = 0; i < question.options.length; i++) {
+              if (question.options[i].correct) {
+                question.correct = question.options[i].order;
+              }
             }
-          }
-          return question;
+            return question;
+          });
+          $scope.questions = $scope.questions.concat(questions);
+          $scope.loading = false;
+          $scope.hasMoreQuestions = questions.length > 0;
         });
-        $scope.questions = questions;
-      });
+      $scope.page++;
+    }
+    loadQuestions();
 
     $scope.selectQuestion = function(q) {
       $scope.selected = q != $scope.selected ? q : undefined;
