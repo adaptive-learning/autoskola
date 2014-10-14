@@ -138,18 +138,24 @@
         });
         return promise;
       },
-      first : function(part, placeType, fn) {
-        var setLength = $routeParams.setLength || 10;
-        url = 'questions/practice/' + setLength + (part ? '?category=' + part : '');
+      first : function(part, fn) {
+        var options = {
+          params : {
+            limit : $routeParams.limit,
+            user : $routeParams.user,
+            category : part,
+          }
+        };
+        url = 'questions/practice';
         summary = [];
-        var promise = $http.get(url).success(function(data) {
+        var promise = $http.get(url, options).success(function(data) {
           qIndex = 0;
-          questions = data;
+          questions = data.data;
           returnQuestion(fn);
         });
         return promise;
       },
-      next : function(part, placeType, fn) {
+      next : function(part, fn) {
         returnQuestion(fn);
       },
       answer : function(question) {
