@@ -43,7 +43,8 @@
       error(function(){
         $scope.error = "V aplikaci bohužel nastala chyba.";
       }).
-      success(function(questions) {
+      success(function(data) {
+        var questions = data.data;
         questions = questions.map(function(question) {
           for (var i = 0; i < question.options.length; i++) {
             if (question.options[i].correct) {
