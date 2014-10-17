@@ -12,7 +12,7 @@ from sitemap import sitemaps
 urlpatterns = patterns(
     '',
     url(r'^$', 'proso_client.views.home', name='home'),
-    url(r'^(about|view/\w*|u/\w+|practice/\w*|test/)',
+    url(r'^(how-it-works|about|view/\w*|u/\w+|practice/\w*|test/)',
         'proso_client.views.home', name='home'),
 
     url(r'^media/(?P<path>image/.*)$', 'django.views.static.serve', {

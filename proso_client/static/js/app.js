@@ -25,7 +25,7 @@
       controller : 'ReloadController',
       templateUrl : 'loading.html'
     }).when('/how-it-works', {
-      templateUrl : '../templates/home/how_it_works.html'
+      templateUrl : 'static/tpl/homepage.html'
     }).when('/about', {
       templateUrl : 'static/tpl/about.html'
     }).when('/view/:category?', {

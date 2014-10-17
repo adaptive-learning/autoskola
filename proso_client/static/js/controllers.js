@@ -15,6 +15,7 @@
     $rootScope.$on("$routeChangeStart", function(event, next) {
       $rootScope.title = pageTitle(next) + $rootScope.initialTitle;
       $rootScope.isHomepage = !next.templateUrl;
+      $rootScope.isHowItWorks = next.templateUrl == 'static/tpl/homepage.html';
     });
     
     var updateUser = function(data) {
