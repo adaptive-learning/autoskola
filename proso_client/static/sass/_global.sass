@@ -42,14 +42,6 @@ ul.dropdown-menu.login
   .map-container
     background: url(../img/flower_bg.jpg) bottom right
 
-.loading-indicator
-  background: url(../img/ajax-loader.gif) no-repeat center
-  min-height: 128px
-  width: 100%
-  height: 100%
-  margin-top: 30px
-  margin-bottom: 60px
-
 .view-places
   margin: 10px
 
@@ -124,3 +116,73 @@ pre
     color: magenta
   .key
     color: red
+
+.loading-indicator
+  text-align: center
+  min-height: 60px
+  width: 100%
+  height: 100%
+  margin-top: 20px
+  margin-bottom: 20px
+
+
+$offset: 187
+$duration: 1.4s
+
+.spinner
+  -webkit-animation: rotator $duration linear infinite
+  animation: rotator $duration linear infinite
+
+@-webkit-keyframes rotator
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(270deg)
+    transform: rotate(270deg)
+
+
+@keyframes rotator
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+  100%
+    -webkit-transform: rotate(270deg)
+    transform: rotate(270deg)
+
+
+.path
+  stroke-dasharray: $offset
+  stroke-dashoffset: 0
+  -webkit-transform-origin: center
+  -ms-transform-origin: center
+  transform-origin: center
+  -webkit-animation: dash $duration ease-in-out infinite
+  animation: dash $duration ease-in-out infinite
+  stroke: $main-color
+
+
+@-webkit-keyframes dash
+  0%
+    stroke-dashoffset: $offset
+  50%
+    stroke-dashoffset: $offset/4
+    -webkit-transform: rotate(135deg)
+    transform: rotate(135deg)
+  100%
+    stroke-dashoffset: $offset
+    -webkit-transform: rotate(450deg)
+    transform: rotate(450deg)
+
+
+@keyframes dash
+  0%
+    stroke-dashoffset: $offset
+  50%
+    stroke-dashoffset: $offset/4
+    -webkit-transform: rotate(135deg)
+    transform: rotate(135deg)
+  100%
+    stroke-dashoffset: $offset
+    -webkit-transform: rotate(450deg)
+    transform: rotate(450deg)
