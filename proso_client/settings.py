@@ -245,8 +245,6 @@ if DEBUG:
 
 FACEBOOK_APP_ID = os.getenv('DRIVING_SCHOOL_FACEBOOK_APP_ID', '')
 FACEBOOK_API_SECRET = os.getenv('DRIVING_SCHOOL_FACEBOOK_API_SECRET', '')
-GOOGLE_OAUTH2_CLIENT_KEY = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_KEY', '')
-GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_SECRET', '')
 SOCIAL_AUTH_CREATE_USERS = True
 SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
 SOCIAL_AUTH_DEFAULT_USERNAME = 'socialauth_user'
@@ -256,11 +254,14 @@ SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 GOOGLE_OAUTH2_CLIENT_ID = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_ID', '')
 GOOGLE_OAUTH2_CLIENT_SECRET = os.getenv('DRIVING_SCHOOL_GOOGLE_OAUTH2_CLIENT_SECRET', '')
 
+# http://stackoverflow.com/questions/22005841/is-not-json-serializable-django-social-auth-facebook-login
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'lazysignup.backends.LazySignupBackend',
     'social_auth.backends.facebook.FacebookBackend',
-    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
 )
 
 ALLOWED_HOSTS = [
