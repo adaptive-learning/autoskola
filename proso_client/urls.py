@@ -28,4 +28,5 @@ urlpatterns = patterns(
     url(r'^favicon\.ico$', RedirectView.as_view(url='static/img/favicon.png')),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^robots\.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: ", mimetype="text/plain")),
+    url(r'^user/logout/$', 'proso_client.views.logout_view', name='logout'),
 )

@@ -40,34 +40,6 @@
           ...
             <ul class="nav ng-cloak navbar-nav pull-right"
                 ng-init="initUser('{{user.username}}',0)">
-                <li class="dropdown" ng-show="user.username === ''" >
-                  <a href="" 
-                     role="button" 
-                     class="dropdown-toggle atooltip drop-login"
-                     title="Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše znalosti pamatoval i příště."
-                     data-toggle="dropdown">
-                    Přihlásit se <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu login" role="menu" aria-labelledby="drop-login">
-                    <li>
-                      <a class="btn btn-danger btn-lg btn-block" href="/login/google/">
-                        <i class="social-google"></i> přes Google
-                      </a>
-                    </li>
-                    <li>
-                      <a class="btn btn-primary btn-lg btn-block" href="/login/facebook/">
-                        <i class="social-facebook"></i> přes Facebook
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="dropdown" ng-show="user.username !== ''">
-                  <a id="drop1" href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i> <span ng-bind="user.username"></span> <b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                    <li class="forgot-pwd"><a href="#/" ng-click="logout()"><i class="glyphicon glyphicon-log-out"></i> Odhlásit se</a></li>
-                  </ul>
-                </li>
             </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
@@ -77,16 +49,53 @@
       <material-toolbar class="material-theme-dark material-whiteframe-z1">
         <h1 class="material-toolbar-tools">
           <span ng-show="isHomepage" class="dropdown">
-          <i class="glyphicon glyphicon-th-list dropdown-toggle" 
-            id="dropdownMenu1" data-toggle="dropdown">
-            </i>
+            <i class="glyphicon glyphicon-th-list dropdown-toggle" 
+                id="dropdownMenu1" data-toggle="dropdown">
+              </i>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-              <li class="forgot-pwd" ng-if="user.usename !== ''"><a href="#/" ng-click="logout()">Odhlásit se</a></li>
+              <li>
+                <a href="#/how-it-works" >Jak to funguje</a>
+              </li>
             </ul>
           </span>
           <i onclick="history.back()" ng-hide="isHomepage"
             class="glyphicon glyphicon-chevron-left ng-cloak"></i>
           <a class="navbar-brand" href="#">Autoškola chytře</a>
+            <i class="dropdown pull-right ng-cloak" ng-show="user.username === ''" >
+              <a href="" 
+                 role="button" 
+                 class="dropdown-toggle atooltip drop-login"
+                 title="Přihlašte se jednoduše přes Google nebo Facebook, aby si systém váše znalosti pamatoval i příště."
+                 data-toggle="dropdown">
+                 <i class="glyphicon glyphicon-log-in"></i>
+              </a>
+              <ul class="dropdown-menu login" role="menu" aria-labelledby="drop-login">
+                <li class="dropdown-header">
+                  <span>Přihlásit se</span>
+                </li>
+                <li>
+                  <a class="btn btn-danger btn-lg btn-block" href="/login/google-oauth2/">
+                    <i class="social-google"></i> přes Google
+                  </a>
+                </li>
+                <li>
+                  <a class="btn btn-primary btn-lg btn-block" href="/login/facebook/">
+                    <i class="social-facebook"></i> přes Facebook
+                  </a>
+                </li>
+              </ul>
+            </i>
+            <i class="dropdown pull-right ng-cloak" ng-show="user.username !== ''">
+              <a id="drop1" href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                 <i class="glyphicon glyphicon-user"></i>
+               </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                <li class="dropdown-header">
+                  <span ng-bind="user.username"></span>
+                </li>
+                <li class="forgot-pwd"><a href="#/" ng-click="logout()"><i class="glyphicon glyphicon-log-out"></i> Odhlásit se</a></li>
+              </ul>
+            </i>
         </h1>
       </material-toolbar>
         <div>

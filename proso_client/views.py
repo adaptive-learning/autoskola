@@ -5,6 +5,8 @@ from django.shortcuts import render_to_response
 from proso_client.utils import StaticFiles
 from proso_client.utils import get_user
 from proso_questions.models import Category
+from django.contrib.auth import logout
+from django.http import HttpResponse
 import json
 
 
@@ -44,3 +46,8 @@ def home(request, hack=None):
     }
     c.update(csrf(request))
     return render_to_response('home.html', c)
+
+
+def logout_view(request):
+    logout(request)
+    return HttpResponse('{"username":""}')
