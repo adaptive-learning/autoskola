@@ -97,13 +97,14 @@ img
   max-width: 100%
 
 .btn-primary
-  background-color: #009688
-  border-color: #00897b
+  background-color: $main-color
+  border-color: darken($main-color, 3)
   &:hover
-    background-color: #00796b
+    background-color: darken($main-color, 5) 
+    border-color: darken($main-color, 8)
 
 .progress-bar-success
-  background-color: #12c700
+  background-color: $correct-color
 
 pre
   .string

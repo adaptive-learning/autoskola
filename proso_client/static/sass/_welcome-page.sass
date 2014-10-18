@@ -1,5 +1,6 @@
-$main-color: #009688
-$main-color-darken: #004d40
+@if not variable-exists(main-color) 
+  $main-color: #009688 !global
+$main-color-darken: darken($main-color, 15) 
 $correct-color: #0f9d58
 $wrong-color: #d9534f
 .welcome-page.jumbotron
@@ -79,9 +80,9 @@ h1, h2, h3
 .btn-huge
   margin: 5px
   text-shadow: none
-  color: #009688
+  color: $main-color
 .btn-huge:hover
-  color: #00796b
+  color: darken($main-color, 2) 
 
 .col-centered
   text-align: center

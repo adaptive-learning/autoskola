@@ -158,6 +158,10 @@ module.exports = function(grunt) {
             src: 'proso_client/static/css/above-fold.css',
             dest: 'proso_client/templates/generated/above-fold.css'
         },
+        moveBlueAboveFoldCss: {
+            src: 'proso_client/static/css/blue-above-fold.css',
+            dest: 'proso_client/templates/generated/blue-above-fold.css'
+        },
     },
     protractor: {
       options: {
