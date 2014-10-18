@@ -17,15 +17,14 @@ class Command(NoArgsCommand):
 
     def get_hashes(self, filter_):
         hashes = {}
-        module = "geography"
-        static_files = self.get_static_files(module, filter_)
+        static_files = self.get_static_files(filter_)
         for f in static_files:
             hashes[f[0]] = hashlib.md5(f[1]).hexdigest()
         return hashes
 
-    def get_static_files(self, module, filter_):
+    def get_static_files(self, filter_):
         files = []
-        root = str(os.path.join(settings.PROJECT_DIR, module, 'static'))
+        root = str(os.path.join(settings.PROJECT_DIR, 'static'))
         for path, subdirs, filenames in os.walk(root):
             for filename in filenames:
                 f = os.path.join(path, filename)
@@ -33,10 +32,10 @@ class Command(NoArgsCommand):
                 f = str(f)
                 if search(filter_, f):
                     files.append(f)
-        return [(p, self.get_static_file_content(p, module)) for p in files]
+        return [(p, self.get_static_file_content(p)) for p in files]
 
-    def get_static_file_content(self, filename, module):
-        filename = os.path.join(settings.PROJECT_DIR, module, filename)
+    def get_static_file_content(self, filename):
+        filename = os.path.join(settings.PROJECT_DIR, filename)
         with file(filename) as f:
             content = f.read()
         return content
