@@ -2,6 +2,7 @@
 from django.conf import settings
 from lazysignup.models import LazyUser
 from django.contrib.auth.models import User
+from flatblocks.models import FlatBlock
 
 
 class StaticFiles():
@@ -12,7 +13,7 @@ class StaticFiles():
 
     @staticmethod
     def get_hash_od_file(f):
-        return settings.HASHES[f] if f in settings.HASHES else ""
+        return settings.HASHES.get(f, '')
 
 
 def convert_lazy_user(user):
@@ -58,3 +59,21 @@ def get_user(request):
         'username': username,
     }
     return response
+
+
+def get_flatblock(slug):
+    try:
+        return FlatBlock.objects.get(slug=slug).content
+    except FlatBlock.DoesNotExist:
+        return ''
+
+
+def get_page_title():
+    if settings.ON_PRODUCTION:
+        title = ''
+    elif settings.ON_STAGING:
+        title = 'Stage - '
+    else:
+        title = 'Loc - '
+    title += get_flatblock('title') + ' - ' + get_flatblock('subtitle')
+    return title

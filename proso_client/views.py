@@ -2,22 +2,17 @@
 from django.conf import settings
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
-from proso_client.utils import StaticFiles
-from proso_client.utils import get_user
+from proso_client.utils import StaticFiles, get_user, get_page_title, get_flatblock
 from proso_questions.models import Category
 from django.contrib.auth import logout
 from django.http import HttpResponse
 import json
-from flatblocks.models import FlatBlock
 
 
 def home(request, hack=None):
-    try:
-        color_scheme = FlatBlock.objects.get(slug='color_scheme').content
-        if color_scheme != '':
-            color_scheme += '-'
-    except FlatBlock.DoesNotExist:
-        color_scheme = ""
+    color_scheme = get_flatblock('color_scheme')
+    if color_scheme != '':
+        color_scheme += '-'
     JS_FILES = (
         "static/dist/js/fallbacks.min.js",
         "static/dist/js/libs.min.js",
@@ -30,20 +25,13 @@ def home(request, hack=None):
         "static/css/" + color_scheme + "app.css",
     )
     request.META["CSRF_COOKIE_USED"] = True
-    if settings.ON_PRODUCTION:
-        title = ''
-    elif settings.ON_STAGING:
-        title = 'Stage - '
-    else:
-        title = 'Loc - '
     hashes = dict((key, value)
                   for key, value
                   in settings.HASHES.iteritems()
                   if "/lib/" not in key and "/js/" not in key and "/sass/" not in key
                   )
     c = {
-        'title': title + FlatBlock.objects.get(slug='title').content +
-        ' - ' + FlatBlock.objects.get(slug='subtitle').content,
+        'title': get_page_title(),
         'isProduction': settings.ON_PRODUCTION,
         'css_files': StaticFiles.add_hash(CSS_FILES),
         'js_files': StaticFiles.add_hash(JS_FILES),
