@@ -1,0 +1,51 @@
+[
+  {
+    "slug" :"title",
+    "content" : "Autoškola chytře"
+  }, {
+    "slug": "subtitle",
+    "content" : "Testy z autoškoly na míru"
+  }, {
+    "slug": "main_category",
+    "content" : "Otázky kategorie B"
+  }, {
+    "slug": "how_it_works_1",
+    "header" : "<i class=\"glyphicon glyphicon-stats\"></i> Učení z dat",
+    "content" : "Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto datech. Díky tomu neusíte ztrácet čas nad otázkami, které naprostá většina lidí odpoví správně i bez přípravy, jako např. poznat zákaz vjezdu."
+  }, {
+    "slug": "how_it_works_2",
+    "header" : "<i class=\"glyphicon glyphicon-dashboard\"></i> Adaptabilní procvičování",
+    "content" : "Systém vás zkouší ze znalosti testových otázek, přičemž chování systému je adaptabilní - podle toho, jaké máte vědomosti, aplikace volí otázky, jejichž procvičení je pro vás nejužitečnější."
+  }, {
+    "slug": "how_it_works_3",
+    "header" : "<i class=\"glyphicon glyphicon-picture\"></i> Vizualizace znalostí",
+    "content" : "Na základě odpovědí systém odhadne jak dobře znáte různé otázky a znázorní vám mapu vašich znalostí, což vám pomůže ujasnit si, co vlastně umíte."
+  }, {
+    "slug": "how_it_works_4",
+    "header" : "<i class=\"glyphicon glyphicon-phone\"></i> Responsivní design",
+    "content" : "Aplikace se automaticky přízpůsobuje velikosti obrazovky vašeho zařízení.  Používat ji tak můžete pohodlně jak na počítači tak i na tabletu nebo chytrém telefonu."
+  }, {
+    "slug": "how_it_works_5",
+    "header" : "<i class=\"glyphicon glyphicon-tower\"></i> Autoškola hrou",
+    "content" : "Procvičte si své znalosti autoškoly hravou formou. V aktuální verzi zatím soutěžíte jen sami se sebou, respektive proti systému.  Dokážete obarvit na zeleno všechny testové otázky?"
+  }, {
+    "slug": "facebook_page_url",
+    "content": "https://www.facebook.com/autoskolachytre"
+  }, {
+    "slug": "google_plus_page_url",
+    "content": "https://plus.google.com/+AutoskolachytreCz2014/"
+  }, {
+    "slug": "google_analytics_id",
+    "content": "UA-54501510-1"
+  }, {
+    "slug": "meta_description",
+    "content": "Aplikace na efektivní procvičování testových otázek z autoškoly."
+  }, {
+    "slug": "meta_keywords",
+    "content": "autoškola, testy, otázky, chytře, na míru, hra, online"
+  }, {
+    "slug": "color_scheme",
+    "content": ""
+  }
+]
+

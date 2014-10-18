@@ -150,6 +150,7 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'lazysignup',
+    'flatblocks',
     'proso_common',
     'proso_models',
     'proso_questions',

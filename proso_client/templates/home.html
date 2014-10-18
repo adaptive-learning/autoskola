@@ -1,12 +1,12 @@
+{% load flatblock_tags %}
 <!DOCTYPE html>
 <html data-ng-app="addaptivePractice" data-ng-controller="AppCtrl" lang="cs">
   <head>
     <meta charset="utf-8">
     <title ng-bind="title" ng-init="initTitle('{{ title }}')">{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aplikace na efektivní procvičování testových otázek
-    z autoškoly.  ">
-    <meta name="keywords" content="autoškola, testy, otázky, chytře, na míru, hra, online" />
+    <meta name="description" content="{% flatblock "meta_description" using "inline.html" %}"/>
+    <meta name="keywords" content="{% flatblock "meta_keywords" using "inline.html" %}" />
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
     <!-- Le styles -->
@@ -23,27 +23,6 @@
   <div id="wrap" class="material-whiteframe-z5">
     <!-- Navbar
     ================================================== -->
-
-
-    <div class="navbar navbar-inverse" style="display:none">
-        <div class="container">
-
-    <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-
-      <a class="navbar-brand" href="#">Autoškola chytře</a>
-      <div id="nav-main" class="collapse navbar-collapse navbar-responsive-collapse">
-          ...
-            <ul class="nav ng-cloak navbar-nav pull-right"
-                ng-init="initUser('{{user.username}}',0)">
-            </ul>
-        </div><!-- /.nav-collapse -->
-      </div><!-- /.container -->
-    </div>
     <div class="left-bar">
       <paper-button label="button"></paper-button>
       <material-toolbar class="material-theme-dark material-whiteframe-z1">
@@ -60,7 +39,7 @@
           </span>
           <i onclick="history.back()" ng-hide="isHomepage"
             class="glyphicon glyphicon-chevron-left ng-cloak"></i>
-          <a class="navbar-brand" href="#">Autoškola chytře</a>
+          <a class="navbar-brand" href="#"> {% flatblock "title" %}</a>
             <i class="dropdown pull-right ng-cloak" ng-show="user.username === ''" >
               <a href="" 
                  role="button" 
@@ -85,7 +64,8 @@
                 </li>
               </ul>
             </i>
-            <i class="dropdown pull-right ng-cloak" ng-show="user.username !== ''">
+            <i class="dropdown pull-right ng-cloak" ng-show="user.username !== ''"
+                ng-init="initUser('{{user.username}}',0)">
               <a id="drop1" href="" role="button" class="dropdown-toggle" data-toggle="dropdown">
                  <i class="glyphicon glyphicon-user"></i>
                </a>
@@ -111,7 +91,7 @@
         <li>
           <a class="menu-item"
             href="#/view/">
-            Otázky kategorie B
+           {% flatblock "main_category" %}
           </a> 
         </li>
         {% for category in categories %}
@@ -134,13 +114,46 @@
       <a href="#/about">O projektu</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span class="email contact">autoskolachytre{zavinac}googlegroups.com</span>
     -->
-      <a class="contact-google" href="https://plus.google.com/+AutoskolachytreCz2014/">Google+</a>
-      <a class="contact-facebook" href="https://www.facebook.com/autoskolachytre">Facebook</a>
+      <a class="contact-google" href="{% flatblock "google_plus_page_url" using "inline.html" %}">Google+</a>
+      <a class="contact-facebook" href="{% flatblock "facebook_page_url" using "inline.html" %}">Facebook</a>
     </div>
   </div>
     
     <div class="homepage hidden-xs">
-        {% include "generated/homepage.html" %}
+      <!--[if lte IE 8]>
+      <div class="alert alert-danger old-browser">
+        Používáte <b>zastaralou verzi prohlížeče</b>, ve které aplikace
+        <b>nemusí fungovat správně</b>. 
+        Pro optimální fungování aplikace doporučujeme nainstalovat 
+        aktuální verzi některého z běžně používaných prohlížečů. 
+        Například:
+        <a href="https://www.google.com/intl/cs/chrome/browser/">Google Chrome</a>,
+        <a href="http://www.mozilla.org/cs/firefox/new/">Firefox</a>,
+        <a href="http://windows.microsoft.com/cs-CZ/internet-explorer/download-ie">
+            Internet explorer
+        </a>
+      </div>
+      <![endif]-->
+      <div class="welcome-page jumbotron">
+          <h1 > {% flatblock "title" %} </h1>
+          <div class="flatblock block-welcome_page col-md-offset-1 col-md-10 col-lg-offset-3 col-lg-6">
+           {% flatblock "subtitle" %}
+            <div class="col-centered">
+              <a href="#/practice/" class="btn btn-default btn-lg btn-huge" >
+                <i class="glyphicon glyphicon-check"></i> Procvičovat
+              </a>
+            </div>
+            <!--
+            <div class="plugins-social">
+              <div class="g-plusone" data-size="medium"></div>
+              <div class="fb-like" data-href="https://www.facebook.com/slepemapy" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+            </div>
+        -->
+          </div>
+      </div>
+      <div  ng-show="isHomepage">
+        {% include "how-it-works.html" %}
+      </div>
     </div>
   </div>
 
@@ -149,6 +162,9 @@
 
     <script type="text/ng-template" id="loading.html">
       <div class="loading-indicator"></div>
+    </script>
+    <script type="text/ng-template" id="how-it-works.html">
+        {% include "how-it-works.html" %}
     </script>
 
     <!-- Le javascript
@@ -191,7 +207,10 @@
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-54501510-1', 'auto');
+          ga('create', '{%spaceless %}
+            {% flatblock "google_analytics_id" using "inline.html" %}
+            {% endspaceless %}', 'auto');
+      
 
         </script>
     {% endif %}

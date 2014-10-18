@@ -12,6 +12,12 @@ GIT_DIR=$WORK_TREE/.git
 GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 
 ###############################################################################
+# install requirements
+###############################################################################
+
+$APP_DIR/setup.py install
+
+###############################################################################
 # reset the application
 ###############################################################################
 
@@ -30,13 +36,13 @@ GIT_COMMAND="git --git-dir=$GIT_DIR --work-tree=$WORK_TREE"
 	echo " * remove django cache"
 	rm -rf $DATA_DIR/.django_cache
 
+	echo "./manage.py syncdb"
+	$APP_DIR/manage.py syncdb 
 
-###############################################################################
-# install requirements
-###############################################################################
+	echo "./manage.py migrate"
+	$APP_DIR/manage.py migrate 
 
-if [[ `$git_command diff --name-only $last_head $deploy_version` ]]; then
-	pip install --upgrade -r $app_dir/requirements.txt
-fi
+	echo "./manage.py load_texts"
+	$APP_DIR/manage.py load_texts $APP_DIR/autoskola-data/texts.json
 
 

@@ -8,10 +8,16 @@ from proso_questions.models import Category
 from django.contrib.auth import logout
 from django.http import HttpResponse
 import json
+from flatblocks.models import FlatBlock
 
 
 def home(request, hack=None):
-    color_scheme = ""  # the other alowed value is "blue-"
+    try:
+        color_scheme = FlatBlock.objects.get(slug='color_scheme').content
+        if color_scheme != '':
+            color_scheme += '-'
+    except FlatBlock.DoesNotExist:
+        color_scheme = ""
     JS_FILES = (
         "static/dist/js/fallbacks.min.js",
         "static/dist/js/libs.min.js",
@@ -36,7 +42,8 @@ def home(request, hack=None):
                   if "/lib/" not in key and "/js/" not in key and "/sass/" not in key
                   )
     c = {
-        'title': title + 'Autoškola Chytře - testy z autoškoly na míru',
+        'title': title + FlatBlock.objects.get(slug='title').content +
+        ' - ' + FlatBlock.objects.get(slug='subtitle').content,
         'isProduction': settings.ON_PRODUCTION,
         'css_files': StaticFiles.add_hash(CSS_FILES),
         'js_files': StaticFiles.add_hash(JS_FILES),

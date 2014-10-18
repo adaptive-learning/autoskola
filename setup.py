@@ -13,6 +13,7 @@ setup(
         'Django<=1.6',
         'south',
         'django-lazysignup',
-        'django-social-auth'
+        'django-social-auth',
+        'django-flatblocks==0.8',
     ],
 )

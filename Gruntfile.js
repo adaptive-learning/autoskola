@@ -19,10 +19,6 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      homepage: {
-        src: ['proso_client/static/tpl/homepage.html'],
-        dest: 'proso_client/templates/generated/homepage.html',
-      },
       app: {
         src: [
           'proso_client/static/js/app.js',
