@@ -145,7 +145,7 @@
     return {
       link:function (scope, element, attrs) {
         var offset = parseInt(attrs.threshold) || 0;
-
+        $document.unbind('scroll');
         $document.bind('scroll', function () {
           if (scope.$eval(attrs.canLoad) && 
               $($window).scrollTop() + $($window).height() >= 
