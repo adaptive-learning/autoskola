@@ -46,6 +46,9 @@
   }, {
     "slug": "color_scheme",
     "content": ""
+  }, {
+    "slug": "test_description",
+    "contentfilename": "test_description.html"
   }
 ]
 
