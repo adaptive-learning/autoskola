@@ -29,6 +29,10 @@
     "header" : "<i class=\"glyphicon glyphicon-tower\"></i> Autoškola hrou",
     "content" : "Procvičte si své znalosti autoškoly hravou formou. V aktuální verzi zatím soutěžíte jen sami se sebou, respektive proti systému.  Dokážete obarvit na zeleno všechny testové otázky?"
   }, {
+    "slug": "how_it_works_6",
+    "header" : "<i class=\"glyphicon glyphicon-copyright-mark\"></i>Oficiální otázky",
+    "content" : "Systém obsahuje oficiální otázky z věštníku ministerstva dopravy ČR aktuální k 30. 10. 2014."
+  }, {
     "slug": "facebook_page_url",
     "content": "https://www.facebook.com/autoskolachytre"
   }, {
