@@ -10,16 +10,16 @@
     "content" : "Otázky kategorie B"
   }, {
     "slug": "how_it_works_1",
+    "header" : "<i class=\"glyphicon glyphicon-dashboard\"></i> Adaptabilní procvičování",
+    "content" : "Systém vás zkouší ze znalosti testových otázek, přičemž chování systému je adaptabilní - podle toho, jaké máte vědomosti, aplikace volí otázky, jejichž procvičení je pro vás nejužitečnější.<br><br>  <img src=\"static/dist/preview.png\"/>"
+  }, {
+    "slug": "how_it_works_2",
     "header" : "<i class=\"glyphicon glyphicon-stats\"></i> Učení z dat",
     "content" : "Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto datech. Díky tomu neusíte ztrácet čas nad otázkami, které naprostá většina lidí odpoví správně i bez přípravy, jako např. poznat zákaz vjezdu."
   }, {
-    "slug": "how_it_works_2",
-    "header" : "<i class=\"glyphicon glyphicon-dashboard\"></i> Adaptabilní procvičování",
-    "content" : "Systém vás zkouší ze znalosti testových otázek, přičemž chování systému je adaptabilní - podle toho, jaké máte vědomosti, aplikace volí otázky, jejichž procvičení je pro vás nejužitečnější."
-  }, {
     "slug": "how_it_works_3",
     "header" : "<i class=\"glyphicon glyphicon-picture\"></i> Vizualizace znalostí",
-    "content" : "Na základě odpovědí systém odhadne jak dobře znáte různé otázky a znázorní vám mapu vašich znalostí, což vám pomůže ujasnit si, co vlastně umíte."
+    "content" : "Na základě odpovědí systém odhadne jak dobře znáte různé otázky a zobrazí vám to na přehledu otázek, což vám pomůže ujasnit si, co vlastně umíte."
   }, {
     "slug": "how_it_works_4",
     "header" : "<i class=\"glyphicon glyphicon-phone\"></i> Responsivní design",
