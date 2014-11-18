@@ -25,7 +25,7 @@
     }, 
     {
       "images": [], 
-      "text": "Provozovatel vozidla je:\r\n", 
+      "text": "Provozovatel vozidla je:", 
       "identifier": "06050401", 
       "options": [
         {
@@ -119,7 +119,7 @@
       ]
     }, 
     {
-      "text": "M\u00edsto, v n\u011bm\u017e se pozemn\u00ed komunikace prot\u00ednaj\u00ed nebo spojuj\u00ed, nejde-li o vy\u00fast\u011bn\u00ed \u00fa\u010delov\u00e9 pozemn\u00ed komunikace na jinou pozemn\u00ed komunikaci, se naz\u00fdv\u00e1:\r\n\r\n", 
+      "text": "M\u00edsto, v n\u011bm\u017e se pozemn\u00ed komunikace prot\u00ednaj\u00ed nebo spojuj\u00ed, nejde-li o vy\u00fast\u011bn\u00ed \u00fa\u010delov\u00e9 pozemn\u00ed komunikace na jinou pozemn\u00ed komunikaci, se naz\u00fdv\u00e1:", 
       "sets": [
         "test3"
       ], 
@@ -147,7 +147,7 @@
       ]
     }, 
     {
-      "text": "Je jezdec na koni, kter\u00fd se pohybuje po pozemn\u00ed komunikaci, \u0159idi\u010dem? ", 
+      "text": "Je jezdec na koni, kter\u00fd se pohybuje po pozemn\u00ed komunikaci, \u0159idi\u010dem?", 
       "sets": [
         "test2"
       ], 
@@ -440,7 +440,7 @@
       ]
     }, 
     {
-      "text": "Silnice pro motorov\u00e1 vozidla je: ", 
+      "text": "Silnice pro motorov\u00e1 vozidla je:", 
       "sets": [
         "test4", 
         "test12"
@@ -470,7 +470,7 @@
     }, 
     {
       "images": [], 
-      "text": "Nemotorov\u00e9 vozidlo je: ", 
+      "text": "Nemotorov\u00e9 vozidlo je:", 
       "identifier": "06060386", 
       "options": [
         {
@@ -495,7 +495,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159ipojovac\u00ed pruh je: ", 
+      "text": "P\u0159ipojovac\u00ed pruh je:", 
       "identifier": "06060392", 
       "options": [
         {
@@ -1598,7 +1598,7 @@
     }, 
     {
       "images": [], 
-      "text": "Kdo odpov\u00edd\u00e1 za um\u00edst\u011bn\u00ed a upevn\u011bn\u00ed d\u011btsk\u00e9 autoseda\u010dky v souladu s n\u00e1vodem k jej\u00edmu pou\u017eit\u00ed?  ", 
+      "text": "Kdo odpov\u00edd\u00e1 za um\u00edst\u011bn\u00ed a upevn\u011bn\u00ed d\u011btsk\u00e9 autoseda\u010dky v souladu s n\u00e1vodem k jej\u00edmu pou\u017eit\u00ed?", 
       "identifier": "06040299", 
       "options": [
         {
@@ -1725,7 +1725,7 @@
     }, 
     {
       "images": [], 
-      "text": "Pat\u0159\u00ed k povinnostem \u00fa\u010dastn\u00edka provozu na pozemn\u00edch komunikac\u00edch \u0159\u00eddit se pokyny str\u00e1\u017en\u00edk\u016f obecn\u00ed policie? ", 
+      "text": "Pat\u0159\u00ed k povinnostem \u00fa\u010dastn\u00edka provozu na pozemn\u00edch komunikac\u00edch \u0159\u00eddit se pokyny str\u00e1\u017en\u00edk\u016f obecn\u00ed policie?", 
       "identifier": "06060074", 
       "options": [
         {
@@ -3119,7 +3119,7 @@
     }, 
     {
       "images": [], 
-      "text": "Vozidlo vj\u00ed\u017ed\u011bj\u00edc\u00ed na pozemn\u00ed komunikaci:\r\n ", 
+      "text": "Vozidlo vj\u00ed\u017ed\u011bj\u00edc\u00ed na pozemn\u00ed komunikaci:", 
       "identifier": "06040223", 
       "options": [
         {
@@ -3354,7 +3354,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010d motorov\u00e9ho vozidla: ", 
+      "text": "\u0158idi\u010d motorov\u00e9ho vozidla:", 
       "sets": [
         "test1"
       ], 
@@ -4095,7 +4095,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010d vozidla z v\u00fdhledu: <br />![Image](7949127979291420.jpg)", 
+      "text": "\u0158idi\u010d vozidla z v\u00fdhledu:<br />![Image](7949127979291420.jpg)", 
       "sets": [
         "test2"
       ], 
@@ -4369,7 +4369,7 @@
     }, 
     {
       "images": [], 
-      "text": "Na silnici pro motorov\u00e1 vozidla plat\u00ed:\r\n", 
+      "text": "Na silnici pro motorov\u00e1 vozidla plat\u00ed:", 
       "identifier": "06050157", 
       "options": [
         {
@@ -4859,7 +4859,7 @@
       ]
     }, 
     {
-      "text": "Ustanoven\u00ed o provozu na d\u00e1lnici plat\u00ed: ", 
+      "text": "Ustanoven\u00ed o provozu na d\u00e1lnici plat\u00ed:", 
       "sets": [
         "test12"
       ], 
@@ -4887,7 +4887,7 @@
       ]
     }, 
     {
-      "text": "Vj\u00ed\u017ed\u011bt na d\u00e1lnici a vyj\u00ed\u017ed\u011bt z d\u00e1lnice sm\u00ed \u0159idi\u010d: ", 
+      "text": "Vj\u00ed\u017ed\u011bt na d\u00e1lnici a vyj\u00ed\u017ed\u011bt z d\u00e1lnice sm\u00ed \u0159idi\u010d:", 
       "sets": [
         "test13"
       ], 
@@ -4915,7 +4915,7 @@
       ]
     }, 
     {
-      "text": "Na k\u0159i\u017eovatce, kde nen\u00ed dopravn\u00edmi zna\u010dkami rozli\u0161ena p\u0159ednost v j\u00edzd\u011b, \u0159idi\u010d mus\u00ed d\u00e1t p\u0159ednost v j\u00edzd\u011b: ", 
+      "text": "Na k\u0159i\u017eovatce, kde nen\u00ed dopravn\u00edmi zna\u010dkami rozli\u0161ena p\u0159ednost v j\u00edzd\u011b, \u0159idi\u010d mus\u00ed d\u00e1t p\u0159ednost v j\u00edzd\u011b:", 
       "sets": [
         "test17"
       ], 
@@ -4969,7 +4969,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010d nesm\u00ed vjet do k\u0159i\u017eovatky, nedovoluje-li mu situace pokra\u010dovat v j\u00edzd\u011b v k\u0159i\u017eovatce a za k\u0159i\u017eovatkou, tak\u017ee by byl nucen zastavit vozidlo v k\u0159i\u017eovatce. To neplat\u00ed:\t", 
+      "text": "\u0158idi\u010d nesm\u00ed vjet do k\u0159i\u017eovatky, nedovoluje-li mu situace pokra\u010dovat v j\u00edzd\u011b v k\u0159i\u017eovatce a za k\u0159i\u017eovatkou, tak\u017ee by byl nucen zastavit vozidlo v k\u0159i\u017eovatce. To neplat\u00ed:", 
       "identifier": "06060114", 
       "options": [
         {
@@ -5103,7 +5103,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010d nesm\u00ed p\u0159edj\u00ed\u017ed\u011bt: ", 
+      "text": "\u0158idi\u010d nesm\u00ed p\u0159edj\u00ed\u017ed\u011bt:", 
       "identifier": "06060231", 
       "options": [
         {
@@ -5133,7 +5133,7 @@
           "name": "7948789372286500.jpg"
         }
       ], 
-      "text": "Pokud p\u0159ij\u00ed\u017ed\u00edte na tuto k\u0159i\u017eovatku, mus\u00edte d\u00e1t p\u0159ednost: <br />![Image](7948789372286500.jpg)", 
+      "text": "Pokud p\u0159ij\u00ed\u017ed\u00edte na tuto k\u0159i\u017eovatku, mus\u00edte d\u00e1t p\u0159ednost:<br />![Image](7948789372286500.jpg)", 
       "identifier": "06060315", 
       "options": [
         {
@@ -5222,7 +5222,7 @@
           "name": "7948788439605340.jpg"
         }
       ], 
-      "text": "P\u0159\u00edpojn\u00e9 vozidlo, kter\u00e9 jede v prost\u0159edn\u00edm j\u00edzdn\u00edm pruhu, m\u00e1 nejvy\u0161\u0161\u00ed povolenou rychlost 75 km/h. M\u016f\u017ee toto vozidlo jet po d\u00e1lnici?   <br />![Image](7948788439605340.jpg)", 
+      "text": "P\u0159\u00edpojn\u00e9 vozidlo, kter\u00e9 jede v prost\u0159edn\u00edm j\u00edzdn\u00edm pruhu, m\u00e1 nejvy\u0161\u0161\u00ed povolenou rychlost 75 km/h. M\u016f\u017ee toto vozidlo jet po d\u00e1lnici?<br />![Image](7948788439605340.jpg)", 
       "identifier": "06060329", 
       "options": [
         {
@@ -5483,7 +5483,7 @@
           "name": "8638015787475000.jpg"
         }
       ], 
-      "text": "Sv\u011bteln\u00fd ukazatel nad pozemn\u00ed komunikac\u00ed ukazuje: <br />![Image](8638015787475000.jpg)", 
+      "text": "Sv\u011bteln\u00fd ukazatel nad pozemn\u00ed komunikac\u00ed ukazuje:<br />![Image](8638015787475000.jpg)", 
       "identifier": "08080008", 
       "options": [
         {
@@ -5594,7 +5594,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010d, kter\u00fd p\u0159i p\u0159edj\u00ed\u017ed\u011bn\u00ed motorov\u00e9ho vozidla vybo\u010duje ze sm\u011bru sv\u00e9 j\u00edzdy,: ", 
+      "text": "\u0158idi\u010d, kter\u00fd p\u0159i p\u0159edj\u00ed\u017ed\u011bn\u00ed motorov\u00e9ho vozidla vybo\u010duje ze sm\u011bru sv\u00e9 j\u00edzdy,:", 
       "identifier": "11080019", 
       "options": [
         {
@@ -6829,7 +6829,7 @@
       ]
     }, 
     {
-      "text": "P\u0159i vle\u010den\u00ed motorov\u00e9ho vozidla na ty\u010di mus\u00ed b\u00fdt d\u00e9lka ty\u010de takov\u00e1, aby vzd\u00e1lenost mezi vozidly nebyla: ", 
+      "text": "P\u0159i vle\u010den\u00ed motorov\u00e9ho vozidla na ty\u010di mus\u00ed b\u00fdt d\u00e9lka ty\u010de takov\u00e1, aby vzd\u00e1lenost mezi vozidly nebyla:", 
       "sets": [
         "test1"
       ], 
@@ -6945,7 +6945,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159i \u0159\u00edzen\u00ed provozu na k\u0159i\u017eovatce znamen\u00e1 pro \u0159idi\u010de sign\u00e1l se sou\u010dasn\u011b sv\u00edt\u00edc\u00edm \u010derven\u00fdm a \u017elut\u00fdm sv\u011btlem \"Pozor!\": ", 
+      "text": "P\u0159i \u0159\u00edzen\u00ed provozu na k\u0159i\u017eovatce znamen\u00e1 pro \u0159idi\u010de sign\u00e1l se sou\u010dasn\u011b sv\u00edt\u00edc\u00edm \u010derven\u00fdm a \u017elut\u00fdm sv\u011btlem \"Pozor!\":", 
       "identifier": "06060145", 
       "options": [
         {
@@ -6970,7 +6970,7 @@
     }, 
     {
       "images": [], 
-      "text": "\"Sign\u00e1l \u017elut\u00e9ho sv\u011btla ve tvaru chodce\", j\u00edm\u017e je dopln\u011bn sign\u00e1l se zelenou \u0161ipkou sm\u011b\u0159uj\u00edc\u00ed vpravo nebo vlevo, upozor\u0148uje \u0159idi\u010de, \u017ee p\u0159i j\u00edzd\u011b sm\u011brem, kter\u00fdm tato \u0161ipka ukazuje: ", 
+      "text": "\"Sign\u00e1l \u017elut\u00e9ho sv\u011btla ve tvaru chodce\", j\u00edm\u017e je dopln\u011bn sign\u00e1l se zelenou \u0161ipkou sm\u011b\u0159uj\u00edc\u00ed vpravo nebo vlevo, upozor\u0148uje \u0159idi\u010de, \u017ee p\u0159i j\u00edzd\u011b sm\u011brem, kter\u00fdm tato \u0161ipka ukazuje:", 
       "identifier": "06060146", 
       "options": [
         {
@@ -7301,7 +7301,7 @@
       ]
     }, 
     {
-      "text": "Na sign\u00e1l se zelen\u00fdm pln\u00fdm kruhov\u00fdm sv\u011btlem \"Volno\": <br />![Image](7948839836592899.jpg)", 
+      "text": "Na sign\u00e1l se zelen\u00fdm pln\u00fdm kruhov\u00fdm sv\u011btlem \"Volno\":<br />![Image](7948839836592899.jpg)", 
       "sets": [
         "test18"
       ], 
@@ -7365,7 +7365,7 @@
           "name": "9174467704401250.jpg"
         }
       ], 
-      "text": "V dan\u00e9 situaci, mohou \u00fa\u010dastn\u00edci silni\u010dn\u00edho provozu odbo\u010dovat?  <br />![Image](9174467704401250.jpg)", 
+      "text": "V dan\u00e9 situaci, mohou \u00fa\u010dastn\u00edci silni\u010dn\u00edho provozu odbo\u010dovat?<br />![Image](9174467704401250.jpg)", 
       "identifier": "10040019", 
       "options": [
         {
@@ -7731,7 +7731,7 @@
       ]
     }, 
     {
-      "text": "Obytn\u00e1 z\u00f3na je: ", 
+      "text": "Obytn\u00e1 z\u00f3na je:", 
       "sets": [
         "test9", 
         "test18"
@@ -8097,7 +8097,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010d vozidla, kter\u00e9 je povinn\u011b vybaveno p\u0159enosn\u00fdm troj\u00faheln\u00edkem a pro technickou z\u00e1vadu se na pozemn\u00ed komunikaci mimo obec stalo nepoj\u00edzdn\u00fdm, je povinen tento troj\u00faheln\u00edk um\u00edstit: ", 
+      "text": "\u0158idi\u010d vozidla, kter\u00e9 je povinn\u011b vybaveno p\u0159enosn\u00fdm troj\u00faheln\u00edkem a pro technickou z\u00e1vadu se na pozemn\u00ed komunikaci mimo obec stalo nepoj\u00edzdn\u00fdm, je povinen tento troj\u00faheln\u00edk um\u00edstit:", 
       "identifier": "06050340", 
       "options": [
         {
@@ -8300,7 +8300,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u00da\u010dastn\u00edci dopravn\u00ed nehody jsou povinni: ", 
+      "text": "\u00da\u010dastn\u00edci dopravn\u00ed nehody jsou povinni:", 
       "identifier": "06060178", 
       "options": [
         {
@@ -8583,7 +8583,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010d vozidla, kter\u00e9 je vybaveno zvl\u00e1\u0161tn\u00edm v\u00fdstra\u017en\u00fdm sv\u011btlem oran\u017eov\u00e9 barvy, sm\u00ed tohoto sv\u011btla u\u017e\u00edvat:  ", 
+      "text": "\u0158idi\u010d vozidla, kter\u00e9 je vybaveno zvl\u00e1\u0161tn\u00edm v\u00fdstra\u017en\u00fdm sv\u011btlem oran\u017eov\u00e9 barvy, sm\u00ed tohoto sv\u011btla u\u017e\u00edvat:", 
       "sets": [
         "test3"
       ], 
@@ -8872,7 +8872,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159e\u010dn\u00edv\u00e1-li za sn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy vn\u011bj\u0161\u00ed okraj obrysov\u00fdch sv\u011btel o v\u00edce ne\u017e 40 cm, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu: ", 
+      "text": "P\u0159e\u010dn\u00edv\u00e1-li za sn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy vn\u011bj\u0161\u00ed okraj obrysov\u00fdch sv\u011btel o v\u00edce ne\u017e 40 cm, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu:", 
       "identifier": "06050313", 
       "options": [
         {
@@ -8926,7 +8926,7 @@
     }, 
     {
       "images": [], 
-      "text": "Zvl\u00e1\u0161tn\u00edm zp\u016fsobem mus\u00ed b\u00fdt ozna\u010den n\u00e1klad, kter\u00fd z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy p\u0159e\u010dn\u00edv\u00e1: ", 
+      "text": "Zvl\u00e1\u0161tn\u00edm zp\u016fsobem mus\u00ed b\u00fdt ozna\u010den n\u00e1klad, kter\u00fd z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy p\u0159e\u010dn\u00edv\u00e1:", 
       "identifier": "06050315", 
       "options": [
         {
@@ -9109,7 +9109,7 @@
       ]
     }, 
     {
-      "text": "N\u00e1klad mus\u00ed b\u00fdt na vozidle um\u00edst\u011bn a upevn\u011bn:\r\n", 
+      "text": "N\u00e1klad mus\u00ed b\u00fdt na vozidle um\u00edst\u011bn a upevn\u011bn:", 
       "sets": [
         "test16"
       ], 
@@ -9241,7 +9241,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159e\u010dn\u00edv\u00e1-li za sn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad vozidlo vp\u0159edu nebo vzadu o v\u00edce ne\u017e 1 metr, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu: ", 
+      "text": "P\u0159e\u010dn\u00edv\u00e1-li za sn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad vozidlo vp\u0159edu nebo vzadu o v\u00edce ne\u017e 1 metr, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu:", 
       "identifier": "06050333", 
       "options": [
         {
@@ -9271,7 +9271,7 @@
           "name": "7948269957331250.jpg"
         }
       ], 
-      "text": "P\u0159e\u010dn\u00edv\u00e1-li za nesn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad vozidlo vp\u0159edu nebo vzadu o v\u00edce ne\u017e 1 metr, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu: <br />![Image](7948269957331250.jpg)", 
+      "text": "P\u0159e\u010dn\u00edv\u00e1-li za nesn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad vozidlo vp\u0159edu nebo vzadu o v\u00edce ne\u017e 1 metr, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu:<br />![Image](7948269957331250.jpg)", 
       "identifier": "06050334", 
       "options": [
         {
@@ -9296,7 +9296,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159e\u010dn\u00edv\u00e1-li za nesn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy vn\u011bj\u0161\u00ed okraj obrysov\u00fdch sv\u011btel o v\u00edce ne\u017e 40 cm, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu: ", 
+      "text": "P\u0159e\u010dn\u00edv\u00e1-li za nesn\u00ed\u017een\u00e9 viditelnosti n\u00e1klad z boku u motorov\u00e9ho vozidla nebo j\u00edzdn\u00ed soupravy vn\u011bj\u0161\u00ed okraj obrysov\u00fdch sv\u011btel o v\u00edce ne\u017e 40 cm, mus\u00ed b\u00fdt p\u0159e\u010dn\u00edvaj\u00edc\u00ed konec n\u00e1kladu:", 
       "identifier": "06050484", 
       "options": [
         {
@@ -9931,7 +9931,7 @@
           "name": "23_6328330460954.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na: <br />![Image](23_6328330460954.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na:<br />![Image](23_6328330460954.jpg)", 
       "identifier": "06050206", 
       "options": [
         {
@@ -9994,7 +9994,7 @@
           "name": "1a_6328331612165.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka: <br />![Image](1a_6328331612165.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka:<br />![Image](1a_6328331612165.jpg)", 
       "identifier": "06050208", 
       "options": [
         {
@@ -10018,7 +10018,7 @@
       ]
     }, 
     {
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na: <br />![Image](26_6328330466618.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na:<br />![Image](26_6328330466618.jpg)", 
       "sets": [
         "test5"
       ], 
@@ -10174,7 +10174,7 @@
       ]
     }, 
     {
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na \u00fasek pozemn\u00ed komunikace, kde: <br />![Image](16_6328330447818.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na \u00fasek pozemn\u00ed komunikace, kde:<br />![Image](16_6328330447818.jpg)", 
       "sets": [
         "test12"
       ], 
@@ -10366,7 +10366,7 @@
           "name": "22_6328330458754.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na: <br />![Image](22_6328330458754.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na:<br />![Image](22_6328330458754.jpg)", 
       "identifier": "06050221", 
       "options": [
         {
@@ -10426,7 +10426,7 @@
           "name": "20_6328330456829.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na: <br />![Image](20_6328330456829.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na:<br />![Image](20_6328330456829.jpg)", 
       "identifier": "06050223", 
       "options": [
         {
@@ -10651,7 +10651,7 @@
           "name": "12_6328336441018.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka: <br />![Image](12_6328336441018.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka:<br />![Image](12_6328336441018.jpg)", 
       "identifier": "06050255", 
       "options": [
         {
@@ -10865,7 +10865,7 @@
       ]
     }, 
     {
-      "text": "Tato zna\u010dka vyjad\u0159uje: <br />![Image](3a_6328336460770.jpg)", 
+      "text": "Tato zna\u010dka vyjad\u0159uje:<br />![Image](3a_6328336460770.jpg)", 
       "sets": [
         "test14"
       ], 
@@ -11124,7 +11124,7 @@
           "name": "B8_6328336431715.jpg"
         }
       ], 
-      "text": "Do \u00faseku pozemn\u00ed komunikace ozna\u010den\u00e9ho touto dopravn\u00ed zna\u010dkou: <br />![Image](B8_6328336431715.jpg)", 
+      "text": "Do \u00faseku pozemn\u00ed komunikace ozna\u010den\u00e9ho touto dopravn\u00ed zna\u010dkou:<br />![Image](B8_6328336431715.jpg)", 
       "identifier": "06050290", 
       "options": [
         {
@@ -11154,7 +11154,7 @@
           "name": "3b_6328336422703.jpg"
         }
       ], 
-      "text": "Do \u00faseku pozemn\u00ed komunikace za touto dopravn\u00ed zna\u010dkou: <br />![Image](3b_6328336422703.jpg)", 
+      "text": "Do \u00faseku pozemn\u00ed komunikace za touto dopravn\u00ed zna\u010dkou:<br />![Image](3b_6328336422703.jpg)", 
       "identifier": "06050293", 
       "options": [
         {
@@ -11241,7 +11241,7 @@
       ]
     }, 
     {
-      "text": "Tato dopravn\u00ed zna\u010dka: <br />![Image](1a_6328349626376.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka:<br />![Image](1a_6328349626376.jpg)", 
       "sets": [
         "test10"
       ], 
@@ -11397,7 +11397,7 @@
       ]
     }, 
     {
-      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na: <br />![Image](1b_6328354018131.gif)", 
+      "text": "Tato dopravn\u00ed zna\u010dka upozor\u0148uje na:<br />![Image](1b_6328354018131.gif)", 
       "sets": [
         "test13"
       ], 
@@ -11775,7 +11775,7 @@
           "name": "32_6328336487159.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka: <br />![Image](32_6328336487159.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka:<br />![Image](32_6328336487159.jpg)", 
       "identifier": "06060052", 
       "options": [
         {
@@ -12591,19 +12591,8 @@
             }
           ], 
           "text": "![Image](6a_6328349905179.gif)", 
-          "correct": false, 
-          "order": 0
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/C6b_6328349905181.gif", 
-              "name": "6b_6328349905181.gif"
-            }
-          ], 
-          "text": "![Image](6b_6328349905181.gif)", 
           "correct": true, 
-          "order": 1
+          "order": 0
         }, 
         {
           "images": [
@@ -12614,6 +12603,17 @@
           ], 
           "text": "![Image](30_6328349905181.gif)", 
           "correct": false, 
+          "order": 1
+        }, 
+        {
+          "images": [
+            {
+              "path": "QuestionImg/C6b_6328349905181.gif", 
+              "name": "6b_6328349905181.gif"
+            }
+          ], 
+          "text": "![Image](6b_6328349905181.gif)", 
+          "correct": false, 
           "order": 2
         }
       ], 
@@ -12622,7 +12622,7 @@
       ]
     }, 
     {
-      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje sm\u011br k m\u00edstu, ke kter\u00e9mu se vztahuje dopravn\u00ed zna\u010dka, pod kterou je tato tabulka um\u00edst\u011bna: \r\n", 
+      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje sm\u011br k m\u00edstu, ke kter\u00e9mu se vztahuje dopravn\u00ed zna\u010dka, pod kterou je tato tabulka um\u00edst\u011bna:", 
       "sets": [
         "test4"
       ], 
@@ -12632,13 +12632,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/E7b_6328349919889.gif", 
+              "name": "7b_6328349919889.gif"
+            }
+          ], 
+          "text": "![Image](7b_6328349919889.gif)", 
+          "correct": true, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/E8d_6328349919889.gif", 
               "name": "8d_6328349919889.gif"
             }
           ], 
           "text": "![Image](8d_6328349919889.gif)", 
-          "correct": true, 
-          "order": 0
+          "correct": false, 
+          "order": 1
         }, 
         {
           "images": [
@@ -12648,17 +12659,6 @@
             }
           ], 
           "text": "![Image](2c_6328349919889.gif)", 
-          "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/E7b_6328349919889.gif", 
-              "name": "7b_6328349919889.gif"
-            }
-          ], 
-          "text": "![Image](7b_6328349919889.gif)", 
           "correct": false, 
           "order": 2
         }
@@ -12675,13 +12675,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/B20a-30_6328349926673.gif", 
+              "name": "30_6328349926673.gif"
+            }
+          ], 
+          "text": "![Image](30_6328349926673.gif)", 
+          "correct": true, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/C6a_6328349926671.gif", 
               "name": "6a_6328349926671.gif"
             }
           ], 
           "text": "![Image](6a_6328349926671.gif)", 
-          "correct": true, 
-          "order": 0
+          "correct": false, 
+          "order": 1
         }, 
         {
           "images": [
@@ -12692,17 +12703,6 @@
           ], 
           "text": "![Image](6b_6328349926673.gif)", 
           "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/B20a-30_6328349926673.gif", 
-              "name": "30_6328349926673.gif"
-            }
-          ], 
-          "text": "![Image](30_6328349926673.gif)", 
-          "correct": false, 
           "order": 2
         }
       ], 
@@ -12711,7 +12711,7 @@
       ]
     }, 
     {
-      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje skute\u010dn\u00fd tvar k\u0159i\u017eovatky a sou\u010dasn\u011b i hlavn\u00ed a vedlej\u0161\u00ed pozemn\u00ed komunikaci: \r\n", 
+      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje skute\u010dn\u00fd tvar k\u0159i\u017eovatky a sou\u010dasn\u011b i hlavn\u00ed a vedlej\u0161\u00ed pozemn\u00ed komunikaci:", 
       "sets": [
         "test4", 
         "test14", 
@@ -12739,7 +12739,7 @@
             }
           ], 
           "text": "![Image](2c_6328349936417.gif)", 
-          "correct": false, 
+          "correct": true, 
           "order": 1
         }, 
         {
@@ -12750,7 +12750,7 @@
             }
           ], 
           "text": "![Image](7b_6328349936417.gif)", 
-          "correct": true, 
+          "correct": false, 
           "order": 2
         }
       ], 
@@ -12766,13 +12766,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/P3_6328349873951.gif", 
+              "name": "P3_6328349873951.gif"
+            }
+          ], 
+          "text": "![Image](P3_6328349873951.gif)", 
+          "correct": false, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/P1_6328349873949.gif", 
               "name": "P1_6328349873949.gif"
             }
           ], 
           "text": "![Image](P1_6328349873949.gif)", 
           "correct": true, 
-          "order": 0
+          "order": 1
         }, 
         {
           "images": [
@@ -12783,17 +12794,6 @@
           ], 
           "text": "![Image](3__6328349873951.gif)", 
           "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/P3_6328349873951.gif", 
-              "name": "P3_6328349873951.gif"
-            }
-          ], 
-          "text": "![Image](P3_6328349873951.gif)", 
-          "correct": false, 
           "order": 2
         }
       ], 
@@ -12803,7 +12803,7 @@
     }, 
     {
       "images": [], 
-      "text": "Ozna\u010dte dodatkovou tabulku, kter\u00e1 vyzna\u010duje vzd\u00e1lenost k m\u00edstu, od kter\u00e9ho plat\u00ed zna\u010dka, pod n\u00ed\u017e je tato dodatkov\u00e1 tabulka um\u00edst\u011bna. ", 
+      "text": "Ozna\u010dte dodatkovou tabulku, kter\u00e1 vyzna\u010duje vzd\u00e1lenost k m\u00edstu, od kter\u00e9ho plat\u00ed zna\u010dka, pod n\u00ed\u017e je tato dodatkov\u00e1 tabulka um\u00edst\u011bna.", 
       "identifier": "06050364", 
       "options": [
         {
@@ -12814,7 +12814,7 @@
             }
           ], 
           "text": "![Image](3b_6328349883396.gif)", 
-          "correct": false, 
+          "correct": true, 
           "order": 0
         }, 
         {
@@ -12836,7 +12836,7 @@
             }
           ], 
           "text": "![Image](8d_6328349883398.gif)", 
-          "correct": true, 
+          "correct": false, 
           "order": 2
         }
       ], 
@@ -12846,9 +12846,20 @@
     }, 
     {
       "images": [], 
-      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje \u00fasek platnosti dopravn\u00ed zna\u010dky, pod kterou je um\u00edst\u011bna: \r\n", 
+      "text": "Kter\u00e1 z vyobrazen\u00fdch dodatkov\u00fdch tabulek vyzna\u010duje \u00fasek platnosti dopravn\u00ed zna\u010dky, pod kterou je um\u00edst\u011bna:", 
       "identifier": "06050381", 
       "options": [
+        {
+          "images": [
+            {
+              "path": "QuestionImg/E7b_6328349854809.gif", 
+              "name": "7b_6328349854809.gif"
+            }
+          ], 
+          "text": "![Image](7b_6328349854809.gif)", 
+          "correct": false, 
+          "order": 0
+        }, 
         {
           "images": [
             {
@@ -12858,7 +12869,7 @@
           ], 
           "text": "![Image](8d_6328349854807.gif)", 
           "correct": true, 
-          "order": 0
+          "order": 1
         }, 
         {
           "images": [
@@ -12868,17 +12879,6 @@
             }
           ], 
           "text": "![Image](2c_6328349854809.gif)", 
-          "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/E7b_6328349854809.gif", 
-              "name": "7b_6328349854809.gif"
-            }
-          ], 
-          "text": "![Image](7b_6328349854809.gif)", 
           "correct": false, 
           "order": 2
         }
@@ -12898,13 +12898,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/A20_6328461187933.gif", 
+              "name": "20_6328461187933.gif"
+            }
+          ], 
+          "text": "![Image](20_6328461187933.gif)", 
+          "correct": false, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/A1b_6328461187930.gif", 
               "name": "1b_6328461187930.gif"
             }
           ], 
           "text": "![Image](1b_6328461187930.gif)", 
-          "correct": true, 
-          "order": 0
+          "correct": false, 
+          "order": 1
         }, 
         {
           "images": [
@@ -12914,18 +12925,7 @@
             }
           ], 
           "text": "![Image](10_6328461187931.gif)", 
-          "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/A20_6328461187933.gif", 
-              "name": "20_6328461187933.gif"
-            }
-          ], 
-          "text": "![Image](20_6328461187933.gif)", 
-          "correct": false, 
+          "correct": true, 
           "order": 2
         }
       ], 
@@ -12941,13 +12941,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/C12b_6328337220006.jpg", 
+              "name": "2b_6328337220006.jpg"
+            }
+          ], 
+          "text": "![Image](2b_6328337220006.jpg)", 
+          "correct": false, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/B28_6328337218337.jpg", 
               "name": "28_6328337218337.jpg"
             }
           ], 
           "text": "![Image](28_6328337218337.jpg)", 
           "correct": true, 
-          "order": 0
+          "order": 1
         }, 
         {
           "images": [
@@ -12957,17 +12968,6 @@
             }
           ], 
           "text": "![Image](29_6328337218337.jpg)", 
-          "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/C12b_6328337220006.jpg", 
-              "name": "2b_6328337220006.jpg"
-            }
-          ], 
-          "text": "![Image](2b_6328337220006.jpg)", 
           "correct": false, 
           "order": 2
         }
@@ -12987,13 +12987,24 @@
         {
           "images": [
             {
+              "path": "QuestionImg/A3 _6328337157284.jpg", 
+              "name": "3__6328337157284.jpg"
+            }
+          ], 
+          "text": "![Image](3__6328337157284.jpg)", 
+          "correct": true, 
+          "order": 0
+        }, 
+        {
+          "images": [
+            {
               "path": "QuestionImg/P1_6328337157284.jpg", 
               "name": "P1_6328337157284.jpg"
             }
           ], 
           "text": "![Image](P1_6328337157284.jpg)", 
-          "correct": true, 
-          "order": 0
+          "correct": false, 
+          "order": 1
         }, 
         {
           "images": [
@@ -13003,17 +13014,6 @@
             }
           ], 
           "text": "![Image](P2_6328337157284.jpg)", 
-          "correct": false, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
-              "path": "QuestionImg/A3 _6328337157284.jpg", 
-              "name": "3__6328337157284.jpg"
-            }
-          ], 
-          "text": "![Image](3__6328337157284.jpg)", 
           "correct": false, 
           "order": 2
         }
@@ -13041,23 +13041,23 @@
         {
           "images": [
             {
-              "path": "QuestionImg/C6b_6328580838341.gif", 
-              "name": "6b_6328580838341.gif"
-            }
-          ], 
-          "text": "![Image](6b_6328580838341.gif)", 
-          "correct": true, 
-          "order": 1
-        }, 
-        {
-          "images": [
-            {
               "path": "QuestionImg/B20a-30_6328580838341.gif", 
               "name": "30_6328580838341.gif"
             }
           ], 
           "text": "![Image](30_6328580838341.gif)", 
           "correct": false, 
+          "order": 1
+        }, 
+        {
+          "images": [
+            {
+              "path": "QuestionImg/C6b_6328580838341.gif", 
+              "name": "6b_6328580838341.gif"
+            }
+          ], 
+          "text": "![Image](6b_6328580838341.gif)", 
+          "correct": true, 
           "order": 2
         }
       ], 
@@ -13089,7 +13089,7 @@
             }
           ], 
           "text": "![Image](29_6328580868335.gif)", 
-          "correct": false, 
+          "correct": true, 
           "order": 1
         }, 
         {
@@ -13100,7 +13100,7 @@
             }
           ], 
           "text": "![Image](30_6328580868336.gif)", 
-          "correct": true, 
+          "correct": false, 
           "order": 2
         }
       ], 
@@ -13115,7 +13115,7 @@
           "name": "7948265543581250.jpg"
         }
       ], 
-      "text": "Jak se zachov\u00e1te v m\u00edst\u011b, kde je tato v\u00fdstra\u017en\u00e1 dopravn\u00ed zna\u010dka? <br />![Image](7948265543581250.jpg)", 
+      "text": "Jak se zachov\u00e1te v m\u00edst\u011b, kde je tato v\u00fdstra\u017en\u00e1 dopravn\u00ed zna\u010dka?<br />![Image](7948265543581250.jpg)", 
       "identifier": "06040193", 
       "options": [
         {
@@ -13175,7 +13175,7 @@
           "name": "7948267672175000.jpg"
         }
       ], 
-      "text": "Co znamen\u00e1 tato dopravn\u00ed zna\u010dka? <br />![Image](7948267672175000.jpg)", 
+      "text": "Co znamen\u00e1 tato dopravn\u00ed zna\u010dka?<br />![Image](7948267672175000.jpg)", 
       "identifier": "06050259", 
       "options": [
         {
@@ -13235,7 +13235,7 @@
           "name": "7948270353893750.jpg"
         }
       ], 
-      "text": "Tato zna\u010dka znamen\u00e1:  <br />![Image](7948270353893750.jpg)", 
+      "text": "Tato zna\u010dka znamen\u00e1:<br />![Image](7948270353893750.jpg)", 
       "identifier": "06050461", 
       "options": [
         {
@@ -13289,7 +13289,7 @@
       ]
     }, 
     {
-      "text": "Na k\u0159i\u017eovatce ozna\u010den\u00e9 touto dopravn\u00ed zna\u010dkou:  <br />![Image](7948278077331250.jpg)", 
+      "text": "Na k\u0159i\u017eovatce ozna\u010den\u00e9 touto dopravn\u00ed zna\u010dkou:<br />![Image](7948278077331250.jpg)", 
       "sets": [
         "test1"
       ], 
@@ -13328,7 +13328,7 @@
           "name": "7948260208112500.jpg"
         }
       ], 
-      "text": "Tato dopravn\u00ed zna\u010dka: <br />![Image](7948260208112500.jpg)", 
+      "text": "Tato dopravn\u00ed zna\u010dka:<br />![Image](7948260208112500.jpg)", 
       "identifier": "06060258", 
       "options": [
         {
@@ -13990,7 +13990,7 @@
       ]
     }, 
     {
-      "text": "Za prvn\u00ed skupinou dopravn\u00ed zna\u010dek: <br />![Image](7949141410525036.jpg)", 
+      "text": "Za prvn\u00ed skupinou dopravn\u00ed zna\u010dek:<br />![Image](7949141410525036.jpg)", 
       "sets": [
         "test1", 
         "test15"
@@ -14312,7 +14312,7 @@
       ]
     }, 
     {
-      "text": "Zv\u00fd\u0161en\u00e9 riziko ztr\u00e1ty p\u0159ilnavosti pneumatik a n\u00e1sledn\u00e9ho smyku za de\u0161t\u011b hroz\u00ed: ", 
+      "text": "Zv\u00fd\u0161en\u00e9 riziko ztr\u00e1ty p\u0159ilnavosti pneumatik a n\u00e1sledn\u00e9ho smyku za de\u0161t\u011b hroz\u00ed:", 
       "sets": [
         "test6"
       ], 
@@ -14496,7 +14496,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159\u00ed\u010dinou vzniku aquaplaningu je: ", 
+      "text": "P\u0159\u00ed\u010dinou vzniku aquaplaningu je:", 
       "identifier": "06060275", 
       "options": [
         {
@@ -14944,7 +14944,7 @@
     }, 
     {
       "images": [], 
-      "text": "Sn\u00ed\u017eit spot\u0159ebu paliva vozidla lze:\r\n\r\n", 
+      "text": "Sn\u00ed\u017eit spot\u0159ebu paliva vozidla lze:", 
       "identifier": "10040034", 
       "options": [
         {
@@ -15285,7 +15285,7 @@
     }, 
     {
       "images": [], 
-      "text": "Motocykl s postrann\u00edm voz\u00edkem: ", 
+      "text": "Motocykl s postrann\u00edm voz\u00edkem:", 
       "identifier": "06050491", 
       "options": [
         {
@@ -15848,7 +15848,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010d vozidla, kter\u00e9 je vybaveno zvl\u00e1\u0161tn\u00edm v\u00fdstra\u017en\u00fdm sv\u011btlem oran\u017eov\u00e9 barvy, sm\u00ed tohoto sv\u011btla u\u017e\u00edvat:  ", 
+      "text": "\u0158idi\u010d vozidla, kter\u00e9 je vybaveno zvl\u00e1\u0161tn\u00edm v\u00fdstra\u017en\u00fdm sv\u011btlem oran\u017eov\u00e9 barvy, sm\u00ed tohoto sv\u011btla u\u017e\u00edvat:", 
       "sets": [
         "test4"
       ], 
@@ -15902,7 +15902,7 @@
     }, 
     {
       "images": [], 
-      "text": "Vozidlo, kter\u00e9 p\u0159epravuje nebezpe\u010dn\u00fd n\u00e1klad:\r\n", 
+      "text": "Vozidlo, kter\u00e9 p\u0159epravuje nebezpe\u010dn\u00fd n\u00e1klad:", 
       "identifier": "06050520", 
       "options": [
         {
@@ -15927,7 +15927,7 @@
     }, 
     {
       "images": [], 
-      "text": "Vozidlo s vysokou plachtovou n\u00e1stavbou je zvl\u00e1\u0161\u0165 citliv\u00e9 na bo\u010dn\u00ed v\u00edtr pokud: ", 
+      "text": "Vozidlo s vysokou plachtovou n\u00e1stavbou je zvl\u00e1\u0161\u0165 citliv\u00e9 na bo\u010dn\u00ed v\u00edtr pokud:", 
       "identifier": "06060291", 
       "options": [
         {
@@ -16002,7 +16002,7 @@
     }, 
     {
       "images": [], 
-      "text": "Za protipr\u00e1vn\u00ed jedn\u00e1n\u00ed p\u0159i p\u0159eprav\u011b nebezpe\u010dn\u00e9ho n\u00e1kladu se pova\u017euje:\r\n", 
+      "text": "Za protipr\u00e1vn\u00ed jedn\u00e1n\u00ed p\u0159i p\u0159eprav\u011b nebezpe\u010dn\u00e9ho n\u00e1kladu se pova\u017euje:", 
       "identifier": "10040005", 
       "options": [
         {
@@ -16057,7 +16057,7 @@
     }, 
     {
       "images": [], 
-      "text": "Za okru\u017en\u00ed j\u00edzdu se pova\u017euje: \r\n", 
+      "text": "Za okru\u017en\u00ed j\u00edzdu se pova\u017euje:", 
       "identifier": "10040006", 
       "options": [
         {
@@ -16082,7 +16082,7 @@
     }, 
     {
       "images": [], 
-      "text": "P\u0159i zapojov\u00e1n\u00ed vozidel do soupravy: ", 
+      "text": "P\u0159i zapojov\u00e1n\u00ed vozidel do soupravy:", 
       "identifier": "06050511", 
       "options": [
         {
@@ -16369,7 +16369,7 @@
       ]
     }, 
     {
-      "text": "Proj\u00ed\u017ed\u00edte pod\u00e9l pastviny s pasouc\u00edm se dobytkem. M\u011bl(a) byste: ", 
+      "text": "Proj\u00ed\u017ed\u00edte pod\u00e9l pastviny s pasouc\u00edm se dobytkem. M\u011bl(a) byste:", 
       "sets": [
         "test13", 
         "test18"
@@ -16927,7 +16927,7 @@
       ]
     }, 
     {
-      "text": "Ovliv\u0148uj\u00ed s\u00edly p\u016fsob\u00edc\u00ed na n\u00e1klad p\u0159i pr\u016fjezdu zat\u00e1\u010dkou bezpe\u010dnost j\u00edzdy? ", 
+      "text": "Ovliv\u0148uj\u00ed s\u00edly p\u016fsob\u00edc\u00ed na n\u00e1klad p\u0159i pr\u016fjezdu zat\u00e1\u010dkou bezpe\u010dnost j\u00edzdy?", 
       "sets": [
         "test16"
       ], 
@@ -17516,7 +17516,7 @@
           "name": "7948785813256432.jpg"
         }
       ], 
-      "text": "Na k\u0159i\u017eovatce nevypl\u00fdv\u00e1 p\u0159ednost v j\u00edzd\u011b z dopravn\u00edch zna\u010dek. V jak\u00e9m po\u0159ad\u00ed projedou \u0159idi\u010di k\u0159i\u017eovatkou?   <br />![Image](7948785813256432.jpg)", 
+      "text": "Na k\u0159i\u017eovatce nevypl\u00fdv\u00e1 p\u0159ednost v j\u00edzd\u011b z dopravn\u00edch zna\u010dek. V jak\u00e9m po\u0159ad\u00ed projedou \u0159idi\u010di k\u0159i\u017eovatkou?<br />![Image](7948785813256432.jpg)", 
       "identifier": "06060324", 
       "options": [
         {
@@ -17640,7 +17640,7 @@
       ]
     }, 
     {
-      "text": "M\u016f\u017ee \u0159idi\u010d vozidla z v\u00fdhledu odbo\u010dit vpravo, ani\u017e by poru\u0161il pravidla bezpe\u010dn\u00e9ho provozu? <br />![Image](8638587967129872.jpg)", 
+      "text": "M\u016f\u017ee \u0159idi\u010d vozidla z v\u00fdhledu odbo\u010dit vpravo, ani\u017e by poru\u0161il pravidla bezpe\u010dn\u00e9ho provozu?<br />![Image](8638587967129872.jpg)", 
       "sets": [
         "test9", 
         "test13"
@@ -17674,7 +17674,7 @@
       ]
     }, 
     {
-      "text": "Ve vyobrazen\u00e9 situaci jste \u0159idi\u010dem vozidla z v\u00fdhledu. Jak se zachov\u00e1te? <br />![Image](7948268526393750.jpg)", 
+      "text": "Ve vyobrazen\u00e9 situaci jste \u0159idi\u010dem vozidla z v\u00fdhledu. Jak se zachov\u00e1te?<br />![Image](7948268526393750.jpg)", 
       "sets": [
         "test1", 
         "test17"
@@ -18459,7 +18459,7 @@
       ]
     }, 
     {
-      "text": "Jste \u0159idi\u010dem vozidla z v\u00fdhledu. P\u0159i j\u00edzd\u011b k\u0159i\u017eovatkou, kter\u00e1 je zn\u00e1zorn\u011bna na obr\u00e1zku: <br />![Image](7948297300612500.jpg)", 
+      "text": "Jste \u0159idi\u010dem vozidla z v\u00fdhledu. P\u0159i j\u00edzd\u011b k\u0159i\u017eovatkou, kter\u00e1 je zn\u00e1zorn\u011bna na obr\u00e1zku:<br />![Image](7948297300612500.jpg)", 
       "sets": [
         "test1", 
         "test4", 
@@ -18524,7 +18524,7 @@
       ]
     }, 
     {
-      "text": "Jste \u0159idi\u010dem vozidla z v\u00fdhledu. P\u0159i j\u00edzd\u011b k\u0159i\u017eovatkou, kter\u00e1 je zn\u00e1zorn\u011bna na obr\u00e1zku: <br />![Image](7948289479831250.jpg)", 
+      "text": "Jste \u0159idi\u010dem vozidla z v\u00fdhledu. P\u0159i j\u00edzd\u011b k\u0159i\u017eovatkou, kter\u00e1 je zn\u00e1zorn\u011bna na obr\u00e1zku:<br />![Image](7948289479831250.jpg)", 
       "sets": [
         "test8", 
         "test9"
@@ -18693,7 +18693,7 @@
           "name": "8638588546921668.jpg"
         }
       ], 
-      "text": "Jak se zachov\u00e1te v t\u00e9to situaci?\r\n<br />![Image](8638588546921668.jpg)", 
+      "text": "Jak se zachov\u00e1te v t\u00e9to situaci?<br />![Image](8638588546921668.jpg)", 
       "identifier": "08080018", 
       "options": [
         {
@@ -19146,7 +19146,7 @@
       ]
     }, 
     {
-      "text": "Lh\u016fta pro p\u0159istaven\u00ed silni\u010dn\u00edho vozidla k pravideln\u00e9mu m\u011b\u0159en\u00ed emis\u00ed se po\u010d\u00edt\u00e1 ode dne:\t", 
+      "text": "Lh\u016fta pro p\u0159istaven\u00ed silni\u010dn\u00edho vozidla k pravideln\u00e9mu m\u011b\u0159en\u00ed emis\u00ed se po\u010d\u00edt\u00e1 ode dne:", 
       "sets": [
         "test17"
       ], 
@@ -19252,7 +19252,7 @@
       ]
     }, 
     {
-      "text": "Stanice m\u011b\u0159en\u00ed emis\u00ed, v p\u0159\u00edpad\u011b kladn\u00e9ho v\u00fdsledku m\u011b\u0159en\u00ed, vystav\u00ed provozovateli silni\u010dn\u00edho motorov\u00e9ho vozidla: ", 
+      "text": "Stanice m\u011b\u0159en\u00ed emis\u00ed, v p\u0159\u00edpad\u011b kladn\u00e9ho v\u00fdsledku m\u011b\u0159en\u00ed, vystav\u00ed provozovateli silni\u010dn\u00edho motorov\u00e9ho vozidla:", 
       "sets": [
         "test11"
       ], 
@@ -19331,7 +19331,7 @@
     }, 
     {
       "images": [], 
-      "text": "Historick\u00fdm vozidlem je: ", 
+      "text": "Historick\u00fdm vozidlem je:", 
       "identifier": "06060251", 
       "options": [
         {
@@ -19355,7 +19355,7 @@
       ]
     }, 
     {
-      "text": "Historick\u00fdm vozidlem je: ", 
+      "text": "Historick\u00fdm vozidlem je:", 
       "sets": [
         "test3"
       ], 
@@ -19706,7 +19706,7 @@
       ]
     }, 
     {
-      "text": "Pokud je technickou prohl\u00eddkou vozidlo shled\u00e1no technicky nezp\u016fsobil\u00e9 : ", 
+      "text": "Pokud je technickou prohl\u00eddkou vozidlo shled\u00e1no technicky nezp\u016fsobil\u00e9 :", 
       "sets": [
         "test14"
       ], 
@@ -20125,7 +20125,7 @@
     }, 
     {
       "images": [], 
-      "text": "Historick\u00e9 vozidlo: ", 
+      "text": "Historick\u00e9 vozidlo:", 
       "identifier": "06060015", 
       "options": [
         {
@@ -20420,7 +20420,7 @@
       ]
     }, 
     {
-      "text": "Pro spojov\u00e1n\u00ed vozidel do j\u00edzdn\u00edch souprav s nebrzd\u011bn\u00fdm p\u0159\u00edv\u011bsem, jeho\u017e nejv\u011bt\u0161\u00ed p\u0159\u00edpustn\u00e1 hmotnost nep\u0159evy\u0161uje 750 kg, plat\u00ed \u017ee:  ", 
+      "text": "Pro spojov\u00e1n\u00ed vozidel do j\u00edzdn\u00edch souprav s nebrzd\u011bn\u00fdm p\u0159\u00edv\u011bsem, jeho\u017e nejv\u011bt\u0161\u00ed p\u0159\u00edpustn\u00e1 hmotnost nep\u0159evy\u0161uje 750 kg, plat\u00ed \u017ee:", 
       "sets": [
         "test4"
       ], 
@@ -20448,7 +20448,7 @@
       ]
     }, 
     {
-      "text": "N\u00e1doby na z\u00e1lo\u017en\u00ed palivo mus\u00ed b\u00fdt provedeny tak, aby: ", 
+      "text": "N\u00e1doby na z\u00e1lo\u017en\u00ed palivo mus\u00ed b\u00fdt provedeny tak, aby:", 
       "sets": [
         "test15"
       ], 
@@ -20476,7 +20476,7 @@
       ]
     }, 
     {
-      "text": "Zapo\u010d\u00edt\u00e1v\u00e1 se do nejv\u011bt\u0161\u00ed povolen\u00e9 d\u00e9lky autobus\u016f jak\u00e1koliv odn\u00edmateln\u00e1 v\u00fdbava (nap\u0159. schr\u00e1na na ly\u017ee atd.)? ", 
+      "text": "Zapo\u010d\u00edt\u00e1v\u00e1 se do nejv\u011bt\u0161\u00ed povolen\u00e9 d\u00e9lky autobus\u016f jak\u00e1koliv odn\u00edmateln\u00e1 v\u00fdbava (nap\u0159. schr\u00e1na na ly\u017ee atd.)?", 
       "sets": [
         "test19"
       ], 
@@ -20637,7 +20637,7 @@
       ]
     }, 
     {
-      "text": "\u017d\u00e1dost o z\u00e1pis zm\u011bn \u00fadaj\u016f zapisovan\u00fdch do registru silni\u010dn\u00edch vozidel je vlastn\u00edk vozidla povinen podat: ", 
+      "text": "\u017d\u00e1dost o z\u00e1pis zm\u011bn \u00fadaj\u016f zapisovan\u00fdch do registru silni\u010dn\u00edch vozidel je vlastn\u00edk vozidla povinen podat:", 
       "sets": [
         "test12"
       ], 
@@ -20719,7 +20719,7 @@
     }, 
     {
       "images": [], 
-      "text": "V technick\u00e9m pr\u016fkazu silni\u010dn\u00edho motorov\u00e9ho vozidla a p\u0159\u00edpojn\u00e9ho vozidla: ", 
+      "text": "V technick\u00e9m pr\u016fkazu silni\u010dn\u00edho motorov\u00e9ho vozidla a p\u0159\u00edpojn\u00e9ho vozidla:", 
       "identifier": "06060521", 
       "options": [
         {
@@ -20825,7 +20825,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010dsk\u00e9 opr\u00e1vn\u011bn\u00ed m\u016f\u017ee b\u00fdt ud\u011bleno: ", 
+      "text": "\u0158idi\u010dsk\u00e9 opr\u00e1vn\u011bn\u00ed m\u016f\u017ee b\u00fdt ud\u011bleno:", 
       "identifier": "06050424", 
       "options": [
         {
@@ -21294,7 +21294,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee: ", 
+      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee:", 
       "sets": [
         "test19"
       ], 
@@ -21382,7 +21382,7 @@
     }, 
     {
       "images": [], 
-      "text": "Potvrzen\u00ed o ozn\u00e1men\u00ed ztr\u00e1ty, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu: ", 
+      "text": "Potvrzen\u00ed o ozn\u00e1men\u00ed ztr\u00e1ty, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu:", 
       "identifier": "06060019", 
       "options": [
         {
@@ -21435,7 +21435,7 @@
     }, 
     {
       "images": [], 
-      "text": "Potvrzen\u00ed o ozn\u00e1men\u00ed ztr\u00e1ty, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu: ", 
+      "text": "Potvrzen\u00ed o ozn\u00e1men\u00ed ztr\u00e1ty, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu:", 
       "identifier": "06060021", 
       "options": [
         {
@@ -21484,7 +21484,7 @@
       ]
     }, 
     {
-      "text": "Po\u0161kozen\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen: ", 
+      "text": "Po\u0161kozen\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen:", 
       "sets": [
         "test17"
       ], 
@@ -21569,7 +21569,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee: ", 
+      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee:", 
       "identifier": "06060026", 
       "options": [
         {
@@ -21594,7 +21594,7 @@
     }, 
     {
       "images": [], 
-      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee: ", 
+      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee:", 
       "identifier": "06060027", 
       "options": [
         {
@@ -21618,7 +21618,7 @@
       ]
     }, 
     {
-      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee: ", 
+      "text": "\u0158idi\u010dsk\u00fd pr\u016fkaz je neplatn\u00fd, jestli\u017ee:", 
       "sets": [
         "test3"
       ], 
@@ -21646,7 +21646,7 @@
       ]
     }, 
     {
-      "text": "Evidence \u00fadaj\u016f o \u0159idi\u010d\u00edch je vedena v registru \u0159idi\u010d\u016f, jeho\u017e spr\u00e1vcem je: ", 
+      "text": "Evidence \u00fadaj\u016f o \u0159idi\u010d\u00edch je vedena v registru \u0159idi\u010d\u016f, jeho\u017e spr\u00e1vcem je:", 
       "sets": [
         "test6", 
         "test19"
@@ -21704,7 +21704,7 @@
     }, 
     {
       "images": [], 
-      "text": "Po dobu zadr\u017een\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu: ", 
+      "text": "Po dobu zadr\u017een\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu:", 
       "identifier": "06060031", 
       "options": [
         {
@@ -21729,7 +21729,7 @@
     }, 
     {
       "images": [], 
-      "text": "Odcizen\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen: ", 
+      "text": "Odcizen\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen:", 
       "identifier": "06060032", 
       "options": [
         {
@@ -21779,7 +21779,7 @@
     }, 
     {
       "images": [], 
-      "text": "Ztr\u00e1tu \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen: ", 
+      "text": "Ztr\u00e1tu \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen:", 
       "identifier": "06060034", 
       "options": [
         {
@@ -21960,7 +21960,7 @@
     }, 
     {
       "images": [], 
-      "text": "Dr\u017eitel mezin\u00e1rodn\u00edho \u0159idi\u010dsk\u00e9ho pr\u016fkazu: ", 
+      "text": "Dr\u017eitel mezin\u00e1rodn\u00edho \u0159idi\u010dsk\u00e9ho pr\u016fkazu:", 
       "identifier": "06060042", 
       "options": [
         {
@@ -22010,7 +22010,7 @@
     }, 
     {
       "images": [], 
-      "text": "Ztr\u00e1tu, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen: ", 
+      "text": "Ztr\u00e1tu, odcizen\u00ed, po\u0161kozen\u00ed nebo zni\u010den\u00ed \u0159idi\u010dsk\u00e9ho pr\u016fkazu je dr\u017eitel \u0159idi\u010dsk\u00e9ho opr\u00e1vn\u011bn\u00ed povinen:", 
       "identifier": "06060044", 
       "options": [
         {
@@ -22582,7 +22582,7 @@
     }, 
     {
       "images": [], 
-      "text": "Provozovatel motorov\u00e9ho\tvozidla odpov\u00edd\u00e1:  ", 
+      "text": "Provozovatel motorov\u00e9ho\tvozidla odpov\u00edd\u00e1:", 
       "identifier": "06040232", 
       "options": [
         {
@@ -22606,7 +22606,7 @@
       ]
     }, 
     {
-      "text": "Poji\u0161t\u011bn\u00ed odpov\u011bdnosti z provozu vozidla se vztahuje: ", 
+      "text": "Poji\u0161t\u011bn\u00ed odpov\u011bdnosti z provozu vozidla se vztahuje:", 
       "sets": [
         "test7"
       ], 
@@ -22709,7 +22709,7 @@
       ]
     }, 
     {
-      "text": "Z\u00e1vadou ve sj\u00edzdnosti d\u00e1lnice se rozum\u00ed takov\u00e1 zm\u011bna v jej\u00ed sj\u00edzdnosti, kterou: ", 
+      "text": "Z\u00e1vadou ve sj\u00edzdnosti d\u00e1lnice se rozum\u00ed takov\u00e1 zm\u011bna v jej\u00ed sj\u00edzdnosti, kterou:", 
       "sets": [
         "test12"
       ], 

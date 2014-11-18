@@ -5,6 +5,21 @@ import re
 import random
 random.seed(11111111)
 
+CORRECT_OPTIONS = {
+    '06050346': '6a_6328349905179.gif',
+    '06050347': '7b_6328349919889.gif',
+    '06050348': '30_6328349926673.gif',
+    '06050350': '2c_6328349936417.gif',
+    '06050361': 'P1_6328349873949.gif',
+    '06050364': '3b_6328349883396.gif',
+    '06050381': '8d_6328349854807.gif',
+    '06050641': '10_6328461187931.gif',
+    '06050642': '28_6328337218337.jpg',
+    '06060053': '3__6328337157284.jpg',
+    '06060235': '6b_6328580838341.gif',
+    '06060236': '29_6328580868335.gif'
+}
+
 
 ################################################################################
 # Constants
@@ -40,23 +55,47 @@ def process_option(opt, correct):
 
 def process_question(q):
     images = map(
-        lambda s: {'path': s[1:], 'name': s.replace(' ', '_').replace('/QuestionImg/', '')[-20:]} ,
+        lambda s: {'path': s[1:], 'name': s.replace(' ', '_').replace('/QuestionImg/', '')[-20:]},
         q['images'])
-    opts = map(lambda opt: process_option(opt, True), q['correct'])
-    opts += map(lambda opt: process_option(opt, False), q['incorrect'])
+    opts = map(lambda opt: process_option(opt, False), q['incorrect'])
+    opts += map(lambda opt: process_option(opt, True), q['correct'])
+    original_order = map(lambda (x, y): x, opts)
     opts = map(lambda (x, y): y, sorted(opts))
     order = 0
+    options_with_images = True
     for opt in opts:
         opt['order'] = order
         if len(images) == len(opts) and opt['text'] == '.':
-            opt['text'] = '![Image](%s)' % images[order]['name']
-            opt['images'] = [images[order]]
+            image = sorted(zip(original_order, images))[order][1]
+            opt['text'] = '![Image](%s)' % image['name']
+            opt['images'] = [image]
+        else:
+            options_with_images = False
         order += 1
-    if len(images) == len(opts):
+    if options_with_images:
+        for opt in opts:
+            opt['correct'] = False
+        correct_image = CORRECT_OPTIONS.get(q['qid'])
+        if correct_image is None:
+            print "Can't process question", q['qid'], ":", q['text'].strip()
+            print "Possible options are:"
+            for image in images:
+                print image['name'], image['path']
+            print
+            return
+        correct_loaded = False
+        for opt in opts:
+            if correct_image in opt['text']:
+                opt['correct'] = True
+                correct_loaded = True
+                break
+        if not correct_loaded:
+            print "There is no correct option for", q['qid']
+            return
         images = []
     images_text = ' '.join(map(lambda im: '<br />![Image](%s)' % im['name'], images))
     return {
-        'text': re.sub(r'\r\n$', '', q['text']) + images_text,
+        'text': re.sub(r'\r\n$', '', q['text'].strip()) + images_text,
         'options': opts,
         'images': images,
         'categories': [CATEGORY_NAMES[categories[q['qid']] - 1]],
@@ -104,9 +143,9 @@ def create_test_set(new_questions, test_name):
 questions = load_data('data.json')
 categories = load_data('categories.json')
 
-new_questions = {'resources': [], 'questions': map(process_question, questions)}
-for i in range(1,20):
-     create_test_set(new_questions, 'test%d'%i)
+new_questions = {'resources': [], 'questions': filter(lambda x: x is not None, map(process_question, questions))}
+for i in range(1, 20):
+    create_test_set(new_questions, 'test%d' % i)
 
 with open('questions.json', 'w') as f:
     json.dump(new_questions, f, indent=2)
