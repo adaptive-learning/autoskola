@@ -11,7 +11,7 @@
   }, {
     "slug": "how_it_works_1",
     "header" : "<i class=\"glyphicon glyphicon-dashboard\"></i> Adaptabilní procvičování",
-    "content" : "Systém vás zkouší ze znalosti testových otázek, přičemž chování systému je adaptabilní - podle toho, jaké máte vědomosti, aplikace volí otázky, jejichž procvičení je pro vás nejužitečnější.<br><br>  <img src=\"static/dist/preview.png\"/>"
+    "content" : "Systém vás zkouší ze znalosti testových otázek, přičemž chování systému je adaptabilní - podle toho, jaké máte vědomosti, aplikace volí otázky, jejichž procvičení je pro vás nejužitečnější.<br><br>  <img src=\"static/dist/preview.png\" alt=\"Ukázka procvičování\"/>"
   }, {
     "slug": "how_it_works_2",
     "header" : "<i class=\"glyphicon glyphicon-stats\"></i> Učení z dat",
