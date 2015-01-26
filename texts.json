@@ -15,7 +15,7 @@
   }, {
     "slug": "how_it_works_2",
     "header" : "<i class=\"glyphicon glyphicon-stats\"></i> Učení z dat",
-    "content" : "Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto datech. Díky tomu neusíte ztrácet čas nad otázkami, které naprostá většina lidí odpoví správně i bez přípravy, jako např. poznat zákaz vjezdu."
+    "content" : "Aplikace se učí z dat od všech uživatelů. Výběr otázek je založen na těchto datech. Díky tomu nemusíte ztrácet čas nad otázkami, které naprostá většina lidí odpoví správně i bez přípravy, jako např. poznat zákaz vjezdu."
   }, {
     "slug": "how_it_works_3",
     "header" : "<i class=\"glyphicon glyphicon-picture\"></i> Vizualizace znalostí",
@@ -23,7 +23,7 @@
   }, {
     "slug": "how_it_works_4",
     "header" : "<i class=\"glyphicon glyphicon-phone\"></i> Responsivní design",
-    "content" : "Aplikace se automaticky přízpůsobuje velikosti obrazovky vašeho zařízení.  Používat ji tak můžete pohodlně jak na počítači tak i na tabletu nebo chytrém telefonu."
+    "content" : "Aplikace se automaticky přízpůsobuje velikosti obrazovky vašeho zařízení.  Používat ji tak můžete pohodlně jak na počítači, tak i na tabletu, nebo chytrém telefonu."
   }, {
     "slug": "how_it_works_5",
     "header" : "<i class=\"glyphicon glyphicon-tower\"></i> Autoškola hrou",
